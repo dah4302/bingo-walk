@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ビンゴウォーク</title>
+
+<style>
+body{
+font-family:sans-serif;
+background:#f5f5f5;
+text-align:center;
+margin:10px;
+}
+
+h1{
+color:#2e7d32;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:6px;
+max-width:500px;
+margin:auto;
+}
+
+.cell{
+background:white;
+border:2px solid #ccc;
+padding:10px;
+height:120px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+border-radius:10px;
+cursor:pointer;
+}
+
+.cell.complete{
+background:#c8e6c9;
+border:2px solid green;
+}
+
+.cell img{
+max-width:100%;
+max-height:60px;
+margin-top:5px;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+font-size:18px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:10px;
+}
+
+#result{
+font-size:24px;
+font-weight:bold;
+margin-top:20px;
+color:red;
+}
+</style>
+</head>
+
+<body>
+
+<h1>ビンゴウォーク</h1>
+
+<p>
+見つけたものをタップして写真を登録してください
+</p>
+
+<div class="grid">
+
+<div class="cell" onclick="upload(this)">
+鳥
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+<div class="cell" onclick="upload(this)">
+川
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+<div class="cell" onclick="upload(this)">
+花
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+<div class="cell" onclick="upload(this)">
+ベンチ
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+<div class="cell complete">
+FREE
+</div>
+
+<div class="cell" onclick="upload(this)">
+橋
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+<div class="cell" onclick="upload(this)">
+木の実
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+<div class="cell" onclick="upload(this)">
+看板
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+<div class="cell" onclick="upload(this)">
+大きな木
+<input type="file" accept="image/*" capture="environment" hidden>
+</div>
+
+</div>
+
+<button onclick="checkBingo()">
+ビンゴ判定
+</button>
+
+<div id="result"></div>
+
+<script>
+
+function upload(cell){
+
+const input=cell.querySelector("input");
+
+input.click();
+
+input.onchange=function(){
+
+const file=input.files[0];
+
+if(!file) return;
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+cell.classList.add("complete");
+
+cell.innerHTML=
+cell.textContent +
+"<img src='"+e.target.result+"'>";
+
+};
+
+reader.readAsDataURL(file);
+
+}
+}
+
+function checkBingo(){
+
+const c=document.querySelectorAll(".cell");
+
+let v=[];
+
+for(let i=0;i<9;i++){
+v.push(c[i].classList.contains("complete"));
+}
+
+const bingo=
+(v[0]&&v[1]&&v[2])||
+(v[3]&&v[4]&&v[5])||
+(v[6]&&v[7]&&v[8])||
+(v[0]&&v[3]&&v[6])||
+(v[1]&&v[4]&&v[7])||
+(v[2]&&v[5]&&v[8])||
+(v[0]&&v[4]&&v[8])||
+(v[2]&&v[4]&&v[6]);
+
+document.getElementById("result").innerHTML=
+bingo ? "🎉 ビンゴ達成！" : "まだビンゴではありません";
+}
+
+</script>
+
+</body>
+</html>
