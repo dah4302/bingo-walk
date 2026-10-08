@@ -2,335 +2,1580 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#176b43">
+
 <title>浜北森林公園 ビンゴウォーク</title>
 
 <style>
-body{
-font-family:sans-serif;
-background:#f5f7f5;
-margin:0;
-padding:10px;
-text-align:center;
+* {
+  box-sizing: border-box;
 }
 
-h1{
-color:#176b43;
-margin-bottom:5px;
+body {
+  margin: 0;
+  padding: 10px;
+  background: #f5f7f5;
+  color: #1f2937;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans JP",
+    sans-serif;
+  text-align: center;
 }
 
-.notice{
-background:#fff4d8;
-border:2px solid #f4a024;
-border-radius:10px;
-padding:10px;
-font-weight:bold;
-margin-bottom:10px;
+main {
+  width: min(100%, 620px);
+  margin: 0 auto;
 }
 
-.team{
-background:white;
-padding:10px;
-border-radius:10px;
-margin-bottom:10px;
+h1 {
+  margin: 4px 0;
+  color: #176b43;
+  font-size: 32px;
 }
 
-.team input{
-width:95%;
-padding:10px;
-font-size:16px;
+.park-name {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px;
-max-width:600px;
-margin:auto;
+.notice {
+  margin-bottom: 10px;
+  padding: 11px;
+  background: #fff4d8;
+  border: 2px solid #f4a024;
+  border-radius: 10px;
+  font-weight: bold;
+  line-height: 1.5;
 }
 
-.cell{
-background:white;
-border:2px solid #ccc;
-border-radius:10px;
-height:110px;
-display:flex;
-justify-content:center;
-align-items:center;
-font-weight:bold;
-cursor:pointer;
-font-size:18px;
+.team {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: white;
+  border-radius: 10px;
 }
 
-.done{
-background:#c8e6c9;
-border-color:#176b43;
+.team label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold;
 }
 
-.actions{
-margin-top:10px;
+.team input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #9ca3af;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
-button{
-padding:12px 20px;
-font-size:17px;
-margin:5px;
-border:none;
-border-radius:10px;
-cursor:pointer;
+.guide {
+  margin: 10px 0;
+  font-weight: bold;
 }
 
-.judge{
-background:#176b43;
-color:white;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin: auto;
 }
 
-.reset{
-background:#c62828;
-color:white;
+.cell {
+  position: relative;
+  height: 125px;
+  padding: 0;
+  overflow: hidden;
+  background: white;
+  border: 2px solid #c7ceca;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-#status{
-margin-top:15px;
-font-size:20px;
-font-weight:bold;
+.cell.done {
+  background: #c8e6c9;
+  border-color: #176b43;
 }
 
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-justify-content:center;
-align-items:center;
+.cell.free {
+  background: #c8e6c9;
+  border-color: #176b43;
+  cursor: default;
 }
 
-.modal-content{
-background:white;
-padding:30px;
-border-radius:15px;
-text-align:center;
+.cell-label {
+  position: absolute;
+  z-index: 3;
+  top: 4px;
+  right: 4px;
+  left: 4px;
+  padding: 4px 2px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 6px;
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cell-empty {
+  display: flex;
+  height: 100%;
+  padding: 35px 5px 5px;
+  align-items: center;
+  justify-content: center;
+  color: #667085;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.cell-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.check-mark {
+  position: absolute;
+  z-index: 4;
+  right: 5px;
+  bottom: 5px;
+  display: flex;
+  width: 29px;
+  height: 29px;
+  align-items: center;
+  justify-content: center;
+  background: #176b43;
+  color: white;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.free-mark {
+  display: flex;
+  height: 100%;
+  padding-top: 25px;
+  align-items: center;
+  justify-content: center;
+  color: #176b43;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.action-button {
+  min-height: 50px;
+  padding: 11px 8px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.judge {
+  background: #176b43;
+  color: white;
+  border: none;
+}
+
+.reset {
+  background: white;
+  color: #c62828;
+  border: 2px solid #c62828;
+}
+
+#status {
+  min-height: 54px;
+  margin-top: 12px;
+  padding: 13px;
+  background: white;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#status.bingo-ready {
+  background: #e8f5ec;
+  color: #176b43;
+  border-color: #176b43;
+  font-size: 20px;
+}
+
+.help {
+  margin-top: 12px;
+  padding: 12px;
+  background: white;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.help h2 {
+  margin: 0 0 5px;
+  font-size: 17px;
+}
+
+.help ol {
+  margin: 5px 0;
+  padding-left: 23px;
+}
+
+.storage-info {
+  margin-top: 8px;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.modal {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: none;
+  padding: 18px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  width: min(100%, 500px);
+  padding: 28px 20px;
+  background: white;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin: 0 0 10px;
+  color: #176b43;
+  font-size: 32px;
+}
+
+.modal-content h3 {
+  font-size: 21px;
+}
+
+.modal-content button {
+  margin-top: 12px;
+  padding: 12px 25px;
+  background: #176b43;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.processing {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@media (max-width: 390px) {
+  .cell {
+    height: 110px;
+  }
+
+  .cell-label {
+    font-size: 13px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<main>
+
 <h1>ビンゴウォーク</h1>
-<p>浜北森林公園</p>
+
+<p class="park-name">浜北森林公園</p>
 
 <div class="notice">
-撮影はスマホのカメラで行い、この画面ではチェックのみ行います。
+  安全のため、写真の撮影・画面操作は
+  必ず立ち止まって行ってください。
 </div>
 
 <div class="team">
-<label>
-ランニングクラブチーム名（受付確認用）
-</label><br><br>
 
-<input
-id="team"
-placeholder="例：ランニングクラブチーム">
+  <label for="team">
+    ランニングクラブチーム名（受付確認用）
+  </label>
+
+  <input
+    id="team"
+    type="text"
+    maxlength="30"
+    placeholder="例：ランニングクラブチーム"
+  >
+
 </div>
+
+<p class="guide">
+  見つけたもののマスをタップして写真を登録しよう
+</p>
 
 <div class="grid" id="grid"></div>
 
 <div class="actions">
-<button class="judge" onclick="judge()">
-ビンゴ判定
-</button>
 
-<button class="reset" onclick="resetBoard()">
-やり直し
-</button>
+  <button
+    type="button"
+    class="action-button judge"
+    id="judgeButton"
+  >
+    ビンゴ判定
+  </button>
+
+  <button
+    type="button"
+    class="action-button reset"
+    id="resetButton"
+  >
+    やり直し
+  </button>
+
 </div>
 
-<div id="status"></div>
+<div id="status" aria-live="polite">
+  写真保存の準備をしています。
+</div>
 
-<div class="modal" id="modal">
-<div class="modal-content">
+<section class="help">
 
-<h2>🎉 ビンゴ達成！</h2>
+  <h2>使い方</h2>
 
-<h3 id="teamName"></h3>
+  <ol>
+    <li>見つけたもののマスをタップします。</li>
+    <li>カメラで撮影するか、写真を選びます。</li>
+    <li>写真は小さく圧縮してマスへ保存されます。</li>
+    <li>同じマスをタップすると撮り直せます。</li>
+    <li>一列そろったら「ビンゴ判定」を押します。</li>
+  </ol>
 
-<p>
-受付スタッフへこの画面を見せてください
+  <strong>写真について：</strong>
+  写真はこの端末のブラウザ内だけに保存されます。
+  外部サーバーには送信されません。
+
+</section>
+
+<p class="storage-info">
+  写真は120×120ピクセルへ縮小して保存します。
+  ブラウザのデータを削除すると登録写真も消去されます。
 </p>
 
-<button onclick="closeModal()">
-閉じる
-</button>
+</main>
+
+<div class="modal" id="modal">
+
+  <div class="modal-content">
+
+    <h2>🎉 ビンゴ達成！</h2>
+
+    <h3 id="modalTeamName"></h3>
+
+    <p>
+      この画面を受付スタッフへ見せてください。
+    </p>
+
+    <button type="button" id="closeModalButton">
+      台紙に戻る
+    </button>
+
+  </div>
 
 </div>
-</div>
+
+<input
+  id="photoPicker"
+  type="file"
+  accept="image/*"
+  capture="environment"
+  hidden
+>
 
 <script>
+"use strict";
 
-const items=[
-"鳥",
-"川・水辺",
-"花",
-"ベンチ",
-"FREE",
-"橋",
-"木の実",
-"看板",
-"大きな木"
+/*
+  保存画像の設定
+
+  IMAGE_SIZE:
+  保存する画像の縦横サイズです。
+  120なら120×120ピクセルです。
+
+  JPEG_QUALITY:
+  0から1までのJPEG品質です。
+  容量削減を優先して0.25にしています。
+*/
+
+const IMAGE_SIZE = 120;
+const JPEG_QUALITY = 0.25;
+
+const items = [
+  "鳥",
+  "川・水辺",
+  "花",
+  "ベンチ",
+  "FREE",
+  "橋",
+  "木の実",
+  "看板",
+  "大きな木"
 ];
 
-const grid=document.getElementById("grid");
+const winningLines = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
 
-items.forEach((item,index)=>{
+const grid = document.getElementById("grid");
+const teamInput = document.getElementById("team");
+const photoPicker = document.getElementById("photoPicker");
+const statusArea = document.getElementById("status");
+const modal = document.getElementById("modal");
 
-const cell=document.createElement("div");
+let selectedCellIndex = null;
+let database = null;
 
-cell.className="cell";
+/*
+  表示中のBlob URLを記録します。
+  新しい写真を表示するときに古いURLを解放し、
+  スマホのメモリ使用量を抑えます。
+*/
 
-cell.innerHTML=item;
+const displayedPhotoUrls = new Map();
 
-if(index===4){
+/*
+  3×3のビンゴマスを作成します。
+*/
 
-cell.classList.add("done");
+function createGrid() {
 
-}else{
+  items.forEach(function (item, index) {
 
-cell.onclick=()=>{
+    const cell = document.createElement("button");
 
-cell.classList.toggle("done");
+    cell.type = "button";
+    cell.className = "cell";
+    cell.dataset.index = String(index);
 
-saveState();
+    if (index === 4) {
 
-};
+      cell.classList.add("free");
+      cell.classList.add("done");
+
+      cell.innerHTML =
+        '<span class="cell-label">FREE</span>' +
+        '<span class="free-mark">★</span>';
+
+      cell.setAttribute(
+        "aria-label",
+        "FREEマス"
+      );
+
+    } else {
+
+      cell.innerHTML =
+        '<span class="cell-label">' +
+        escapeHtml(item) +
+        '</span>' +
+        '<span class="cell-empty">' +
+        "タップして撮影" +
+        "</span>";
+
+      cell.setAttribute(
+        "aria-label",
+        item + "の写真を登録"
+      );
+
+      cell.addEventListener(
+        "click",
+        function () {
+
+          selectedCellIndex = index;
+
+          /*
+            同じ写真をもう一度選択しても
+            changeイベントが動くように初期化します。
+          */
+
+          photoPicker.value = "";
+          photoPicker.click();
+
+        }
+      );
+
+    }
+
+    grid.appendChild(cell);
+
+  });
 
 }
 
-grid.appendChild(cell);
+/*
+  写真保存用データベースを開きます。
+*/
 
-});
+function openDatabase() {
 
-function saveState(){
+  return new Promise(function (resolve, reject) {
 
-const state=[];
+    if (!window.indexedDB) {
 
-document.querySelectorAll(".cell").forEach(c=>{
+      reject(
+        new Error(
+          "このブラウザは写真保存に対応していません。"
+        )
+      );
 
-state.push(c.classList.contains("done"));
+      return;
 
-});
+    }
 
-localStorage.setItem(
-"bingoState",
-JSON.stringify(state)
+    const request = indexedDB.open(
+      "hamakitaBingoWalkDatabase",
+      1
+    );
+
+    request.onupgradeneeded = function () {
+
+      const openedDatabase = request.result;
+
+      if (
+        !openedDatabase.objectStoreNames.contains(
+          "photos"
+        )
+      ) {
+
+        openedDatabase.createObjectStore(
+          "photos"
+        );
+
+      }
+
+    };
+
+    request.onsuccess = function () {
+
+      database = request.result;
+
+      database.onversionchange = function () {
+
+        database.close();
+
+      };
+
+      resolve();
+
+    };
+
+    request.onerror = function () {
+
+      reject(request.error);
+
+    };
+
+  });
+
+}
+
+/*
+  写真BlobをIndexedDBへ保存します。
+*/
+
+function savePhoto(index, photoBlob) {
+
+  return new Promise(function (resolve, reject) {
+
+    if (!database) {
+
+      reject(
+        new Error(
+          "写真保存データベースを利用できません。"
+        )
+      );
+
+      return;
+
+    }
+
+    const transaction = database.transaction(
+      "photos",
+      "readwrite"
+    );
+
+    const store = transaction.objectStore(
+      "photos"
+    );
+
+    store.put(
+      photoBlob,
+      String(index)
+    );
+
+    transaction.oncomplete = function () {
+
+      resolve();
+
+    };
+
+    transaction.onerror = function () {
+
+      reject(transaction.error);
+
+    };
+
+    transaction.onabort = function () {
+
+      reject(
+        transaction.error ||
+        new Error("写真保存が中断されました。")
+      );
+
+    };
+
+  });
+
+}
+
+/*
+  保存済みの写真を読み込みます。
+*/
+
+function loadPhoto(index) {
+
+  return new Promise(function (resolve, reject) {
+
+    if (!database) {
+
+      resolve(null);
+      return;
+
+    }
+
+    const transaction = database.transaction(
+      "photos",
+      "readonly"
+    );
+
+    const store = transaction.objectStore(
+      "photos"
+    );
+
+    const request = store.get(
+      String(index)
+    );
+
+    request.onsuccess = function () {
+
+      resolve(
+        request.result || null
+      );
+
+    };
+
+    request.onerror = function () {
+
+      reject(request.error);
+
+    };
+
+  });
+
+}
+
+/*
+  保存済み写真をすべて削除します。
+*/
+
+function deleteAllPhotos() {
+
+  return new Promise(function (resolve, reject) {
+
+    if (!database) {
+
+      resolve();
+      return;
+
+    }
+
+    const transaction = database.transaction(
+      "photos",
+      "readwrite"
+    );
+
+    const store = transaction.objectStore(
+      "photos"
+    );
+
+    store.clear();
+
+    transaction.oncomplete = function () {
+
+      resolve();
+
+    };
+
+    transaction.onerror = function () {
+
+      reject(transaction.error);
+
+    };
+
+  });
+
+}
+
+/*
+  画像を120×120ピクセルへ縮小します。
+
+  createImageBitmapが利用できる場合は、
+  ブラウザ側で先に縮小してからCanvasへ描画します。
+
+  利用できない場合はImageによる方法へ
+  自動的に切り替えます。
+*/
+
+async function compressPhoto(file) {
+
+  if (!file) {
+
+    throw new Error(
+      "写真が選択されていません。"
+    );
+
+  }
+
+  if (
+    !file.type ||
+    !file.type.startsWith("image/")
+  ) {
+
+    throw new Error(
+      "画像ファイルを選択してください。"
+    );
+
+  }
+
+  try {
+
+    if ("createImageBitmap" in window) {
+
+      return await compressWithImageBitmap(file);
+
+    }
+
+  } catch (error) {
+
+    console.log(
+      "createImageBitmapを利用できないため、" +
+      "通常の画像処理へ切り替えます。",
+      error
+    );
+
+  }
+
+  return await compressWithImageElement(file);
+
+}
+
+/*
+  createImageBitmapを使う軽量処理です。
+*/
+
+async function compressWithImageBitmap(file) {
+
+  const bitmap = await createImageBitmap(
+    file,
+    {
+      imageOrientation: "from-image",
+      resizeWidth: 360,
+      resizeHeight: 360,
+      resizeQuality: "low"
+    }
+  );
+
+  try {
+
+    return await drawSquarePhoto(
+      bitmap,
+      bitmap.width,
+      bitmap.height
+    );
+
+  } finally {
+
+    if (typeof bitmap.close === "function") {
+
+      bitmap.close();
+
+    }
+
+  }
+
+}
+
+/*
+  createImageBitmap非対応時の処理です。
+*/
+
+function compressWithImageElement(file) {
+
+  return new Promise(function (resolve, reject) {
+
+    const image = new Image();
+    const objectUrl = URL.createObjectURL(file);
+
+    image.onload = async function () {
+
+      try {
+
+        const blob = await drawSquarePhoto(
+          image,
+          image.naturalWidth,
+          image.naturalHeight
+        );
+
+        resolve(blob);
+
+      } catch (error) {
+
+        reject(error);
+
+      } finally {
+
+        image.src = "";
+        URL.revokeObjectURL(objectUrl);
+
+      }
+
+    };
+
+    image.onerror = function () {
+
+      URL.revokeObjectURL(objectUrl);
+
+      reject(
+        new Error(
+          "写真を読み込めませんでした。"
+        )
+      );
+
+    };
+
+    image.src = objectUrl;
+
+  });
+
+}
+
+/*
+  写真中央を正方形に切り抜き、
+  120×120ピクセルのJPEG Blobを作ります。
+*/
+
+function drawSquarePhoto(
+  source,
+  sourceWidth,
+  sourceHeight
+) {
+
+  return new Promise(function (resolve, reject) {
+
+    const canvas = document.createElement("canvas");
+
+    canvas.width = IMAGE_SIZE;
+    canvas.height = IMAGE_SIZE;
+
+    const context = canvas.getContext(
+      "2d",
+      {
+        alpha: false
+      }
+    );
+
+    if (!context) {
+
+      reject(
+        new Error(
+          "画像処理を開始できませんでした。"
+        )
+      );
+
+      return;
+
+    }
+
+    /*
+      白背景にして、
+      JPEGの透明部分が黒くならないようにします。
+    */
+
+    context.fillStyle = "#ffffff";
+
+    context.fillRect(
+      0,
+      0,
+      IMAGE_SIZE,
+      IMAGE_SIZE
+    );
+
+    const squareSize = Math.min(
+      sourceWidth,
+      sourceHeight
+    );
+
+    const sourceX =
+      (sourceWidth - squareSize) / 2;
+
+    const sourceY =
+      (sourceHeight - squareSize) / 2;
+
+    context.drawImage(
+      source,
+      sourceX,
+      sourceY,
+      squareSize,
+      squareSize,
+      0,
+      0,
+      IMAGE_SIZE,
+      IMAGE_SIZE
+    );
+
+    canvas.toBlob(
+      function (blob) {
+
+        /*
+          Canvasのメモリを早めに解放します。
+        */
+
+        canvas.width = 1;
+        canvas.height = 1;
+
+        if (!blob) {
+
+          reject(
+            new Error(
+              "写真を圧縮できませんでした。"
+            )
+          );
+
+          return;
+
+        }
+
+        resolve(blob);
+
+      },
+      "image/jpeg",
+      JPEG_QUALITY
+    );
+
+  });
+
+}
+
+/*
+  写真をマスへ表示します。
+*/
+
+function displayPhoto(
+  index,
+  photoBlob
+) {
+
+  const cell = document.querySelector(
+    '[data-index="' + index + '"]'
+  );
+
+  if (!cell || !photoBlob) {
+
+    return;
+
+  }
+
+  releaseDisplayedPhotoUrl(index);
+
+  const photoUrl = URL.createObjectURL(
+    photoBlob
+  );
+
+  displayedPhotoUrls.set(
+    index,
+    photoUrl
+  );
+
+  cell.classList.add("done");
+
+  cell.innerHTML =
+    '<span class="cell-label">' +
+    escapeHtml(items[index]) +
+    "</span>" +
+    '<img class="cell-photo" src="' +
+    photoUrl +
+    '" alt="' +
+    escapeHtml(items[index]) +
+    'の登録写真">' +
+    '<span class="check-mark">✓</span>';
+
+}
+
+/*
+  マスの写真表示を初期状態へ戻します。
+*/
+
+function clearCellDisplay(index) {
+
+  const cell = document.querySelector(
+    '[data-index="' + index + '"]'
+  );
+
+  if (!cell) {
+
+    return;
+
+  }
+
+  releaseDisplayedPhotoUrl(index);
+
+  cell.classList.remove("done");
+
+  cell.innerHTML =
+    '<span class="cell-label">' +
+    escapeHtml(items[index]) +
+    "</span>" +
+    '<span class="cell-empty">' +
+    "タップして撮影" +
+    "</span>";
+
+}
+
+/*
+  表示用Blob URLを解放します。
+*/
+
+function releaseDisplayedPhotoUrl(index) {
+
+  const currentUrl =
+    displayedPhotoUrls.get(index);
+
+  if (currentUrl) {
+
+    URL.revokeObjectURL(currentUrl);
+
+    displayedPhotoUrls.delete(index);
+
+  }
+
+}
+
+/*
+  写真選択後の処理です。
+*/
+
+photoPicker.addEventListener(
+  "change",
+  async function () {
+
+    const file = photoPicker.files[0];
+
+    if (
+      !file ||
+      selectedCellIndex === null
+    ) {
+
+      return;
+
+    }
+
+    const targetIndex =
+      selectedCellIndex;
+
+    const targetCell =
+      document.querySelector(
+        '[data-index="' +
+        targetIndex +
+        '"]'
+      );
+
+    try {
+
+      if (targetCell) {
+
+        targetCell.classList.add(
+          "processing"
+        );
+
+      }
+
+      setStatus(
+        "写真を小さく圧縮しています。",
+        false
+      );
+
+      /*
+        Fileオブジェクトをそのまま保存せず、
+        先に120×120へ圧縮します。
+      */
+
+      const compressedBlob =
+        await compressPhoto(file);
+
+      /*
+        元の大きな写真への参照を
+        できるだけ早く解除します。
+      */
+
+      photoPicker.value = "";
+
+      setStatus(
+        "写真を保存しています。",
+        false
+      );
+
+      await savePhoto(
+        targetIndex,
+        compressedBlob
+      );
+
+      displayPhoto(
+        targetIndex,
+        compressedBlob
+      );
+
+      updateStatus();
+
+    } catch (error) {
+
+      console.error(error);
+
+      setStatus(
+        error.message ||
+        "写真を保存できませんでした。",
+        false
+      );
+
+    } finally {
+
+      if (targetCell) {
+
+        targetCell.classList.remove(
+          "processing"
+        );
+
+      }
+
+      selectedCellIndex = null;
+
+    }
+
+  }
 );
 
-localStorage.setItem(
-"teamName",
-document.getElementById("team").value
+/*
+  保存済み写真を画面へ復元します。
+*/
+
+async function restorePhotos() {
+
+  for (
+    let index = 0;
+    index < items.length;
+    index++
+  ) {
+
+    if (index === 4) {
+
+      continue;
+
+    }
+
+    try {
+
+      const photoBlob =
+        await loadPhoto(index);
+
+      if (photoBlob) {
+
+        displayPhoto(
+          index,
+          photoBlob
+        );
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        "写真復元エラー",
+        index,
+        error
+      );
+
+    }
+
+  }
+
+  updateStatus();
+
+}
+
+/*
+  ビンゴ判定用の登録状態を取得します。
+*/
+
+function getCompletedState() {
+
+  return Array.from(
+    document.querySelectorAll(".cell")
+  ).map(function (cell) {
+
+    return cell.classList.contains(
+      "done"
+    );
+
+  });
+
+}
+
+/*
+  縦・横・斜めの一列がそろっているか確認します。
+*/
+
+function isBingoComplete() {
+
+  const completed =
+    getCompletedState();
+
+  return winningLines.some(
+    function (line) {
+
+      return line.every(
+        function (index) {
+
+          return completed[index];
+
+        }
+      );
+
+    }
+  );
+
+}
+
+/*
+  状況表示を更新します。
+*/
+
+function updateStatus() {
+
+  const registeredCount =
+    document.querySelectorAll(
+      ".cell.done"
+    ).length - 1;
+
+  if (isBingoComplete()) {
+
+    setStatus(
+      "🎉 1列そろっています！「ビンゴ判定」を押してください。",
+      true
+    );
+
+  } else {
+
+    setStatus(
+      "写真登録：" +
+      registeredCount +
+      " / 8マス",
+      false
+    );
+
+  }
+
+}
+
+/*
+  状況メッセージを設定します。
+*/
+
+function setStatus(
+  message,
+  bingoReady
+) {
+
+  statusArea.textContent =
+    message;
+
+  if (bingoReady) {
+
+    statusArea.classList.add(
+      "bingo-ready"
+    );
+
+  } else {
+
+    statusArea.classList.remove(
+      "bingo-ready"
+    );
+
+  }
+
+}
+
+/*
+  ビンゴ判定ボタンです。
+*/
+
+document
+  .getElementById("judgeButton")
+  .addEventListener(
+    "click",
+    function () {
+
+      if (isBingoComplete()) {
+
+        const teamName =
+          teamInput.value.trim() ||
+          "ランニングクラブチーム";
+
+        document
+          .getElementById(
+            "modalTeamName"
+          )
+          .textContent =
+          teamName;
+
+        modal.classList.add(
+          "show"
+        );
+
+      } else {
+
+        setStatus(
+          "まだビンゴではありません。写真を追加してください。",
+          false
+        );
+
+        statusArea.scrollIntoView(
+          {
+            behavior: "smooth",
+            block: "center"
+          }
+        );
+
+      }
+
+    }
+  );
+
+/*
+  達成画面を閉じます。
+*/
+
+document
+  .getElementById(
+    "closeModalButton"
+  )
+  .addEventListener(
+    "click",
+    function () {
+
+      modal.classList.remove(
+        "show"
+      );
+
+    }
+  );
+
+/*
+  チーム名を保存します。
+*/
+
+teamInput.value =
+  localStorage.getItem(
+    "runningClubTeamName"
+  ) || "";
+
+teamInput.addEventListener(
+  "input",
+  function () {
+
+    localStorage.setItem(
+      "runningClubTeamName",
+      teamInput.value
+    );
+
+  }
 );
 
+/*
+  写真とチーム名をリセットします。
+*/
+
+document
+  .getElementById("resetButton")
+  .addEventListener(
+    "click",
+    async function () {
+
+      const answer = confirm(
+        "登録した写真とチーム名をすべて消去しますか？"
+      );
+
+      if (!answer) {
+
+        return;
+
+      }
+
+      try {
+
+        setStatus(
+          "登録内容を消去しています。",
+          false
+        );
+
+        await deleteAllPhotos();
+
+        localStorage.removeItem(
+          "runningClubTeamName"
+        );
+
+        teamInput.value = "";
+
+        for (
+          let index = 0;
+          index < items.length;
+          index++
+        ) {
+
+          if (index !== 4) {
+
+            clearCellDisplay(index);
+
+          }
+
+        }
+
+        updateStatus();
+
+      } catch (error) {
+
+        console.error(error);
+
+        setStatus(
+          "登録内容を消去できませんでした。",
+          false
+        );
+
+      }
+
+    }
+  );
+
+/*
+  HTMLに文字列を安全に表示します。
+*/
+
+function escapeHtml(value) {
+
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
 }
 
-function loadState(){
+/*
+  画面を閉じる際に表示用URLを解放します。
+*/
 
-const state=
-JSON.parse(
-localStorage.getItem("bingoState")
+window.addEventListener(
+  "pagehide",
+  function () {
+
+    displayedPhotoUrls.forEach(
+      function (url) {
+
+        URL.revokeObjectURL(url);
+
+      }
+    );
+
+    displayedPhotoUrls.clear();
+
+  }
 );
 
-if(state){
+/*
+  初期化処理です。
+*/
 
-document
-.querySelectorAll(".cell")
-.forEach((c,i)=>{
+async function initialize() {
 
-if(state[i])
-c.classList.add("done");
+  createGrid();
 
-});
+  try {
 
-}
+    await openDatabase();
 
-document.getElementById("team").value=
-localStorage.getItem("teamName") || "";
+    await restorePhotos();
 
-}
+  } catch (error) {
 
-document.getElementById("team")
-.addEventListener("input",saveState);
+    console.error(error);
 
-loadState();
+    setStatus(
+      "写真保存機能を開始できませんでした。ブラウザ設定をご確認ください。",
+      false
+    );
 
-function judge(){
-
-const c=document
-.querySelectorAll(".cell");
-
-const d=[];
-
-for(let i=0;i<9;i++){
-
-d.push(
-c[i].classList.contains("done")
-);
+  }
 
 }
 
-const bingo=
-
-(d[0]&&d[1]&&d[2])||
-(d[3]&&d[4]&&d[5])||
-(d[6]&&d[7]&&d[8])||
-(d[0]&&d[3]&&d[6])||
-(d[1]&&d[4]&&d[7])||
-(d[2]&&d[5]&&d[8])||
-(d[0]&&d[4]&&d[8])||
-(d[2]&&d[4]&&d[6]);
-
-if(bingo){
-
-document
-.getElementById("teamName")
-.innerText=
-document.getElementById("team").value
-|| "ランニングクラブチーム";
-
-document
-.getElementById("modal")
-.style.display="flex";
-
-}else{
-
-document
-.getElementById("status")
-.innerHTML=
-"まだビンゴではありません";
-
-}
-
-}
-
-function closeModal(){
-
-document
-.getElementById("modal")
-.style.display="none";
-
-}
-
-function resetBoard(){
-
-if(!confirm("リセットしますか？"))
-return;
-
-localStorage.clear();
-location.reload();
-
-}
-
+initialize();
 </script>
 
 </body>
