@@ -126,16 +126,16 @@ h1 { margin: 5px 0; color: #176b43; }
 <h1>ビンゴウォーク</h1>
 <p class="park">浜北森林公園</p>
 <div class="notice">
-  写真はスマホの標準カメラで撮影してください。<br>
-  撮影後に該当マスをタップすると、登録時刻を記録します。<br>
+  対象物を見つけたら該当マスをタップしてください。<br>
+  タップした時刻がマスに記録されます。<br>
   次のマスは前回登録から5分後に登録できます。<br>
-  撮影・操作は必ず立ち止まって行ってください。
+  画面操作は必ず立ち止まって行ってください。
 </div>
 <div class="team">
   <label for="team">ランニングクラブチーム名（受付確認用）</label>
   <input id="team" type="text" maxlength="30" placeholder="例：ランニングクラブチーム">
 </div>
-<p class="guide">標準カメラで撮影後、該当マスをタップ</p>
+<p class="guide">対象物を見つけたら該当マスをタップ</p>
 <div class="grid" id="grid"></div>
 <div class="actions">
   <button type="button" class="action judge" id="judge">ビンゴ判定</button>
@@ -146,13 +146,11 @@ h1 { margin: 5px 0; color: #176b43; }
   <strong>使い方</strong>
   <ol>
     <li>対象物を見つけます。</li>
-    <li>スマホの標準カメラで撮影します。</li>
-    <li>ビンゴ画面へ戻り、該当マスをタップします。</li>
-    <li>確認画面で「OK」を押すと、マスに登録時刻が表示されます。</li>
+    <li>該当マスをタップします。</li>
+    <li>マスにチェックと登録時刻が表示されます。</li>
     <li>次の未登録マスは、前回登録から5分後に登録できます。</li>
     <li>1列そろったら「ビンゴ判定」を押します。</li>
   </ol>
-  <strong>写真確認：</strong>このページに写真データは保存しません。受付で確認が必要な場合は、スマホの写真アプリを提示してください。
 </section>
 <p class="small">保存する情報はチーム名と各マスの登録時刻だけです。登録済みマスをタップすると、誤登録を取り消せます。</p>
 </main>
@@ -176,7 +174,7 @@ const winningLines = [
 ];
 const WAIT_MINUTES = 5;
 const WAIT_MS = WAIT_MINUTES * 60 * 1000;
-const STORAGE_KEY = "bingoTapTimesV2";
+const STORAGE_KEY = "bingoTapTimesV3";
 const TEAM_KEY = "runningClubTeamName";
 const grid = document.getElementById("grid");
 const team = document.getElementById("team");
@@ -257,7 +255,7 @@ function render() {
     } else {
       button.innerHTML =
         '<span class="cell-name">' + escapeHtml(item) + '</span>' +
-        '<span class="hint">撮影後にタップ</span>';
+        '<span class="hint">見つけたらタップ</span>';
       button.addEventListener("click", () => registerTime(index));
     }
     grid.appendChild(button);
@@ -270,8 +268,6 @@ function registerTime(index) {
     alert("次のマスを登録できるまで、あと " + formatRemaining(remaining) + " です。");
     return;
   }
-  const ok = confirm(items[index] + " の写真を標準カメラで撮影しましたか？\nOKを押すと現在時刻を登録します。");
-  if (!ok) return;
   tapTimes[index] = new Date().toISOString();
   saveTimes();
   render();
@@ -293,10 +289,10 @@ function updateStatus() {
     statusArea.textContent = "🎉 1列そろっています。ビンゴ判定を押してください。";
   } else if (remaining > 0) {
     statusArea.className = "";
-    statusArea.textContent = "撮影記録：" + count + " / 8マス　次の登録まで " + formatRemaining(remaining);
+    statusArea.textContent = "発見記録：" + count + " / 8マス　次の登録まで " + formatRemaining(remaining);
   } else {
     statusArea.className = "";
-    statusArea.textContent = "撮影記録：" + count + " / 8マス　次のマスを登録できます。";
+    statusArea.textContent = "発見記録：" + count + " / 8マス　次のマスを登録できます。";
   }
 }
 function startCountdown() {
@@ -323,7 +319,7 @@ team.addEventListener("input", () => localStorage.setItem(TEAM_KEY, team.value))
 document.getElementById("judge").addEventListener("click", () => {
   if (!isBingo()) {
     statusArea.className = "";
-    statusArea.textContent = "まだビンゴではありません。撮影記録を追加してください。";
+    statusArea.textContent = "まだビンゴではありません。発見記録を追加してください。";
     return;
   }
   document.getElementById("modalTeam").textContent = team.value.trim() || "ランニングクラブチーム";
