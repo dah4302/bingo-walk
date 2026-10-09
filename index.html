@@ -1,54 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#176b43">
-
 <title>浜北森林公園 ビンゴウォーク</title>
-
 <style>
-
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
   padding: 10px;
   background: #f5f7f5;
   color: #1f2937;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Noto Sans JP",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
   text-align: center;
 }
-
-main {
-  width: min(100%, 620px);
-  margin: 0 auto;
-}
-
-h1 {
-  margin: 5px 0;
-  color: #176b43;
-}
-
-.park {
-  margin: 0 0 12px;
-  font-weight: 700;
-}
-
+main { width: min(100%, 620px); margin: 0 auto; }
+h1 { margin: 5px 0; color: #176b43; }
+.park { margin: 0 0 12px; font-weight: 700; }
 .notice {
   margin-bottom: 10px;
   padding: 11px;
@@ -58,20 +27,13 @@ h1 {
   font-weight: 700;
   line-height: 1.55;
 }
-
 .team {
   margin-bottom: 12px;
   padding: 12px;
   background: white;
   border-radius: 10px;
 }
-
-.team label {
-  display: block;
-  margin-bottom: 7px;
-  font-weight: 700;
-}
-
+.team label { display: block; margin-bottom: 7px; font-weight: 700; }
 .team input {
   width: 100%;
   padding: 11px;
@@ -79,19 +41,13 @@ h1 {
   border-radius: 8px;
   font-size: 16px;
 }
-
-.guide {
-  margin: 10px 0;
-  font-weight: 700;
-}
-
+.guide { margin: 10px 0; font-weight: 700; }
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   width: 100%;
 }
-
 .cell {
   height: 118px;
   padding: 7px;
@@ -100,77 +56,20 @@ h1 {
   color: #1f2937;
   border: 2px solid #c7ceca;
   border-radius: 10px;
-  font-family: inherit;
-  font-size: 16px;
+  font: inherit;
   font-weight: 700;
   cursor: pointer;
 }
-
-.cell.done {
-  background: #c8e6c9;
-  color: #176b43;
-  border-color: #176b43;
-}
-
-.cell.free {
-  cursor: default;
-}
-
-.cell-name {
-  display: block;
-  font-size: 16px;
-}
-
-.check {
-  display: block;
-  margin-top: 4px;
-  font-size: 27px;
-  line-height: 29px;
-}
-
-.time {
-  display: block;
-  margin-top: 4px;
-  color: #355c46;
-  font-size: 12px;
-  line-height: 1.25;
-}
-
-.hint {
-  display: block;
-  margin-top: 8px;
-  color: #667085;
-  font-size: 11px;
-  font-weight: 500;
-}
-
-.actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.action {
-  padding: 12px 8px;
-  border-radius: 10px;
-  font-size: 17px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.judge {
-  background: #176b43;
-  color: white;
-  border: none;
-}
-
-.reset {
-  background: white;
-  color: #c62828;
-  border: 2px solid #c62828;
-}
-
+.cell.done { background: #c8e6c9; color: #176b43; border-color: #176b43; }
+.cell.free { cursor: default; }
+.cell-name { display: block; font-size: 16px; }
+.check { display: block; margin-top: 4px; font-size: 27px; line-height: 29px; }
+.time { display: block; margin-top: 4px; color: #355c46; font-size: 12px; line-height: 1.25; }
+.hint { display: block; margin-top: 8px; color: #667085; font-size: 11px; font-weight: 500; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.action { padding: 12px 8px; border-radius: 10px; font-size: 17px; font-weight: 700; cursor: pointer; }
+.judge { background: #176b43; color: white; border: none; }
+.reset { background: white; color: #c62828; border: 2px solid #c62828; }
 #status {
   min-height: 54px;
   margin-top: 12px;
@@ -180,13 +79,7 @@ h1 {
   border-radius: 10px;
   font-weight: 700;
 }
-
-#status.ready {
-  background: #e8f5ec;
-  color: #176b43;
-  border-color: #176b43;
-}
-
+#status.ready { background: #e8f5ec; color: #176b43; border-color: #176b43; }
 .help {
   margin-top: 12px;
   padding: 12px;
@@ -196,19 +89,8 @@ h1 {
   line-height: 1.7;
   text-align: left;
 }
-
-.help ol {
-  margin: 5px 0;
-  padding-left: 22px;
-}
-
-.small {
-  margin-top: 8px;
-  color: #667085;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
+.help ol { margin: 5px 0; padding-left: 22px; }
+.small { margin-top: 8px; color: #667085; font-size: 12px; line-height: 1.5; }
 .modal {
   position: fixed;
   z-index: 10;
@@ -219,24 +101,9 @@ h1 {
   padding: 18px;
   background: rgba(0, 0, 0, 0.72);
 }
-
-.modal.show {
-  display: flex;
-}
-
-.modal-content {
-  width: min(100%, 500px);
-  padding: 28px 20px;
-  background: white;
-  border-radius: 16px;
-}
-
-.modal h2 {
-  margin: 0 0 10px;
-  color: #176b43;
-  font-size: 32px;
-}
-
+.modal.show { display: flex; }
+.modal-content { width: min(100%, 500px); padding: 28px 20px; background: white; border-radius: 16px; }
+.modal h2 { margin: 0 0 10px; color: #176b43; font-size: 32px; }
 .modal button {
   padding: 12px 25px;
   background: #176b43;
@@ -247,649 +114,235 @@ h1 {
   font-weight: 700;
   cursor: pointer;
 }
-
 @media (max-width: 390px) {
-
-  .cell {
-    height: 108px;
-  }
-
-  .cell-name {
-    font-size: 14px;
-  }
-
-  .actions {
-    grid-template-columns: 1fr;
-  }
-
+  .cell { height: 108px; }
+  .cell-name { font-size: 14px; }
+  .actions { grid-template-columns: 1fr; }
 }
-
 </style>
-
 </head>
-
 <body>
-
 <main>
-
 <h1>ビンゴウォーク</h1>
-
-<p class="park">
-  浜北森林公園
-</p>
-
+<p class="park">浜北森林公園</p>
 <div class="notice">
-  見つけた対象のマスをタップして、カメラを起動してください。<br>
-  撮影完了後、マスにチェックと撮影日時を記録します。<br>
-  撮影・画面操作は必ず立ち止まって行ってください。
+  写真はスマホの標準カメラで撮影してください。<br>
+  撮影後に該当マスをタップすると、登録時刻を記録します。<br>
+  次のマスは前回登録から5分後に登録できます。<br>
+  撮影・操作は必ず立ち止まって行ってください。
 </div>
-
 <div class="team">
-
-  <label for="team">
-    ランニングクラブチーム名（受付確認用）
-  </label>
-
-  <input
-    id="team"
-    type="text"
-    maxlength="30"
-    placeholder="例：ランニングクラブチーム"
-  >
-
+  <label for="team">ランニングクラブチーム名（受付確認用）</label>
+  <input id="team" type="text" maxlength="30" placeholder="例：ランニングクラブチーム">
 </div>
-
-<p class="guide">
-  見つけた対象のマスをタップして撮影
-</p>
-
-<div
-  class="grid"
-  id="grid"
-></div>
-
+<p class="guide">標準カメラで撮影後、該当マスをタップ</p>
+<div class="grid" id="grid"></div>
 <div class="actions">
-
-  <button
-    type="button"
-    class="action judge"
-    id="judge"
-  >
-    ビンゴ判定
-  </button>
-
-  <button
-    type="button"
-    class="action reset"
-    id="reset"
-  >
-    やり直し
-  </button>
-
+  <button type="button" class="action judge" id="judge">ビンゴ判定</button>
+  <button type="button" class="action reset" id="reset">やり直し</button>
 </div>
-
-<div
-  id="status"
-  aria-live="polite"
-></div>
-
+<div id="status" aria-live="polite"></div>
 <section class="help">
-
   <strong>使い方</strong>
-
   <ol>
     <li>対象物を見つけます。</li>
-    <li>該当するマスをタップします。</li>
-    <li>起動したカメラで撮影します。</li>
-    <li>撮影完了後、マスにチェックと撮影日時が表示されます。</li>
+    <li>スマホの標準カメラで撮影します。</li>
+    <li>ビンゴ画面へ戻り、該当マスをタップします。</li>
+    <li>確認画面で「OK」を押すと、マスに登録時刻が表示されます。</li>
+    <li>次の未登録マスは、前回登録から5分後に登録できます。</li>
     <li>1列そろったら「ビンゴ判定」を押します。</li>
   </ol>
-
-  <strong>重要：</strong>
-  このページには写真データを保存しません。
-  受付で写真を確認する場合は、スマホの写真アプリを提示してください。
-
+  <strong>写真確認：</strong>このページに写真データは保存しません。受付で確認が必要な場合は、スマホの写真アプリを提示してください。
 </section>
-
-<p class="small">
-  保存する情報は、チーム名と各マスの撮影日時だけです。
-  ブラウザのデータを削除すると記録も消去されます。
-</p>
-
+<p class="small">保存する情報はチーム名と各マスの登録時刻だけです。登録済みマスをタップすると、誤登録を取り消せます。</p>
 </main>
-
-<div
-  class="modal"
-  id="modal"
->
-
+<div class="modal" id="modal">
   <div class="modal-content">
-
     <h2>🎉 ビンゴ達成！</h2>
-
     <h3 id="modalTeam"></h3>
-
     <p id="completedAt"></p>
-
-    <p>
-      この画面を受付スタッフへ見せてください。
-    </p>
-
-    <button
-      type="button"
-      id="close"
-    >
-      台紙に戻る
-    </button>
-
+    <p id="elapsedTime"></p>
+    <p>この画面を受付スタッフへ見せてください。</p>
+    <button type="button" id="close">台紙に戻る</button>
   </div>
-
 </div>
-
-<input
-  id="camera"
-  type="file"
-  accept="image/*"
-  capture="environment"
-  hidden
->
-
 <script>
-
 "use strict";
-
-const items = [
-  "鳥",
-  "川・水辺",
-  "花",
-  "ベンチ",
-  "FREE",
-  "橋",
-  "木の実",
-  "看板",
-  "大きな木"
-];
-
+const items = ["鳥", "川・水辺", "花", "ベンチ", "FREE", "橋", "木の実", "看板", "大きな木"];
 const winningLines = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
+  [0,1,2], [3,4,5], [6,7,8],
+  [0,3,6], [1,4,7], [2,5,8],
+  [0,4,8], [2,4,6]
 ];
-
-const STORAGE_KEY =
-  "bingoCaptureTimesV1";
-
-const TEAM_KEY =
-  "runningClubTeamName";
-
-const grid =
-  document.getElementById("grid");
-
-const team =
-  document.getElementById("team");
-
-const camera =
-  document.getElementById("camera");
-
-const statusArea =
-  document.getElementById("status");
-
-const modal =
-  document.getElementById("modal");
-
-let activeIndex = null;
-
-let captureTimes =
-  loadTimes();
-
+const WAIT_MINUTES = 5;
+const WAIT_MS = WAIT_MINUTES * 60 * 1000;
+const STORAGE_KEY = "bingoTapTimesV2";
+const TEAM_KEY = "runningClubTeamName";
+const grid = document.getElementById("grid");
+const team = document.getElementById("team");
+const statusArea = document.getElementById("status");
+const modal = document.getElementById("modal");
+let tapTimes = loadTimes();
+let timerId = null;
+ 
 function loadTimes() {
-
   try {
-
-    const saved =
-      JSON.parse(
-        localStorage.getItem(
-          STORAGE_KEY
-        ) || "{}"
-      );
-
-    if (
-      saved &&
-      typeof saved === "object"
-    ) {
-
-      return saved;
-
-    }
-
-    return {};
-
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    return saved && typeof saved === "object" ? saved : {};
   } catch (error) {
-
     return {};
-
   }
-
 }
-
 function saveTimes() {
-
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(
-      captureTimes
-    )
-  );
-
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tapTimes));
 }
-
-function formatDateTime(iso) {
-
-  const date =
-    new Date(iso);
-
-  return new Intl.DateTimeFormat(
-    "ja-JP",
-    {
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false
-    }
-  ).format(date);
-
-}
-
-function render() {
-
-  grid.innerHTML = "";
-
-  items.forEach(
-    function (item, index) {
-
-      const button =
-        document.createElement(
-          "button"
-        );
-
-      button.type = "button";
-
-      const done =
-        index === 4 ||
-        Boolean(
-          captureTimes[index]
-        );
-
-      button.className =
-        "cell" +
-        (done ? " done" : "") +
-        (index === 4 ? " free" : "");
-
-      if (index === 4) {
-
-        button.innerHTML =
-          '<span class="cell-name">' +
-          "FREE" +
-          "</span>" +
-          '<span class="check">' +
-          "✓" +
-          "</span>";
-
-        button.setAttribute(
-          "aria-label",
-          "FREEマス"
-        );
-
-      } else if (
-        captureTimes[index]
-      ) {
-
-        button.innerHTML =
-          '<span class="cell-name">' +
-          escapeHtml(item) +
-          "</span>" +
-          '<span class="check">' +
-          "✓" +
-          "</span>" +
-          '<span class="time">' +
-          escapeHtml(
-            formatDateTime(
-              captureTimes[index]
-            )
-          ) +
-          "</span>" +
-          '<span class="hint">' +
-          "タップで撮り直し" +
-          "</span>";
-
-        button.setAttribute(
-          "aria-label",
-          item +
-          "、撮影済み。タップで撮り直し"
-        );
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            startCapture(index);
-
-          }
-        );
-
-      } else {
-
-        button.innerHTML =
-          '<span class="cell-name">' +
-          escapeHtml(item) +
-          "</span>" +
-          '<span class="hint">' +
-          "タップして撮影" +
-          "</span>";
-
-        button.setAttribute(
-          "aria-label",
-          item +
-          "を撮影"
-        );
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            startCapture(index);
-
-          }
-        );
-
-      }
-
-      grid.appendChild(
-        button
-      );
-
-    }
-  );
-
-  updateStatus();
-
-}
-
-function startCapture(index) {
-
-  activeIndex = index;
-
-  camera.value = "";
-
-  camera.click();
-
-}
-
-camera.addEventListener(
-  "change",
-  function () {
-
-    const file =
-      camera.files &&
-      camera.files[0];
-
-    if (
-      !file ||
-      activeIndex === null
-    ) {
-
-      activeIndex = null;
-      camera.value = "";
-
-      return;
-
-    }
-
-    /*
-      写真データは読み込みません。
-      選択・撮影が完了した日時だけを記録します。
-    */
-
-    captureTimes[activeIndex] =
-      new Date().toISOString();
-
-    saveTimes();
-
-    activeIndex = null;
-    camera.value = "";
-
-    render();
-
-  }
-);
-
-function completedState() {
-
-  return items.map(
-    function (item, index) {
-
-      return (
-        index === 4 ||
-        Boolean(
-          captureTimes[index]
-        )
-      );
-
-    }
-  );
-
-}
-
-function isBingo() {
-
-  const state =
-    completedState();
-
-  return winningLines.some(
-    function (line) {
-
-      return line.every(
-        function (index) {
-
-          return state[index];
-
-        }
-      );
-
-    }
-  );
-
-}
-
-function updateStatus() {
-
-  const count =
-    Object.keys(
-      captureTimes
-    ).filter(
-      function (key) {
-
-        return Number(key) !== 4;
-
-      }
-    ).length;
-
-  if (isBingo()) {
-
-    statusArea.className =
-      "ready";
-
-    statusArea.textContent =
-      "🎉 1列そろっています。ビンゴ判定を押してください。";
-
-  } else {
-
-    statusArea.className = "";
-
-    statusArea.textContent =
-      "撮影記録：" +
-      count +
-      " / 8マス";
-
-  }
-
-}
-
-team.value =
-  localStorage.getItem(
-    TEAM_KEY
-  ) || "";
-
-team.addEventListener(
-  "input",
-  function () {
-
-    localStorage.setItem(
-      TEAM_KEY,
-      team.value
-    );
-
-  }
-);
-
-document
-  .getElementById("judge")
-  .addEventListener(
-    "click",
-    function () {
-
-      if (!isBingo()) {
-
-        statusArea.className = "";
-
-        statusArea.textContent =
-          "まだビンゴではありません。撮影記録を追加してください。";
-
-        statusArea.scrollIntoView(
-          {
-            behavior: "smooth",
-            block: "center"
-          }
-        );
-
-        return;
-
-      }
-
-      document
-        .getElementById(
-          "modalTeam"
-        )
-        .textContent =
-        team.value.trim() ||
-        "ランニングクラブチーム";
-
-      document
-        .getElementById(
-          "completedAt"
-        )
-        .textContent =
-        "確認日時：" +
-        formatDateTime(
-          new Date().toISOString()
-        );
-
-      modal.classList.add(
-        "show"
-      );
-
-    }
-  );
-
-document
-  .getElementById("close")
-  .addEventListener(
-    "click",
-    function () {
-
-      modal.classList.remove(
-        "show"
-      );
-
-    }
-  );
-
-document
-  .getElementById("reset")
-  .addEventListener(
-    "click",
-    function () {
-
-      const answer =
-        confirm(
-          "撮影日時の記録とチーム名をすべて消去しますか？"
-        );
-
-      if (!answer) {
-
-        return;
-
-      }
-
-      captureTimes = {};
-
-      team.value = "";
-
-      localStorage.removeItem(
-        STORAGE_KEY
-      );
-
-      localStorage.removeItem(
-        TEAM_KEY
-      );
-
-      render();
-
-    }
-  );
-
 function escapeHtml(value) {
-
   return String(value)
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
-
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
-
-/*
-  最後にrenderを実行することで、
-  3×3のマスを画面へ表示します。
-*/
-
+function formatDateTime(iso) {
+  return new Intl.DateTimeFormat("ja-JP", {
+    month: "2-digit", day: "2-digit", hour: "2-digit",
+    minute: "2-digit", second: "2-digit", hour12: false
+  }).format(new Date(iso));
+}
+function getRecordedDates() {
+  return Object.values(tapTimes)
+    .map(value => new Date(value))
+    .filter(date => !Number.isNaN(date.getTime()));
+}
+function getLatestTimeMs() {
+  const dates = getRecordedDates();
+  return dates.length ? Math.max(...dates.map(date => date.getTime())) : null;
+}
+function getRemainingMs() {
+  const latest = getLatestTimeMs();
+  if (latest === null) return 0;
+  return Math.max(0, WAIT_MS - (Date.now() - latest));
+}
+function formatRemaining(ms) {
+  const totalSeconds = Math.ceil(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}分${String(seconds).padStart(2, "0")}秒`;
+}
+function completedState() {
+  return items.map((_, index) => index === 4 || Boolean(tapTimes[index]));
+}
+function isBingo() {
+  const state = completedState();
+  return winningLines.some(line => line.every(index => state[index]));
+}
+function render() {
+  grid.innerHTML = "";
+  items.forEach((item, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    const done = index === 4 || Boolean(tapTimes[index]);
+    button.className = "cell" + (done ? " done" : "") + (index === 4 ? " free" : "");
+    if (index === 4) {
+      button.innerHTML = '<span class="cell-name">FREE</span><span class="check">✓</span>';
+      button.setAttribute("aria-label", "FREEマス");
+    } else if (tapTimes[index]) {
+      button.innerHTML =
+        '<span class="cell-name">' + escapeHtml(item) + '</span>' +
+        '<span class="check">✓</span>' +
+        '<span class="time">' + escapeHtml(formatDateTime(tapTimes[index])) + '</span>' +
+        '<span class="hint">タップで登録取消</span>';
+      button.addEventListener("click", () => removeRegistration(index));
+    } else {
+      button.innerHTML =
+        '<span class="cell-name">' + escapeHtml(item) + '</span>' +
+        '<span class="hint">撮影後にタップ</span>';
+      button.addEventListener("click", () => registerTime(index));
+    }
+    grid.appendChild(button);
+  });
+  updateStatus();
+}
+function registerTime(index) {
+  const remaining = getRemainingMs();
+  if (remaining > 0) {
+    alert("次のマスを登録できるまで、あと " + formatRemaining(remaining) + " です。");
+    return;
+  }
+  const ok = confirm(items[index] + " の写真を標準カメラで撮影しましたか？\nOKを押すと現在時刻を登録します。");
+  if (!ok) return;
+  tapTimes[index] = new Date().toISOString();
+  saveTimes();
+  render();
+  startCountdown();
+}
+function removeRegistration(index) {
+  const ok = confirm(items[index] + " の登録を取り消しますか？");
+  if (!ok) return;
+  delete tapTimes[index];
+  saveTimes();
+  render();
+  startCountdown();
+}
+function updateStatus() {
+  const count = Object.keys(tapTimes).length;
+  const remaining = getRemainingMs();
+  if (isBingo()) {
+    statusArea.className = "ready";
+    statusArea.textContent = "🎉 1列そろっています。ビンゴ判定を押してください。";
+  } else if (remaining > 0) {
+    statusArea.className = "";
+    statusArea.textContent = "撮影記録：" + count + " / 8マス　次の登録まで " + formatRemaining(remaining);
+  } else {
+    statusArea.className = "";
+    statusArea.textContent = "撮影記録：" + count + " / 8マス　次のマスを登録できます。";
+  }
+}
+function startCountdown() {
+  if (timerId !== null) clearInterval(timerId);
+  updateStatus();
+  timerId = setInterval(() => {
+    updateStatus();
+    if (getRemainingMs() <= 0) {
+      clearInterval(timerId);
+      timerId = null;
+    }
+  }, 1000);
+}
+function getElapsedText() {
+  const dates = getRecordedDates().sort((a, b) => a - b);
+  if (dates.length < 2) return "登録所要時間：算出対象が1件以下です。";
+  const ms = dates[dates.length - 1] - dates[0];
+  const minutes = Math.floor(ms / 60000);
+  const seconds = Math.floor((ms % 60000) / 1000);
+  return `最初から最後の登録まで：${minutes}分${String(seconds).padStart(2, "0")}秒`;
+}
+team.value = localStorage.getItem(TEAM_KEY) || "";
+team.addEventListener("input", () => localStorage.setItem(TEAM_KEY, team.value));
+document.getElementById("judge").addEventListener("click", () => {
+  if (!isBingo()) {
+    statusArea.className = "";
+    statusArea.textContent = "まだビンゴではありません。撮影記録を追加してください。";
+    return;
+  }
+  document.getElementById("modalTeam").textContent = team.value.trim() || "ランニングクラブチーム";
+  document.getElementById("completedAt").textContent = "確認日時：" + formatDateTime(new Date().toISOString());
+  document.getElementById("elapsedTime").textContent = getElapsedText();
+  modal.classList.add("show");
+});
+document.getElementById("close").addEventListener("click", () => modal.classList.remove("show"));
+document.getElementById("reset").addEventListener("click", () => {
+  if (!confirm("登録時刻とチーム名をすべて消去しますか？")) return;
+  tapTimes = {};
+  team.value = "";
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(TEAM_KEY);
+  render();
+  startCountdown();
+});
 render();
-
+startCountdown();
 </script>
-
 </body>
-
 </html>
