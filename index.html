@@ -1,344 +1,1736 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
 <meta name="theme-color" content="#176b43">
-<title>浜北森林公園 ビンゴウォーク</title>
+
+<title>光友会 ビンゴウォーク</title>
+
 <style>
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 10px;
   background: #f5f7f5;
   color: #1f2937;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans JP",
+    sans-serif;
+
   text-align: center;
 }
-main { width: min(100%, 620px); margin: 0 auto; }
-h1 { margin: 5px 0; color: #176b43; }
-.park { margin: 0 0 12px; font-weight: 700; }
+
+main {
+  width: min(100%, 620px);
+  margin: 0 auto;
+}
+
+
+/* =========================
+   タイトル画像
+========================= */
+
+.title-image {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto 12px;
+}
+
+.title-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+/* =========================
+   注意事項
+========================= */
+
 .notice {
   margin-bottom: 10px;
   padding: 11px;
+
   background: #fff4d8;
+
   border: 2px solid #f4a024;
   border-radius: 10px;
+
   font-weight: 700;
   line-height: 1.55;
 }
+
+
+/* =========================
+   氏名
+========================= */
+
 .team {
   margin-bottom: 12px;
   padding: 12px;
+
   background: white;
+
   border-radius: 10px;
 }
-.team label { display: block; margin-bottom: 7px; font-weight: 700; }
+
+.team label {
+  display: block;
+  margin-bottom: 7px;
+
+  font-weight: 700;
+}
+
 .team input {
   width: 100%;
+
   padding: 11px;
+
   border: 1px solid #9ca3af;
   border-radius: 8px;
+
   font-size: 16px;
 }
-.guide { margin: 10px 0; font-weight: 700; }
+
+
+/* =========================
+   ビンゴマス
+========================= */
+
+.guide {
+  margin: 10px 0;
+
+  font-weight: 700;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 8px;
+
   width: 100%;
 }
+
 .cell {
   height: 118px;
+
   padding: 7px;
+
   overflow: hidden;
+
   background: white;
   color: #1f2937;
+
   border: 2px solid #c7ceca;
   border-radius: 10px;
+
   font: inherit;
   font-weight: 700;
+
   cursor: pointer;
 }
-.cell.done { background: #c8e6c9; color: #176b43; border-color: #176b43; }
-.cell.free { cursor: default; }
-.cell-name { display: block; font-size: 16px; }
-.check { display: block; margin-top: 4px; font-size: 27px; line-height: 29px; }
-.time { display: block; margin-top: 4px; color: #355c46; font-size: 12px; line-height: 1.25; }
-.hint { display: block; margin-top: 8px; color: #667085; font-size: 11px; font-weight: 500; }
-.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
-.action { padding: 12px 8px; border-radius: 10px; font-size: 17px; font-weight: 700; cursor: pointer; }
-.judge { background: #176b43; color: white; border: none; }
-.reset { background: white; color: #c62828; border: 2px solid #c62828; }
+
+.cell.done {
+  background: #c8e6c9;
+
+  color: #176b43;
+
+  border-color: #176b43;
+}
+
+.cell.free {
+  cursor: default;
+}
+
+.cell-name {
+  display: block;
+
+  font-size: 16px;
+}
+
+.check {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 27px;
+
+  line-height: 29px;
+}
+
+.time {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #355c46;
+
+  font-size: 12px;
+
+  line-height: 1.25;
+}
+
+.hint {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #667085;
+
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+
+/* =========================
+   ボタン
+========================= */
+
+.actions {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+.action {
+  padding: 12px 8px;
+
+  border-radius: 10px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.judge {
+  background: #176b43;
+
+  color: white;
+
+  border: none;
+}
+
+.reset {
+  background: white;
+
+  color: #c62828;
+
+  border: 2px solid #c62828;
+}
+
+
+/* =========================
+   状況表示
+========================= */
+
 #status {
   min-height: 54px;
+
   margin-top: 12px;
+
   padding: 13px;
+
   background: white;
+
   border: 2px solid #d1d5db;
   border-radius: 10px;
+
   font-weight: 700;
 }
-#status.ready { background: #e8f5ec; color: #176b43; border-color: #176b43; }
+
+#status.ready {
+  background: #e8f5ec;
+
+  color: #176b43;
+
+  border-color: #176b43;
+}
+
+
+/* =========================
+   使い方
+========================= */
+
 .help {
   margin-top: 12px;
+
   padding: 12px;
+
   background: white;
+
   border-radius: 10px;
+
   font-size: 13px;
+
   line-height: 1.7;
+
   text-align: left;
 }
-.help ol { margin: 5px 0; padding-left: 22px; }
-.small { margin-top: 8px; color: #667085; font-size: 12px; line-height: 1.5; }
+
+.help ol {
+  margin: 5px 0;
+
+  padding-left: 22px;
+}
+
+.small {
+  margin-top: 8px;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   ビンゴ達成画面
+========================= */
+
 .modal {
   position: fixed;
+
   z-index: 10;
+
   inset: 0;
+
   display: none;
+
   align-items: center;
   justify-content: center;
+
   padding: 18px;
-  background: rgba(0, 0, 0, 0.72);
+
+  background:
+    rgba(0, 0, 0, 0.72);
 }
-.modal.show { display: flex; }
-.modal-content { width: min(100%, 500px); padding: 28px 20px; background: white; border-radius: 16px; }
-.modal h2 { margin: 0 0 10px; color: #176b43; font-size: 32px; }
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  width: min(100%, 500px);
+
+  padding: 28px 20px;
+
+  background: white;
+
+  border-radius: 16px;
+}
+
+.modal h2 {
+  margin: 0 0 10px;
+
+  color: #176b43;
+
+  font-size: 32px;
+}
+
 .modal button {
   padding: 12px 25px;
+
   background: #176b43;
+
   color: white;
+
   border: none;
+
   border-radius: 9px;
+
   font-size: 17px;
+
   font-weight: 700;
+
   cursor: pointer;
 }
+
+
+/* =========================
+   スマホ対応
+========================= */
+
 @media (max-width: 390px) {
-  .cell { height: 108px; }
-  .cell-name { font-size: 14px; }
-  .actions { grid-template-columns: 1fr; }
+
+  .cell {
+    height: 108px;
+  }
+
+  .cell-name {
+    font-size: 14px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
 }
+
 </style>
+
 </head>
+
+
 <body>
+
 <main>
-<h1>ビンゴウォーク</h1>
-<p class="park">浜北森林公園</p>
+
+
+<!-- =========================
+     タイトル画像
+========================= -->
+
+<div class="title-image">
+
+  <img
+    src="bingo-title.png"
+    alt="光友会 ビンゴウォーク"
+  >
+
+</div>
+
+
+<!-- =========================
+     注意事項
+========================= -->
+
 <div class="notice">
-  対象物を見つけたら該当マスをタップしてください。<br>
-  タップした時刻がマスに記録されます。<br>
-  次のマスは前回登録から5分後に登録できます。<br>
-  画面操作は必ず立ち止まって行ってください。
+
+  対象物を見つけたら
+  該当マスをタップしてください。
+
+  <br>
+
+  タップした時刻が
+  マスに記録されます。
+
+  <br>
+
+  次のマスは
+  前回登録から5分後に
+  登録できます。
+
+  <br>
+
+  画面操作は必ず
+  立ち止まって行ってください。
+
 </div>
+
+
+<!-- =========================
+     氏名入力
+========================= -->
+
 <div class="team">
-  <label for="team">氏名（受付確認用）</label>
-  <input id="team" type="text" maxlength="30" placeholder="例：氏名を入力してください">
+
+  <label for="team">
+
+    氏名（受付確認用）
+
+  </label>
+
+  <input
+    id="team"
+    type="text"
+    maxlength="30"
+    placeholder="例：氏名を入力してください"
+  >
+
 </div>
-<p class="guide">対象物を見つけたら該当マスをタップ</p>
-<div class="grid" id="grid"></div>
+
+
+<p class="guide">
+
+  対象物を見つけたら
+  該当マスをタップ
+
+</p>
+
+
+<!-- =========================
+     ビンゴマス
+========================= -->
+
+<div
+  class="grid"
+  id="grid"
+></div>
+
+
+<!-- =========================
+     操作ボタン
+========================= -->
+
 <div class="actions">
-  <button type="button" class="action judge" id="judge">ビンゴ判定</button>
-  <button type="button" class="action reset" id="reset">やり直し</button>
+
+  <button
+    type="button"
+    class="action judge"
+    id="judge"
+  >
+
+    ビンゴ判定
+
+  </button>
+
+
+  <button
+    type="button"
+    class="action reset"
+    id="reset"
+  >
+
+    やり直し
+
+  </button>
+
 </div>
-<div id="status" aria-live="polite"></div>
+
+
+<div
+  id="status"
+  aria-live="polite"
+></div>
+
+
+<!-- =========================
+     使い方
+========================= -->
+
 <section class="help">
-  <strong>使い方</strong>
+
+  <strong>
+    使い方
+  </strong>
+
   <ol>
-    <li>対象物を見つけます。</li>
-    <li>該当マスをタップします。</li>
-    <li>マスにチェックと登録時刻が表示されます。</li>
-    <li>次の未登録マスは、前回登録から5分後に登録できます。</li>
-    <li>1列そろったら「ビンゴ判定」を押します。</li>
+
+    <li>
+      対象物を見つけます。
+    </li>
+
+    <li>
+      該当マスをタップします。
+    </li>
+
+    <li>
+      マスにチェックと
+      登録時刻が表示されます。
+    </li>
+
+    <li>
+      次の未登録マスは、
+      前回登録から5分後に
+      登録できます。
+    </li>
+
+    <li>
+      1列そろったら
+      「ビンゴ判定」を押します。
+    </li>
+
   </ol>
+
 </section>
-<p class="small">保存する情報はチーム名と各マスの登録時刻だけです。登録済みマスをタップすると、誤登録を取り消せます。</p>
+
+
+<p class="small">
+
+  保存する情報は
+  氏名と各マスの登録時刻だけです。
+
+  <br>
+
+  登録済みマスをタップすると、
+  誤登録を取り消せます。
+
+</p>
+
+
 </main>
-<div class="modal" id="modal">
+
+
+<!-- =========================
+     ビンゴ達成画面
+========================= -->
+
+<div
+  class="modal"
+  id="modal"
+>
+
   <div class="modal-content">
-    <h2>🎉 ビンゴ達成！</h2>
+
+    <h2>
+      🎉 ビンゴ達成！
+    </h2>
+
     <h3 id="modalTeam"></h3>
+
     <p id="completedAt"></p>
+
     <p id="elapsedTime"></p>
-    <p>この画面を受付スタッフへ見せてください。</p>
-    <button type="button" id="close">台紙に戻る</button>
+
+    <p>
+
+      この画面を
+      受付スタッフへ
+      見せてください。
+
+    </p>
+
+    <button
+      type="button"
+      id="close"
+    >
+
+      台紙に戻る
+
+    </button>
+
   </div>
+
 </div>
+
+
 <script>
+
 "use strict";
-const items = ["川", "自販機", "展望台", "吊り橋", "FREE", "池", "遊具", "看板", "森の家"];
-const winningLines = [
-  [0,1,2], [3,4,5], [6,7,8],
-  [0,3,6], [1,4,7], [2,5,8],
-  [0,4,8], [2,4,6]
+
+
+/* =========================
+   ビンゴ項目
+========================= */
+
+const items = [
+
+  "川",
+
+  "自販機",
+
+  "展望台",
+
+  "吊り橋",
+
+  "FREE",
+
+  "池",
+
+  "遊具",
+
+  "看板",
+
+  "森の家"
+
 ];
+
+
+/* =========================
+   ビンゴ成立パターン
+========================= */
+
+const winningLines = [
+
+  [0, 1, 2],
+
+  [3, 4, 5],
+
+  [6, 7, 8],
+
+  [0, 3, 6],
+
+  [1, 4, 7],
+
+  [2, 5, 8],
+
+  [0, 4, 8],
+
+  [2, 4, 6]
+
+];
+
+
+/* =========================
+   登録間隔
+========================= */
+
 const WAIT_MINUTES = 5;
-const WAIT_MS = WAIT_MINUTES * 60 * 1000;
-const STORAGE_KEY = "bingoTapTimesV3";
-const TEAM_KEY = "runningClubTeamName";
-const grid = document.getElementById("grid");
-const team = document.getElementById("team");
-const statusArea = document.getElementById("status");
-const modal = document.getElementById("modal");
-let tapTimes = loadTimes();
-let timerId = null;
- 
+
+const WAIT_MS =
+  WAIT_MINUTES *
+  60 *
+  1000;
+
+
+/* =========================
+   保存キー
+========================= */
+
+const STORAGE_KEY =
+  "bingoTapTimesV3";
+
+const NAME_KEY =
+  "bingoParticipantName";
+
+
+/* =========================
+   HTML要素
+========================= */
+
+const grid =
+  document.getElementById(
+    "grid"
+  );
+
+const nameInput =
+  document.getElementById(
+    "team"
+  );
+
+const statusArea =
+  document.getElementById(
+    "status"
+  );
+
+const modal =
+  document.getElementById(
+    "modal"
+  );
+
+
+let tapTimes =
+  loadTimes();
+
+let timerId =
+  null;
+
+
+/* =========================
+   登録時刻読み込み
+========================= */
+
 function loadTimes() {
+
   try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    return saved && typeof saved === "object" ? saved : {};
-  } catch (error) {
+
+    const saved =
+      JSON.parse(
+
+        localStorage.getItem(
+          STORAGE_KEY
+        ) || "{}"
+
+      );
+
+    return (
+      saved &&
+      typeof saved === "object"
+    )
+      ? saved
+      : {};
+
+  }
+  catch (error) {
+
     return {};
+
   }
+
 }
+
+
+/* =========================
+   登録時刻保存
+========================= */
+
 function saveTimes() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(tapTimes));
+
+  localStorage.setItem(
+
+    STORAGE_KEY,
+
+    JSON.stringify(
+      tapTimes
+    )
+
+  );
+
 }
+
+
+/* =========================
+   HTML安全表示
+========================= */
+
 function escapeHtml(value) {
+
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
 }
+
+
+/* =========================
+   日時表示
+========================= */
+
 function formatDateTime(iso) {
-  return new Intl.DateTimeFormat("ja-JP", {
-    month: "2-digit", day: "2-digit", hour: "2-digit",
-    minute: "2-digit", second: "2-digit", hour12: false
-  }).format(new Date(iso));
+
+  return new Intl.DateTimeFormat(
+
+    "ja-JP",
+
+    {
+
+      month:
+        "2-digit",
+
+      day:
+        "2-digit",
+
+      hour:
+        "2-digit",
+
+      minute:
+        "2-digit",
+
+      second:
+        "2-digit",
+
+      hour12:
+        false
+
+    }
+
+  ).format(
+
+    new Date(iso)
+
+  );
+
 }
+
+
+/* =========================
+   登録日時一覧
+========================= */
+
 function getRecordedDates() {
-  return Object.values(tapTimes)
-    .map(value => new Date(value))
-    .filter(date => !Number.isNaN(date.getTime()));
+
+  return Object.values(
+    tapTimes
+  )
+
+  .map(
+
+    value =>
+      new Date(value)
+
+  )
+
+  .filter(
+
+    date =>
+      !Number.isNaN(
+        date.getTime()
+      )
+
+  );
+
 }
+
+
+/* =========================
+   最終登録時刻
+========================= */
+
 function getLatestTimeMs() {
-  const dates = getRecordedDates();
-  return dates.length ? Math.max(...dates.map(date => date.getTime())) : null;
+
+  const dates =
+    getRecordedDates();
+
+  if (
+    dates.length === 0
+  ) {
+
+    return null;
+
+  }
+
+  return Math.max(
+
+    ...dates.map(
+
+      date =>
+        date.getTime()
+
+    )
+
+  );
+
 }
+
+
+/* =========================
+   次回登録までの残り時間
+========================= */
+
 function getRemainingMs() {
-  const latest = getLatestTimeMs();
-  if (latest === null) return 0;
-  return Math.max(0, WAIT_MS - (Date.now() - latest));
+
+  const latest =
+    getLatestTimeMs();
+
+  if (
+    latest === null
+  ) {
+
+    return 0;
+
+  }
+
+  return Math.max(
+
+    0,
+
+    WAIT_MS -
+    (
+      Date.now() -
+      latest
+    )
+
+  );
+
 }
+
+
+/* =========================
+   残り時間表示
+========================= */
+
 function formatRemaining(ms) {
-  const totalSeconds = Math.ceil(ms / 1000);
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  return `${minutes}分${String(seconds).padStart(2, "0")}秒`;
+
+  const totalSeconds =
+    Math.ceil(
+      ms / 1000
+    );
+
+  const minutes =
+    Math.floor(
+      totalSeconds / 60
+    );
+
+  const seconds =
+    totalSeconds % 60;
+
+  return (
+    minutes +
+    "分" +
+    String(seconds)
+      .padStart(
+        2,
+        "0"
+      ) +
+    "秒"
+  );
+
 }
+
+
+/* =========================
+   マス状態
+========================= */
+
 function completedState() {
-  return items.map((_, index) => index === 4 || Boolean(tapTimes[index]));
+
+  return items.map(
+
+    function (
+      item,
+      index
+    ) {
+
+      return (
+
+        index === 4 ||
+
+        Boolean(
+          tapTimes[index]
+        )
+
+      );
+
+    }
+
+  );
+
 }
+
+
+/* =========================
+   ビンゴ判定
+========================= */
+
 function isBingo() {
-  const state = completedState();
-  return winningLines.some(line => line.every(index => state[index]));
+
+  const state =
+    completedState();
+
+  return winningLines.some(
+
+    function (line) {
+
+      return line.every(
+
+        function (index) {
+
+          return state[index];
+
+        }
+
+      );
+
+    }
+
+  );
+
 }
+
+
+/* =========================
+   マス表示
+========================= */
+
 function render() {
+
   grid.innerHTML = "";
-  items.forEach((item, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    const done = index === 4 || Boolean(tapTimes[index]);
-    button.className = "cell" + (done ? " done" : "") + (index === 4 ? " free" : "");
-    if (index === 4) {
-      button.innerHTML = '<span class="cell-name">FREE</span><span class="check">✓</span>';
-      button.setAttribute("aria-label", "FREEマス");
-    } else if (tapTimes[index]) {
-      button.innerHTML =
-        '<span class="cell-name">' + escapeHtml(item) + '</span>' +
-        '<span class="check">✓</span>' +
-        '<span class="time">' + escapeHtml(formatDateTime(tapTimes[index])) + '</span>' +
-        '<span class="hint">タップで登録取消</span>';
-      button.addEventListener("click", () => removeRegistration(index));
-    } else {
-      button.innerHTML =
-        '<span class="cell-name">' + escapeHtml(item) + '</span>' +
-        '<span class="hint">見つけたらタップ</span>';
-      button.addEventListener("click", () => registerTime(index));
+
+
+  items.forEach(
+
+    function (
+      item,
+      index
+    ) {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+
+      button.type =
+        "button";
+
+
+      const done =
+
+        index === 4 ||
+
+        Boolean(
+          tapTimes[index]
+        );
+
+
+      button.className =
+
+        "cell" +
+
+        (
+          done
+          ? " done"
+          : ""
+        ) +
+
+        (
+          index === 4
+          ? " free"
+          : ""
+        );
+
+
+      /* FREE */
+
+      if (
+        index === 4
+      ) {
+
+        button.innerHTML =
+
+          '<span class="cell-name">' +
+
+          "FREE" +
+
+          "</span>" +
+
+          '<span class="check">' +
+
+          "✓" +
+
+          "</span>";
+
+
+        button.setAttribute(
+
+          "aria-label",
+
+          "FREEマス"
+
+        );
+
+      }
+
+
+      /* 登録済 */
+
+      else if (
+        tapTimes[index]
+      ) {
+
+        button.innerHTML =
+
+          '<span class="cell-name">' +
+
+          escapeHtml(
+            item
+          ) +
+
+          "</span>" +
+
+          '<span class="check">' +
+
+          "✓" +
+
+          "</span>" +
+
+          '<span class="time">' +
+
+          escapeHtml(
+
+            formatDateTime(
+              tapTimes[index]
+            )
+
+          ) +
+
+          "</span>" +
+
+          '<span class="hint">' +
+
+          "タップで登録取消" +
+
+          "</span>";
+
+
+        button.addEventListener(
+
+          "click",
+
+          function () {
+
+            removeRegistration(
+              index
+            );
+
+          }
+
+        );
+
+      }
+
+
+      /* 未登録 */
+
+      else {
+
+        button.innerHTML =
+
+          '<span class="cell-name">' +
+
+          escapeHtml(
+            item
+          ) +
+
+          "</span>" +
+
+          '<span class="hint">' +
+
+          "見つけたらタップ" +
+
+          "</span>";
+
+
+        button.addEventListener(
+
+          "click",
+
+          function () {
+
+            registerTime(
+              index
+            );
+
+          }
+
+        );
+
+      }
+
+
+      grid.appendChild(
+        button
+      );
+
     }
-    grid.appendChild(button);
-  });
+
+  );
+
+
   updateStatus();
+
 }
+
+
+/* =========================
+   マス登録
+========================= */
+
 function registerTime(index) {
-  const remaining = getRemainingMs();
-  if (remaining > 0) {
-    alert("次のマスを登録できるまで、あと " + formatRemaining(remaining) + " です。");
+
+  const remaining =
+    getRemainingMs();
+
+
+  if (
+    remaining > 0
+  ) {
+
+    alert(
+
+      "次のマスを登録できるまで、あと " +
+
+      formatRemaining(
+        remaining
+      ) +
+
+      " です。"
+
+    );
+
     return;
+
   }
-  tapTimes[index] = new Date().toISOString();
+
+
+  tapTimes[index] =
+    new Date()
+      .toISOString();
+
+
   saveTimes();
+
   render();
+
   startCountdown();
+
 }
-function removeRegistration(index) {
-  const ok = confirm(items[index] + " の登録を取り消しますか？");
-  if (!ok) return;
+
+
+/* =========================
+   登録取消
+========================= */
+
+function removeRegistration(
+  index
+) {
+
+  const ok =
+    confirm(
+
+      items[index] +
+
+      " の登録を取り消しますか？"
+
+    );
+
+
+  if (!ok) {
+
+    return;
+
+  }
+
+
   delete tapTimes[index];
+
+
   saveTimes();
+
   render();
+
   startCountdown();
+
 }
+
+
+/* =========================
+   状況表示
+========================= */
+
 function updateStatus() {
-  const count = Object.keys(tapTimes).length;
-  const remaining = getRemainingMs();
-  if (isBingo()) {
-    statusArea.className = "ready";
-    statusArea.textContent = "🎉 1列そろっています。ビンゴ判定を押してください。";
-  } else if (remaining > 0) {
-    statusArea.className = "";
-    statusArea.textContent = "発見記録：" + count + " / 8マス　次の登録まで " + formatRemaining(remaining);
-  } else {
-    statusArea.className = "";
-    statusArea.textContent = "発見記録：" + count + " / 8マス　次のマスを登録できます。";
+
+  const count =
+    Object.keys(
+      tapTimes
+    ).length;
+
+
+  const remaining =
+    getRemainingMs();
+
+
+  if (
+    isBingo()
+  ) {
+
+    statusArea.className =
+      "ready";
+
+
+    statusArea.textContent =
+
+      "🎉 1列そろっています。" +
+
+      "ビンゴ判定を押してください。";
+
   }
+
+
+  else if (
+    remaining > 0
+  ) {
+
+    statusArea.className =
+      "";
+
+
+    statusArea.textContent =
+
+      "発見記録：" +
+
+      count +
+
+      " / 8マス　次の登録まで " +
+
+      formatRemaining(
+        remaining
+      );
+
+  }
+
+
+  else {
+
+    statusArea.className =
+      "";
+
+
+    statusArea.textContent =
+
+      "発見記録：" +
+
+      count +
+
+      " / 8マス　" +
+
+      "次のマスを登録できます。";
+
+  }
+
 }
+
+
+/* =========================
+   カウントダウン
+========================= */
+
 function startCountdown() {
-  if (timerId !== null) clearInterval(timerId);
-  updateStatus();
-  timerId = setInterval(() => {
-    updateStatus();
-    if (getRemainingMs() <= 0) {
-      clearInterval(timerId);
-      timerId = null;
-    }
-  }, 1000);
-}
-function getElapsedText() {
-  const dates = getRecordedDates().sort((a, b) => a - b);
-  if (dates.length < 2) return "登録所要時間：算出対象が1件以下です。";
-  const ms = dates[dates.length - 1] - dates[0];
-  const minutes = Math.floor(ms / 60000);
-  const seconds = Math.floor((ms % 60000) / 1000);
-  return `最初から最後の登録まで：${minutes}分${String(seconds).padStart(2, "0")}秒`;
-}
-team.value = localStorage.getItem(TEAM_KEY) || "";
-team.addEventListener("input", () => localStorage.setItem(TEAM_KEY, team.value));
-document.getElementById("judge").addEventListener("click", () => {
-  if (!isBingo()) {
-    statusArea.className = "";
-    statusArea.textContent = "まだビンゴではありません。発見記録を追加してください。";
-    return;
+
+  if (
+    timerId !== null
+  ) {
+
+    clearInterval(
+      timerId
+    );
+
   }
-  document.getElementById("modalTeam").textContent = team.value.trim() || "ランニングクラブチーム";
-  document.getElementById("completedAt").textContent = "確認日時：" + formatDateTime(new Date().toISOString());
-  document.getElementById("elapsedTime").textContent = getElapsedText();
-  modal.classList.add("show");
-});
-document.getElementById("close").addEventListener("click", () => modal.classList.remove("show"));
-document.getElementById("reset").addEventListener("click", () => {
-  if (!confirm("登録時刻とチーム名をすべて消去しますか？")) return;
-  tapTimes = {};
-  team.value = "";
-  localStorage.removeItem(STORAGE_KEY);
-  localStorage.removeItem(TEAM_KEY);
-  render();
-  startCountdown();
-});
+
+
+  updateStatus();
+
+
+  timerId =
+    setInterval(
+
+      function () {
+
+        updateStatus();
+
+
+        if (
+          getRemainingMs() <= 0
+        ) {
+
+          clearInterval(
+            timerId
+          );
+
+          timerId =
+            null;
+
+        }
+
+      },
+
+      1000
+
+    );
+
+}
+
+
+/* =========================
+   所要時間
+========================= */
+
+function getElapsedText() {
+
+  const dates =
+    getRecordedDates()
+      .sort(
+        function (
+          a,
+          b
+        ) {
+
+          return a - b;
+
+        }
+      );
+
+
+  if (
+    dates.length < 2
+  ) {
+
+    return (
+      "登録所要時間：" +
+      "算出対象が1件以下です。"
+    );
+
+  }
+
+
+  const ms =
+
+    dates[
+      dates.length - 1
+    ] -
+
+    dates[0];
+
+
+  const minutes =
+    Math.floor(
+      ms / 60000
+    );
+
+
+  const seconds =
+    Math.floor(
+
+      (
+        ms % 60000
+      ) / 1000
+
+    );
+
+
+  return (
+
+    "最初から最後の登録まで：" +
+
+    minutes +
+
+    "分" +
+
+    String(seconds)
+      .padStart(
+        2,
+        "0"
+      ) +
+
+    "秒"
+
+  );
+
+}
+
+
+/* =========================
+   氏名保存
+========================= */
+
+nameInput.value =
+
+  localStorage.getItem(
+    NAME_KEY
+  ) || "";
+
+
+nameInput.addEventListener(
+
+  "input",
+
+  function () {
+
+    localStorage.setItem(
+
+      NAME_KEY,
+
+      nameInput.value
+
+    );
+
+  }
+
+);
+
+
+/* =========================
+   ビンゴ判定ボタン
+========================= */
+
+document
+  .getElementById(
+    "judge"
+  )
+  .addEventListener(
+
+    "click",
+
+    function () {
+
+
+      if (
+        !isBingo()
+      ) {
+
+        statusArea.className =
+          "";
+
+
+        statusArea.textContent =
+
+          "まだビンゴではありません。" +
+
+          "発見記録を追加してください。";
+
+
+        return;
+
+      }
+
+
+      document
+        .getElementById(
+          "modalTeam"
+        )
+        .textContent =
+
+        nameInput.value.trim() ||
+
+        "氏名未入力";
+
+
+      document
+        .getElementById(
+          "completedAt"
+        )
+        .textContent =
+
+        "確認日時：" +
+
+        formatDateTime(
+
+          new Date()
+            .toISOString()
+
+        );
+
+
+      document
+        .getElementById(
+          "elapsedTime"
+        )
+        .textContent =
+
+        getElapsedText();
+
+
+      modal.classList.add(
+        "show"
+      );
+
+    }
+
+  );
+
+
+/* =========================
+   達成画面を閉じる
+========================= */
+
+document
+  .getElementById(
+    "close"
+  )
+  .addEventListener(
+
+    "click",
+
+    function () {
+
+      modal.classList.remove(
+        "show"
+      );
+
+    }
+
+  );
+
+
+/* =========================
+   やり直し
+========================= */
+
+document
+  .getElementById(
+    "reset"
+  )
+  .addEventListener(
+
+    "click",
+
+    function () {
+
+
+      const ok =
+        confirm(
+
+          "登録時刻と氏名を" +
+          "すべて消去しますか？"
+
+        );
+
+
+      if (!ok) {
+
+        return;
+
+      }
+
+
+      tapTimes = {};
+
+
+      nameInput.value =
+        "";
+
+
+      localStorage.removeItem(
+        STORAGE_KEY
+      );
+
+
+      localStorage.removeItem(
+        NAME_KEY
+      );
+
+
+      render();
+
+      startCountdown();
+
+    }
+
+  );
+
+
+/* =========================
+   初期表示
+========================= */
+
 render();
+
 startCountdown();
+
 </script>
+
 </body>
+
 </html>
