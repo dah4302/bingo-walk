@@ -25,26 +25,32 @@ body {
   padding: 10px;
   background: #f5f7f5;
   color: #1f2937;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     "Noto Sans JP",
     sans-serif;
+
   text-align: center;
+
+  -webkit-text-size-adjust: 100%;
 }
 
 main {
-  width: min(100%, 620px);
+  width: 100%;
+  max-width: 620px;
   margin: 0 auto;
 }
 
 
-/* タイトル画像 */
+/* =========================
+   タイトル画像
+========================= */
 
 .title-image {
   width: 100%;
-  max-width: 620px;
   margin: 0 auto 12px;
 }
 
@@ -56,67 +62,117 @@ main {
 }
 
 
-/* 注意事項 */
+/* =========================
+   注意事項
+========================= */
 
 .notice {
-  margin-bottom: 10px;
-  padding: 11px;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+
   background: #fff4d8;
+
   border: 2px solid #f4a024;
   border-radius: 10px;
+
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.55;
+  line-height: 1.8;
+
+  text-align: left;
+
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.notice p {
+  margin: 0 0 6px;
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
 }
 
 
-/* 氏名入力 */
+/* =========================
+   氏名入力
+========================= */
 
 .team {
-  margin-bottom: 12px;
-  padding: 12px;
+  margin-bottom: 14px;
+  padding: 13px;
+
   background: white;
+
   border-radius: 10px;
 }
 
 .team label {
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
+
+  font-size: 16px;
   font-weight: 700;
 }
 
 .team input {
   width: 100%;
+
   padding: 11px;
+
   border: 1px solid #9ca3af;
   border-radius: 8px;
+
   font-size: 16px;
 }
 
 
-/* ビンゴ */
+/* =========================
+   案内
+========================= */
 
 .guide {
-  margin: 10px 0;
+  margin: 14px 0 12px;
+
+  font-size: 16px;
   font-weight: 700;
+
+  line-height: 1.5;
 }
+
+
+/* =========================
+   ビンゴマス
+========================= */
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   gap: 8px;
+
   width: 100%;
 }
 
 .cell {
-  height: 118px;
-  padding: 7px;
+  min-width: 0;
+  height: 112px;
+
+  padding: 6px 3px;
+
   overflow: hidden;
+
   background: white;
   color: #1f2937;
+
   border: 2px solid #c7ceca;
   border-radius: 10px;
+
   font: inherit;
   font-weight: 700;
+
   cursor: pointer;
 }
 
@@ -132,134 +188,237 @@ main {
 
 .cell-name {
   display: block;
-  font-size: 16px;
+
+  font-size: 15px;
+
+  white-space: nowrap;
 }
 
 .check {
   display: block;
+
   margin-top: 4px;
-  font-size: 27px;
-  line-height: 29px;
+
+  font-size: 25px;
+  line-height: 28px;
 }
 
 .time {
   display: block;
-  margin-top: 4px;
+
+  margin-top: 3px;
+
   color: #355c46;
-  font-size: 12px;
+
+  font-size: 11px;
   line-height: 1.25;
+
+  white-space: nowrap;
 }
 
 .hint {
   display: block;
+
   margin-top: 8px;
+
   color: #667085;
-  font-size: 11px;
+
+  font-size: 10px;
   font-weight: 500;
+
+  white-space: nowrap;
 }
 
 
-/* 操作ボタン */
+/* =========================
+   ボタン
+========================= */
 
 .actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 12px;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 9px;
+
+  margin-top: 14px;
 }
 
 .action {
-  padding: 12px 8px;
+  min-height: 50px;
+
+  padding: 11px 8px;
+
   border-radius: 10px;
+
   font-size: 17px;
   font-weight: 700;
+
   cursor: pointer;
 }
 
 .judge {
   background: #176b43;
   color: white;
+
   border: none;
 }
 
 .reset {
   background: white;
   color: #c62828;
+
   border: 2px solid #c62828;
 }
 
 
-/* 状況表示 */
+/* =========================
+   発見記録
+========================= */
 
 #status {
-  min-height: 54px;
+  min-height: 58px;
+
   margin-top: 12px;
-  padding: 13px;
+  padding: 11px 12px;
+
   background: white;
+
   border: 2px solid #d1d5db;
   border-radius: 10px;
+
+  font-size: 14px;
   font-weight: 700;
+  line-height: 1.55;
+
+  text-align: center;
 }
 
 #status.ready {
   background: #e8f5ec;
+
   color: #176b43;
+
   border-color: #176b43;
 }
 
+.status-main,
+.status-sub {
+  display: block;
+}
 
-/* 使い方 */
+.status-sub {
+  margin-top: 2px;
+}
+
+
+/* =========================
+   使い方
+========================= */
 
 .help {
   margin-top: 12px;
-  padding: 12px;
+
+  padding: 13px 15px;
+
   background: white;
+
   border-radius: 10px;
+
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 1.75;
+
   text-align: left;
 }
 
-.help ol {
-  margin: 5px 0;
-  padding-left: 22px;
+.help strong {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 15px;
 }
+
+.help ol {
+  margin: 4px 0 0;
+  padding-left: 23px;
+}
+
+.help li {
+  margin-bottom: 3px;
+}
+
+.help li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   保存情報
+========================= */
 
 .small {
-  margin-top: 8px;
+  margin: 10px auto 0;
+
+  padding: 0 4px;
+
   color: #667085;
+
   font-size: 12px;
-  line-height: 1.5;
-}
+  line-height: 1.65;
 
-
-/* 緊急連絡先 */
-
-.emergency-contact {
-  margin-top: 18px;
-  margin-bottom: 12px;
-  padding: 14px 10px;
-  background: #fff4d8;
-  color: #c62828;
-  border: 2px solid #f4a024;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 700;
   text-align: center;
 }
 
 
-/* ビンゴ達成画面 */
+/* =========================
+   緊急連絡先
+========================= */
+
+.emergency-contact {
+  margin-top: 16px;
+  margin-bottom: 12px;
+
+  padding: 13px 8px;
+
+  background: #fff4d8;
+  color: #c62828;
+
+  border: 2px solid #f4a024;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
+
+  text-align: center;
+}
+
+.emergency-number {
+  white-space: nowrap;
+}
+
+
+/* =========================
+   ビンゴ達成画面
+========================= */
 
 .modal {
   position: fixed;
+
   z-index: 10;
+
   inset: 0;
+
   display: none;
+
   align-items: center;
   justify-content: center;
+
   padding: 18px;
-  background: rgba(0, 0, 0, 0.72);
+
+  background:
+    rgba(0, 0, 0, 0.72);
 }
 
 .modal.show {
@@ -268,43 +427,157 @@ main {
 
 .modal-content {
   width: min(100%, 500px);
+
   padding: 28px 20px;
+
   background: white;
+
   border-radius: 16px;
 }
 
 .modal h2 {
   margin: 0 0 10px;
+
   color: #176b43;
-  font-size: 32px;
+
+  font-size: 30px;
 }
 
 .modal button {
   padding: 12px 25px;
+
   background: #176b43;
   color: white;
+
   border: none;
   border-radius: 9px;
+
   font-size: 17px;
   font-weight: 700;
+
   cursor: pointer;
 }
 
 
-/* スマホ対応 */
+/* =========================
+   スマホ表示
+========================= */
 
-@media (max-width: 390px) {
+@media (max-width: 430px) {
+
+  body {
+    padding: 8px;
+  }
+
+  .title-image {
+    margin-bottom: 10px;
+  }
+
+  .notice {
+    padding: 11px 13px;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .team {
+    padding: 11px;
+  }
+
+  .team label {
+    font-size: 15px;
+  }
+
+  .guide {
+    font-size: 15px;
+  }
+
+  .grid {
+    gap: 7px;
+  }
 
   .cell {
-    height: 108px;
+    height: 103px;
+    padding: 5px 2px;
   }
 
   .cell-name {
     font-size: 14px;
   }
 
+  .check {
+    font-size: 23px;
+    line-height: 25px;
+  }
+
+  .time {
+    font-size: 10px;
+  }
+
+  .hint {
+    margin-top: 7px;
+    font-size: 9px;
+  }
+
   .actions {
     grid-template-columns: 1fr;
+  }
+
+  .action {
+    font-size: 16px;
+  }
+
+  #status {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .help {
+    padding: 12px;
+
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .help strong {
+    font-size: 14px;
+  }
+
+  .small {
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .emergency-contact {
+    padding: 11px 5px;
+
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+}
+
+
+/* =========================
+   小さいスマホ
+========================= */
+
+@media (max-width: 350px) {
+
+  .cell-name {
+    font-size: 13px;
+  }
+
+  .hint {
+    font-size: 8px;
+  }
+
+  .notice {
+    font-size: 13px;
+  }
+
+  .emergency-contact {
+    font-size: 11px;
   }
 
 }
@@ -313,12 +586,15 @@ main {
 
 </head>
 
+
 <body>
 
 <main>
 
 
-<!-- タイトル画像 -->
+<!-- =========================
+     タイトル画像
+========================= -->
 
 <div class="title-image">
 
@@ -330,33 +606,34 @@ main {
 </div>
 
 
-<!-- 注意事項 -->
+<!-- =========================
+     注意事項
+========================= -->
 
 <div class="notice">
 
-  対象物を見つけたら
-  該当マスをタップしてください。
+  <p>
+    対象物を見つけたら該当マスをタップしてください。
+  </p>
 
-  <br>
+  <p>
+    タップした時刻がマスに記録されます。
+  </p>
 
-  タップした時刻が
-  マスに記録されます。
+  <p>
+    次のマスは前回登録から5分後に登録できます。
+  </p>
 
-  <br>
-
-  次のマスは
-  前回登録から5分後に
-  登録できます。
-
-  <br>
-
-  画面操作は必ず
-  立ち止まって行ってください。
+  <p>
+    画面操作は必ず立ち止まって行ってください。
+  </p>
 
 </div>
 
 
-<!-- 氏名入力 -->
+<!-- =========================
+     氏名
+========================= -->
 
 <div class="team">
 
@@ -375,14 +652,13 @@ main {
 
 
 <p class="guide">
-
-  対象物を見つけたら
-  該当マスをタップ
-
+  対象物を見つけたら該当マスをタップ
 </p>
 
 
-<!-- ビンゴマス -->
+<!-- =========================
+     ビンゴ
+========================= -->
 
 <div
   class="grid"
@@ -390,7 +666,9 @@ main {
 ></div>
 
 
-<!-- 操作ボタン -->
+<!-- =========================
+     操作
+========================= -->
 
 <div class="actions">
 
@@ -419,7 +697,9 @@ main {
 ></div>
 
 
-<!-- 使い方 -->
+<!-- =========================
+     使い方
+========================= -->
 
 <section class="help">
 
@@ -442,13 +722,11 @@ main {
     </li>
 
     <li>
-      次の未登録マスは、
-      前回登録から5分後に登録できます。
+      次の未登録マスは、前回登録から5分後に登録できます。
     </li>
 
     <li>
-      1列そろったら
-      「ビンゴ判定」を押します。
+      1列そろったら「ビンゴ判定」を押します。
     </li>
 
   </ol>
@@ -456,24 +734,29 @@ main {
 </section>
 
 
+<!-- =========================
+     保存情報
+========================= -->
+
 <p class="small">
 
-  保存する情報は
-  氏名と各マスの登録時刻だけです。
-
-  <br>
-
-  登録済みマスをタップすると、
-  誤登録を取り消せます。
+  保存する情報は氏名と各マスの登録時刻だけです。
+  登録済みマスをタップすると、誤登録を取り消せます。
 
 </p>
 
 
-<!-- 緊急連絡先 -->
+<!-- =========================
+     緊急連絡先
+========================= -->
 
 <div class="emergency-contact">
 
-  緊急連絡先：090-9662-9023（光友会携帯電話）
+  緊急連絡先：
+  <span class="emergency-number">
+    090-9662-9023
+  </span>
+  （光友会携帯電話）
 
 </div>
 
@@ -481,7 +764,9 @@ main {
 </main>
 
 
-<!-- ビンゴ達成画面 -->
+<!-- =========================
+     ビンゴ達成画面
+========================= -->
 
 <div
   class="modal"
@@ -501,8 +786,7 @@ main {
     <p id="elapsedTime"></p>
 
     <p>
-      この画面を受付スタッフへ
-      見せてください。
+      この画面を受付スタッフへ見せてください。
     </p>
 
     <button
@@ -522,7 +806,9 @@ main {
 "use strict";
 
 
-/* ビンゴ項目 */
+/* =========================
+   ビンゴ項目
+========================= */
 
 const items = [
   "川",
@@ -537,21 +823,34 @@ const items = [
 ];
 
 
-/* ビンゴ成立パターン */
+/* =========================
+   ビンゴ成立パターン
+========================= */
 
 const winningLines = [
+
   [0, 1, 2],
+
   [3, 4, 5],
+
   [6, 7, 8],
+
   [0, 3, 6],
+
   [1, 4, 7],
+
   [2, 5, 8],
+
   [0, 4, 8],
+
   [2, 4, 6]
+
 ];
 
 
-/* 登録間隔 */
+/* =========================
+   登録間隔
+========================= */
 
 const WAIT_MINUTES = 5;
 
@@ -561,7 +860,9 @@ const WAIT_MS =
   1000;
 
 
-/* 保存キー */
+/* =========================
+   保存キー
+========================= */
 
 const STORAGE_KEY =
   "bingoTapTimesV3";
@@ -570,19 +871,29 @@ const NAME_KEY =
   "bingoParticipantName";
 
 
-/* HTML要素 */
+/* =========================
+   HTML要素
+========================= */
 
 const grid =
-  document.getElementById("grid");
+  document.getElementById(
+    "grid"
+  );
 
 const nameInput =
-  document.getElementById("team");
+  document.getElementById(
+    "team"
+  );
 
 const statusArea =
-  document.getElementById("status");
+  document.getElementById(
+    "status"
+  );
 
 const modal =
-  document.getElementById("modal");
+  document.getElementById(
+    "modal"
+  );
 
 
 let tapTimes =
@@ -592,7 +903,9 @@ let timerId =
   null;
 
 
-/* 登録時刻読み込み */
+/* =========================
+   登録時刻読み込み
+========================= */
 
 function loadTimes() {
 
@@ -600,10 +913,13 @@ function loadTimes() {
 
     const saved =
       JSON.parse(
+
         localStorage.getItem(
           STORAGE_KEY
         ) || "{}"
+
       );
+
 
     return (
       saved &&
@@ -613,6 +929,7 @@ function loadTimes() {
       : {};
 
   }
+
   catch (error) {
 
     return {};
@@ -622,21 +939,28 @@ function loadTimes() {
 }
 
 
-/* 登録時刻保存 */
+/* =========================
+   登録時刻保存
+========================= */
 
 function saveTimes() {
 
   localStorage.setItem(
+
     STORAGE_KEY,
+
     JSON.stringify(
       tapTimes
     )
+
   );
 
 }
 
 
-/* HTML安全表示 */
+/* =========================
+   HTML安全表示
+========================= */
 
 function escapeHtml(value) {
 
@@ -670,28 +994,50 @@ function escapeHtml(value) {
 }
 
 
-/* 日時表示 */
+/* =========================
+   日時
+========================= */
 
 function formatDateTime(iso) {
 
   return new Intl.DateTimeFormat(
+
     "ja-JP",
+
     {
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false
+
+      month:
+        "2-digit",
+
+      day:
+        "2-digit",
+
+      hour:
+        "2-digit",
+
+      minute:
+        "2-digit",
+
+      second:
+        "2-digit",
+
+      hour12:
+        false
+
     }
+
   ).format(
+
     new Date(iso)
+
   );
 
 }
 
 
-/* 登録日時一覧 */
+/* =========================
+   登録済日時
+========================= */
 
 function getRecordedDates() {
 
@@ -700,26 +1046,33 @@ function getRecordedDates() {
   )
 
     .map(
+
       value =>
         new Date(value)
+
     )
 
     .filter(
+
       date =>
         !Number.isNaN(
           date.getTime()
         )
+
     );
 
 }
 
 
-/* 最終登録時刻 */
+/* =========================
+   最終登録
+========================= */
 
 function getLatestTimeMs() {
 
   const dates =
     getRecordedDates();
+
 
   if (
     dates.length === 0
@@ -729,22 +1082,30 @@ function getLatestTimeMs() {
 
   }
 
+
   return Math.max(
+
     ...dates.map(
+
       date =>
         date.getTime()
+
     )
+
   );
 
 }
 
 
-/* 次回登録までの残り時間 */
+/* =========================
+   残り時間
+========================= */
 
 function getRemainingMs() {
 
   const latest =
     getLatestTimeMs();
+
 
   if (
     latest === null
@@ -754,19 +1115,25 @@ function getRemainingMs() {
 
   }
 
+
   return Math.max(
+
     0,
+
     WAIT_MS -
     (
       Date.now() -
       latest
     )
+
   );
 
 }
 
 
-/* 残り時間表示 */
+/* =========================
+   残り時間表示
+========================= */
 
 function formatRemaining(ms) {
 
@@ -775,82 +1142,109 @@ function formatRemaining(ms) {
       ms / 1000
     );
 
+
   const minutes =
     Math.floor(
       totalSeconds / 60
     );
 
+
   const seconds =
     totalSeconds % 60;
 
+
   return (
+
     minutes +
+
     "分" +
+
     String(seconds)
       .padStart(
         2,
         "0"
       ) +
+
     "秒"
+
   );
 
 }
 
 
-/* マス状態 */
+/* =========================
+   マス状態
+========================= */
 
 function completedState() {
 
   return items.map(
+
     function (
       item,
       index
     ) {
 
       return (
+
         index === 4 ||
+
         Boolean(
           tapTimes[index]
         )
+
       );
 
     }
+
   );
 
 }
 
 
-/* ビンゴ判定 */
+/* =========================
+   ビンゴ判定
+========================= */
 
 function isBingo() {
 
   const state =
     completedState();
 
+
   return winningLines.some(
+
     function (line) {
 
       return line.every(
+
         function (index) {
 
           return state[index];
 
         }
+
       );
 
     }
+
   );
 
 }
 
 
-/* マス表示 */
+/* =========================
+   マス表示
+========================= */
 
 function render() {
 
-  grid.innerHTML = "";
+  grid.innerHTML =
+    "";
+
 
   items.forEach(
+
     function (
       item,
       index
@@ -861,22 +1255,30 @@ function render() {
           "button"
         );
 
+
       button.type =
         "button";
 
+
       const done =
+
         index === 4 ||
+
         Boolean(
           tapTimes[index]
         );
 
+
       button.className =
+
         "cell" +
+
         (
           done
             ? " done"
             : ""
         ) +
+
         (
           index === 4
             ? " free"
@@ -891,49 +1293,76 @@ function render() {
       ) {
 
         button.innerHTML =
+
           '<span class="cell-name">' +
+
           "FREE" +
+
           "</span>" +
+
           '<span class="check">' +
+
           "✓" +
+
           "</span>";
 
+
         button.setAttribute(
+
           "aria-label",
+
           "FREEマス"
+
         );
 
       }
 
 
-      /* 登録済 */
+      /* 登録済み */
 
       else if (
         tapTimes[index]
       ) {
 
         button.innerHTML =
+
           '<span class="cell-name">' +
+
           escapeHtml(
             item
           ) +
+
           "</span>" +
+
           '<span class="check">' +
+
           "✓" +
+
           "</span>" +
+
           '<span class="time">' +
+
           escapeHtml(
+
             formatDateTime(
               tapTimes[index]
             )
+
           ) +
+
           "</span>" +
+
           '<span class="hint">' +
+
           "タップで登録取消" +
+
           "</span>";
 
+
         button.addEventListener(
+
           "click",
+
           function () {
 
             removeRegistration(
@@ -941,6 +1370,7 @@ function render() {
             );
 
           }
+
         );
 
       }
@@ -951,17 +1381,26 @@ function render() {
       else {
 
         button.innerHTML =
+
           '<span class="cell-name">' +
+
           escapeHtml(
             item
           ) +
+
           "</span>" +
+
           '<span class="hint">' +
+
           "見つけたらタップ" +
+
           "</span>";
 
+
         button.addEventListener(
+
           "click",
+
           function () {
 
             registerTime(
@@ -969,48 +1408,63 @@ function render() {
             );
 
           }
+
         );
 
       }
+
 
       grid.appendChild(
         button
       );
 
     }
+
   );
+
 
   updateStatus();
 
 }
 
 
-/* マス登録 */
+/* =========================
+   マス登録
+========================= */
 
 function registerTime(index) {
 
   const remaining =
     getRemainingMs();
 
+
   if (
     remaining > 0
   ) {
 
     alert(
+
       "次のマスを登録できるまで、あと " +
+
       formatRemaining(
         remaining
       ) +
+
       " です。"
+
     );
+
 
     return;
 
   }
 
+
   tapTimes[index] =
+
     new Date()
       .toISOString();
+
 
   saveTimes();
 
@@ -1021,17 +1475,21 @@ function registerTime(index) {
 }
 
 
-/* 登録取消 */
+/* =========================
+   登録取消
+========================= */
 
-function removeRegistration(
-  index
-) {
+function removeRegistration(index) {
 
   const ok =
     confirm(
+
       items[index] +
+
       " の登録を取り消しますか？"
+
     );
+
 
   if (!ok) {
 
@@ -1039,7 +1497,9 @@ function removeRegistration(
 
   }
 
+
   delete tapTimes[index];
+
 
   saveTimes();
 
@@ -1050,7 +1510,9 @@ function removeRegistration(
 }
 
 
-/* 状況表示 */
+/* =========================
+   状況表示
+========================= */
 
 function updateStatus() {
 
@@ -1059,8 +1521,10 @@ function updateStatus() {
       tapTimes
     ).length;
 
+
   const remaining =
     getRemainingMs();
+
 
   if (
     isBingo()
@@ -1069,11 +1533,23 @@ function updateStatus() {
     statusArea.className =
       "ready";
 
-    statusArea.textContent =
+
+    statusArea.innerHTML =
+
+      '<span class="status-main">' +
+
       "🎉 1列そろっています。" +
-      "ビンゴ判定を押してください。";
+
+      "</span>" +
+
+      '<span class="status-sub">' +
+
+      "ビンゴ判定を押してください。" +
+
+      "</span>";
 
   }
+
 
   else if (
     remaining > 0
@@ -1082,33 +1558,64 @@ function updateStatus() {
     statusArea.className =
       "";
 
-    statusArea.textContent =
+
+    statusArea.innerHTML =
+
+      '<span class="status-main">' +
+
       "発見記録：" +
+
       count +
-      " / 8マス　次の登録まで " +
+
+      " / 8マス" +
+
+      "</span>" +
+
+      '<span class="status-sub">' +
+
+      "次の登録まで " +
+
       formatRemaining(
         remaining
-      );
+      ) +
+
+      "</span>";
 
   }
+
 
   else {
 
     statusArea.className =
       "";
 
-    statusArea.textContent =
+
+    statusArea.innerHTML =
+
+      '<span class="status-main">' +
+
       "発見記録：" +
+
       count +
-      " / 8マス　" +
-      "次のマスを登録できます。";
+
+      " / 8マス" +
+
+      "</span>" +
+
+      '<span class="status-sub">' +
+
+      "次のマスを登録できます。" +
+
+      "</span>";
 
   }
 
 }
 
 
-/* カウントダウン */
+/* =========================
+   カウントダウン
+========================= */
 
 function startCountdown() {
 
@@ -1122,13 +1629,17 @@ function startCountdown() {
 
   }
 
+
   updateStatus();
+
 
   timerId =
     setInterval(
+
       function () {
 
         updateStatus();
+
 
         if (
           getRemainingMs() <= 0
@@ -1144,19 +1655,25 @@ function startCountdown() {
         }
 
       },
+
       1000
+
     );
 
 }
 
 
-/* 所要時間 */
+/* =========================
+   所要時間
+========================= */
 
 function getElapsedText() {
 
   const dates =
+
     getRecordedDates()
       .sort(
+
         function (
           a,
           b
@@ -1165,7 +1682,9 @@ function getElapsedText() {
           return a - b;
 
         }
+
       );
+
 
   if (
     dates.length < 2
@@ -1178,68 +1697,97 @@ function getElapsedText() {
 
   }
 
+
   const ms =
+
     dates[
       dates.length - 1
     ] -
+
     dates[0];
+
 
   const minutes =
     Math.floor(
       ms / 60000
     );
 
+
   const seconds =
     Math.floor(
+
       (
         ms % 60000
       ) / 1000
+
     );
 
+
   return (
+
     "最初から最後の登録まで：" +
+
     minutes +
+
     "分" +
+
     String(seconds)
       .padStart(
         2,
         "0"
       ) +
+
     "秒"
+
   );
 
 }
 
 
-/* 氏名保存 */
+/* =========================
+   氏名
+========================= */
 
 nameInput.value =
+
   localStorage.getItem(
     NAME_KEY
   ) || "";
 
+
 nameInput.addEventListener(
+
   "input",
+
   function () {
 
     localStorage.setItem(
+
       NAME_KEY,
+
       nameInput.value
+
     );
 
   }
+
 );
 
 
-/* ビンゴ判定 */
+/* =========================
+   ビンゴ判定ボタン
+========================= */
 
 document
   .getElementById(
     "judge"
   )
   .addEventListener(
+
     "click",
+
     function () {
+
 
       if (
         !isBingo()
@@ -1248,56 +1796,84 @@ document
         statusArea.className =
           "";
 
-        statusArea.textContent =
+
+        statusArea.innerHTML =
+
+          '<span class="status-main">' +
+
           "まだビンゴではありません。" +
-          "発見記録を追加してください。";
+
+          "</span>" +
+
+          '<span class="status-sub">' +
+
+          "発見記録を追加してください。" +
+
+          "</span>";
+
 
         return;
 
       }
+
 
       document
         .getElementById(
           "modalTeam"
         )
         .textContent =
+
         nameInput.value.trim() ||
+
         "氏名未入力";
+
 
       document
         .getElementById(
           "completedAt"
         )
         .textContent =
+
         "確認日時：" +
+
         formatDateTime(
+
           new Date()
             .toISOString()
+
         );
+
 
       document
         .getElementById(
           "elapsedTime"
         )
         .textContent =
+
         getElapsedText();
+
 
       modal.classList.add(
         "show"
       );
 
     }
+
   );
 
 
-/* 達成画面を閉じる */
+/* =========================
+   達成画面を閉じる
+========================= */
 
 document
   .getElementById(
     "close"
   )
   .addEventListener(
+
     "click",
+
     function () {
 
       modal.classList.remove(
@@ -1305,24 +1881,33 @@ document
       );
 
     }
+
   );
 
 
-/* やり直し */
+/* =========================
+   やり直し
+========================= */
 
 document
   .getElementById(
     "reset"
   )
   .addEventListener(
+
     "click",
+
     function () {
+
 
       const ok =
         confirm(
+
           "登録時刻と氏名を" +
           "すべて消去しますか？"
+
         );
+
 
       if (!ok) {
 
@@ -1330,28 +1915,36 @@ document
 
       }
 
+
       tapTimes = {};
+
 
       nameInput.value =
         "";
+
 
       localStorage.removeItem(
         STORAGE_KEY
       );
 
+
       localStorage.removeItem(
         NAME_KEY
       );
+
 
       render();
 
       startCountdown();
 
     }
+
   );
 
 
-/* 初期表示 */
+/* =========================
+   初期表示
+========================= */
 
 render();
 
