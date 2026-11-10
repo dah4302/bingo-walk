@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -15,7 +13,6 @@
 <title>光友会 ビンゴウォーク</title>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -27,19 +24,15 @@ html {
 body {
   margin: 0;
   padding: 10px;
-
   background: #f5f7f5;
   color: #1f2937;
-
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     "Noto Sans JP",
     sans-serif;
-
   text-align: center;
-
   -webkit-text-size-adjust: 100%;
 }
 
@@ -50,51 +43,68 @@ body.modal-open {
 main {
   width: 100%;
   max-width: 620px;
-
   margin: 0 auto;
 }
 
 
-/* =========================
-   タイトル画像
-========================= */
+/* タイトル画像 */
 
 .title-image {
   width: 100%;
-
   margin: 0 auto 12px;
 }
 
 .title-image img {
   display: block;
-
   width: 100%;
   height: auto;
-
   border-radius: 10px;
 }
 
 
-/* =========================
-   注意事項
-========================= */
+/* ブラウザ利用時の重要案内 */
+
+.browser-warning {
+  margin-bottom: 12px;
+  padding: 13px 15px;
+  background: #fff0f0;
+  color: #8a1c1c;
+  border: 2px solid #d94a4a;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.browser-warning-title {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.browser-warning p {
+  margin: 0 0 5px;
+}
+
+.browser-warning p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 通常注意事項 */
 
 .notice {
   margin-bottom: 12px;
   padding: 14px 16px;
-
   background: #fff4d8;
-
   border: 2px solid #f4a024;
   border-radius: 10px;
-
   font-size: 15px;
   font-weight: 700;
   line-height: 1.8;
-
   text-align: left;
-
-  word-break: normal;
   overflow-wrap: break-word;
 }
 
@@ -107,79 +117,83 @@ main {
 }
 
 
-/* =========================
-   氏名入力
-========================= */
+/* 保存状態 */
+
+.storage-status {
+  display: none;
+  margin-bottom: 12px;
+  padding: 11px 13px;
+  background: #fff0f0;
+  color: #8a1c1c;
+  border: 2px solid #d94a4a;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.storage-status.show {
+  display: block;
+}
+
+.storage-status.ok {
+  background: #e8f5ec;
+  color: #176b43;
+  border-color: #176b43;
+}
+
+
+/* 氏名入力 */
 
 .team {
   margin-bottom: 12px;
   padding: 13px;
-
   background: white;
-
   border-radius: 10px;
 }
 
 .team label {
   display: block;
-
   margin-bottom: 8px;
-
   font-size: 16px;
   font-weight: 700;
 }
 
 .team input {
   width: 100%;
-
   padding: 11px;
-
   border: 1px solid #9ca3af;
   border-radius: 8px;
-
   font-size: 16px;
 }
 
 
-/* =========================
-   コース案内ボタン
-========================= */
+/* コース案内ボタン */
 
 .course-links {
   display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
-
   margin: 12px 0 16px;
 }
 
 .course-button {
   display: flex;
-
   min-height: 52px;
-
   align-items: center;
   justify-content: center;
-
   padding: 10px 8px;
-
   background: #176b43;
   color: white;
-
   border: none;
   border-radius: 10px;
-
   font: inherit;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
-
   text-align: center;
   text-decoration: none;
-
   cursor: pointer;
 }
 
@@ -196,58 +210,42 @@ main {
 }
 
 
-/* =========================
-   案内文
-========================= */
+/* 案内文 */
 
 .guide {
   margin: 14px 0 12px;
-
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
 }
 
 
-/* =========================
-   ビンゴマス
-========================= */
+/* ビンゴマス */
 
 .grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-
   width: 100%;
 }
 
 .cell {
   min-width: 0;
   height: 112px;
-
   padding: 6px 3px;
-
   overflow: hidden;
-
   background: white;
   color: #1f2937;
-
   border: 2px solid #c7ceca;
   border-radius: 10px;
-
   font: inherit;
   font-weight: 700;
-
   cursor: pointer;
 }
 
 .cell.done {
   background: #c8e6c9;
   color: #176b43;
-
   border-color: #176b43;
 }
 
@@ -257,117 +255,86 @@ main {
 
 .cell-name {
   display: block;
-
-  font-size: 15px;
-
-  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .check {
   display: block;
-
   margin-top: 4px;
-
   font-size: 25px;
   line-height: 28px;
 }
 
 .time {
   display: block;
-
   margin-top: 3px;
-
   color: #355c46;
-
   font-size: 11px;
   line-height: 1.25;
-
   white-space: nowrap;
 }
 
 .hint {
   display: block;
-
   margin-top: 8px;
-
   color: #667085;
-
   font-size: 10px;
   font-weight: 500;
-
   white-space: nowrap;
 }
 
 
-/* =========================
-   操作ボタン
-========================= */
+/* 操作ボタン */
 
 .actions {
   display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
   gap: 9px;
-
   margin-top: 14px;
 }
 
 .action {
   min-height: 50px;
-
   padding: 11px 8px;
-
   border-radius: 10px;
-
   font-size: 17px;
   font-weight: 700;
-
   cursor: pointer;
 }
 
 .judge {
   background: #176b43;
   color: white;
-
   border: none;
 }
 
 .reset {
   background: white;
   color: #c62828;
-
   border: 2px solid #c62828;
 }
 
 
-/* =========================
-   発見記録・残り時間
-========================= */
+/* 発見記録・残り時間 */
 
 #status {
   min-height: 58px;
-
   margin-top: 12px;
   padding: 11px 12px;
-
   background: white;
-
   border: 2px solid #d1d5db;
   border-radius: 10px;
-
   font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
-
   text-align: center;
 }
 
 #status.ready {
   background: #e8f5ec;
   color: #176b43;
-
   border-color: #176b43;
 }
 
@@ -381,29 +348,21 @@ main {
 }
 
 
-/* =========================
-   使い方
-========================= */
+/* 使い方 */
 
 .help {
   margin-top: 12px;
   padding: 13px 15px;
-
   background: white;
-
   border-radius: 10px;
-
   font-size: 13px;
   line-height: 1.75;
-
   text-align: left;
 }
 
 .help strong {
   display: block;
-
   margin-bottom: 5px;
-
   font-size: 15px;
 }
 
@@ -416,48 +375,32 @@ main {
   margin-bottom: 3px;
 }
 
-.help li:last-child {
-  margin-bottom: 0;
-}
 
-
-/* =========================
-   保存情報
-========================= */
+/* 保存情報 */
 
 .small {
   margin: 10px auto 0;
   padding: 0 4px;
-
   color: #667085;
-
   font-size: 12px;
   line-height: 1.65;
-
   text-align: center;
 }
 
 
-/* =========================
-   緊急連絡先
-========================= */
+/* 緊急連絡先 */
 
 .emergency-contact {
   margin-top: 16px;
   margin-bottom: 12px;
-
   padding: 13px 8px;
-
   background: #fff4d8;
   color: #c62828;
-
   border: 2px solid #f4a024;
   border-radius: 10px;
-
   font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
-
   text-align: center;
 }
 
@@ -466,25 +409,17 @@ main {
 }
 
 
-/* =========================
-   ビンゴ達成画面
-========================= */
+/* ビンゴ達成画面 */
 
 .modal {
   position: fixed;
   z-index: 50;
-
   inset: 0;
-
   display: none;
-
   align-items: center;
   justify-content: center;
-
   padding: 18px;
-
-  background:
-    rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.72);
 }
 
 .modal.show {
@@ -493,54 +428,38 @@ main {
 
 .modal-content {
   width: min(100%, 500px);
-
   padding: 28px 20px;
-
   background: white;
-
   border-radius: 16px;
 }
 
 .modal h2 {
   margin: 0 0 10px;
-
   color: #176b43;
-
   font-size: 30px;
 }
 
 .modal button {
   padding: 12px 25px;
-
   background: #176b43;
   color: white;
-
   border: none;
   border-radius: 9px;
-
   font-size: 17px;
   font-weight: 700;
-
   cursor: pointer;
 }
 
 
-/* =========================
-   経路参考写真画面
-========================= */
+/* 経路参考写真画面 */
 
 .route-modal {
   position: fixed;
   z-index: 60;
-
   inset: 0;
-
   display: none;
-
   background: #f5f7f5;
-
   overflow-y: auto;
-
   -webkit-overflow-scrolling: touch;
 }
 
@@ -551,24 +470,15 @@ main {
 .route-header {
   position: sticky;
   z-index: 61;
-
   top: 0;
-
   display: flex;
-
   gap: 10px;
-
   align-items: center;
   justify-content: space-between;
-
   padding: 11px 12px;
-
   background: #176b43;
   color: white;
-
-  box-shadow:
-    0 2px 6px
-    rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 .route-header strong {
@@ -577,25 +487,19 @@ main {
 
 .route-close {
   flex-shrink: 0;
-
   padding: 8px 12px;
-
   background: white;
   color: #176b43;
-
   border: none;
   border-radius: 8px;
-
   font-size: 13px;
   font-weight: 700;
-
   cursor: pointer;
 }
 
 .route-content {
   width: 100%;
   max-width: 1000px;
-
   margin: 0 auto;
   padding: 10px;
 }
@@ -603,65 +507,47 @@ main {
 .route-section {
   margin-bottom: 16px;
   padding: 8px;
-
   background: white;
-
   border-radius: 10px;
-
-  box-shadow:
-    0 1px 5px
-    rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
 }
 
 .route-section h2 {
   margin: 4px 4px 9px;
-
   color: #176b43;
-
   font-size: 16px;
   line-height: 1.5;
-
   text-align: left;
 }
 
 .route-image {
   display: block;
-
   width: 100%;
   height: auto;
-
   border: 1px solid #d1d5db;
   border-radius: 7px;
 }
 
 .route-return {
   margin: 10px 0 25px;
-
   text-align: center;
 }
 
 .route-return button {
   width: 100%;
   max-width: 620px;
-
   padding: 13px 10px;
-
   background: #176b43;
   color: white;
-
   border: none;
   border-radius: 10px;
-
   font-size: 15px;
   font-weight: 700;
-
   cursor: pointer;
 }
 
 
-/* =========================
-   スマホ表示
-========================= */
+/* スマホ表示 */
 
 @media (max-width: 430px) {
 
@@ -669,23 +555,19 @@ main {
     padding: 8px;
   }
 
-  .title-image {
-    margin-bottom: 10px;
+  .browser-warning {
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  .browser-warning-title {
+    font-size: 15px;
   }
 
   .notice {
     padding: 11px 13px;
-
     font-size: 14px;
     line-height: 1.7;
-  }
-
-  .team {
-    padding: 11px;
-  }
-
-  .team label {
-    font-size: 15px;
   }
 
   .course-links {
@@ -694,12 +576,6 @@ main {
 
   .course-button {
     min-height: 48px;
-
-    font-size: 14px;
-  }
-
-  .guide {
-    font-size: 15px;
   }
 
   .grid {
@@ -707,12 +583,12 @@ main {
   }
 
   .cell {
-    height: 103px;
+    height: 105px;
     padding: 5px 2px;
   }
 
   .cell-name {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .check {
@@ -726,7 +602,6 @@ main {
 
   .hint {
     margin-top: 7px;
-
     font-size: 9px;
   }
 
@@ -734,36 +609,22 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .action {
-    font-size: 16px;
-  }
-
   #status {
     font-size: 13px;
-    line-height: 1.6;
   }
 
   .help {
     padding: 12px;
-
     font-size: 12px;
-    line-height: 1.7;
-  }
-
-  .help strong {
-    font-size: 14px;
   }
 
   .small {
     font-size: 11px;
-    line-height: 1.65;
   }
 
   .emergency-contact {
     padding: 11px 5px;
-
     font-size: 12px;
-    line-height: 1.5;
   }
 
   .route-header strong {
@@ -772,7 +633,6 @@ main {
 
   .route-close {
     padding: 8px 9px;
-
     font-size: 12px;
   }
 
@@ -780,27 +640,18 @@ main {
     padding: 7px;
   }
 
-  .route-section {
-    padding: 5px;
-
-    margin-bottom: 12px;
-  }
-
   .route-section h2 {
     font-size: 14px;
   }
-
 }
 
 
-/* =========================
-   小さいスマホ
-========================= */
+/* 小さいスマホ */
 
 @media (max-width: 350px) {
 
   .cell-name {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hint {
@@ -814,36 +665,63 @@ main {
   .emergency-contact {
     font-size: 11px;
   }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 <main>
 
 
-<!-- =========================
-     タイトル画像
-========================= -->
+<!-- タイトル画像 -->
 
 <div class="title-image">
-
   <img
     src="bingo-title.png"
     alt="光友会 ビンゴウォーク"
   >
+</div>
+
+
+<!-- ブラウザ利用時の注意 -->
+
+<div class="browser-warning">
+
+  <span class="browser-warning-title">
+    【重要】最初にご確認ください
+  </span>
+
+  <p>
+    QRコード読取後は「ブラウザで開く」を選択してください。
+  </p>
+
+  <p>
+    SafariまたはChromeなど、普段使用しているブラウザでご利用ください。
+  </p>
+
+  <p>
+    QRコードのプレビュー画面では、再読み込み時に記録が消える場合があります。
+  </p>
+
+  <p>
+    利用開始後はQRコードを読み直さず、同じブラウザ画面をご利用ください。
+  </p>
 
 </div>
 
 
-<!-- =========================
-     注意事項
-========================= -->
+<!-- 保存状態 -->
+
+<div
+  class="storage-status"
+  id="storageStatus"
+  aria-live="polite"
+></div>
+
+
+<!-- 通常注意事項 -->
 
 <div class="notice">
 
@@ -866,9 +744,7 @@ main {
 </div>
 
 
-<!-- =========================
-     氏名入力
-========================= -->
+<!-- 氏名入力 -->
 
 <div class="team">
 
@@ -881,14 +757,13 @@ main {
     type="text"
     maxlength="30"
     placeholder="例：氏名を入力してください"
+    autocomplete="name"
   >
 
 </div>
 
 
-<!-- =========================
-     コース案内ボタン
-========================= -->
+<!-- コース案内ボタン -->
 
 <div class="course-links">
 
@@ -917,9 +792,7 @@ main {
 </p>
 
 
-<!-- =========================
-     ビンゴマス
-========================= -->
+<!-- ビンゴマス -->
 
 <div
   class="grid"
@@ -927,9 +800,7 @@ main {
 ></div>
 
 
-<!-- =========================
-     操作ボタン
-========================= -->
+<!-- 操作ボタン -->
 
 <div class="actions">
 
@@ -958,9 +829,7 @@ main {
 ></div>
 
 
-<!-- =========================
-     使い方
-========================= -->
+<!-- 使い方 -->
 
 <section class="help">
 
@@ -969,6 +838,9 @@ main {
   </strong>
 
   <ol>
+    <li>
+      SafariまたはChromeでこのページを開きます。
+    </li>
 
     <li>
       対象物を見つけます。
@@ -989,27 +861,21 @@ main {
     <li>
       1列そろったら「ビンゴ判定」を押します。
     </li>
-
   </ol>
 
 </section>
 
 
-<!-- =========================
-     保存情報
-========================= -->
-
 <p class="small">
 
   保存する情報は氏名と各マスの登録時刻だけです。
+  同じブラウザで再読み込みした場合は記録を復元します。
   登録済みマスをタップすると、誤登録を取り消せます。
 
 </p>
 
 
-<!-- =========================
-     緊急連絡先
-========================= -->
+<!-- 緊急連絡先 -->
 
 <div class="emergency-contact">
 
@@ -1027,9 +893,7 @@ main {
 </main>
 
 
-<!-- =========================
-     経路参考写真画面
-========================= -->
+<!-- 経路参考写真画面 -->
 
 <div
   class="route-modal"
@@ -1055,7 +919,6 @@ main {
 
 
   <div class="route-content">
-
 
     <section class="route-section">
 
@@ -1113,15 +976,12 @@ main {
 
     </div>
 
-
   </div>
 
 </div>
 
 
-<!-- =========================
-     ビンゴ達成画面
-========================= -->
+<!-- ビンゴ達成画面 -->
 
 <div
   class="modal"
@@ -1161,9 +1021,11 @@ main {
 "use strict";
 
 
-/* =========================
-   ビンゴ項目
-========================= */
+/* ビンゴ項目
+   変更済み：
+   看板 → スポーツ広場
+   森の家 → 紅葉の木
+*/
 
 const items = [
   "川",
@@ -1178,34 +1040,21 @@ const items = [
 ];
 
 
-/* =========================
-   ビンゴ成立パターン
-========================= */
+/* ビンゴ成立パターン */
 
 const winningLines = [
-
   [0, 1, 2],
-
   [3, 4, 5],
-
   [6, 7, 8],
-
   [0, 3, 6],
-
   [1, 4, 7],
-
   [2, 5, 8],
-
   [0, 4, 8],
-
   [2, 4, 6]
-
 ];
 
 
-/* =========================
-   登録間隔
-========================= */
+/* 登録間隔 */
 
 const WAIT_MINUTES = 5;
 
@@ -1215,20 +1064,19 @@ const WAIT_MS =
   1000;
 
 
-/* =========================
-   保存キー
-========================= */
+/* 保存キー */
 
 const STORAGE_KEY =
-  "bingoTapTimesV3";
+  "bingoTapTimesV4";
+
+const SESSION_STORAGE_KEY =
+  "bingoTapTimesSessionV4";
 
 const NAME_KEY =
-  "bingoParticipantName";
+  "bingoParticipantNameV4";
 
 
-/* =========================
-   HTML要素
-========================= */
+/* HTML要素 */
 
 const grid =
   document.getElementById(
@@ -1245,6 +1093,11 @@ const statusArea =
     "status"
   );
 
+const storageStatus =
+  document.getElementById(
+    "storageStatus"
+  );
+
 const modal =
   document.getElementById(
     "modal"
@@ -1256,6 +1109,12 @@ const routeGuide =
   );
 
 
+let storageAvailable =
+  true;
+
+let sessionStorageAvailable =
+  true;
+
 let tapTimes =
   loadTimes();
 
@@ -1263,237 +1122,530 @@ let timerId =
   null;
 
 
-/* =========================
-   登録時刻読み込み
-========================= */
+/* URL保存用文字列を作成 */
 
-function loadTimes() {
+function encodeState(value) {
 
   try {
 
-    const saved =
-      JSON.parse(
+    const json =
+      JSON.stringify(value);
 
-        localStorage.getItem(
-          STORAGE_KEY
-        ) || "{}"
+    const bytes =
+      new TextEncoder()
+        .encode(json);
 
-      );
+    let binary =
+      "";
 
+    bytes.forEach(
+      function (byte) {
+        binary +=
+          String.fromCharCode(byte);
+      }
+    );
 
-    return (
-      saved &&
-      typeof saved === "object"
-    )
-      ? saved
-      : {};
+    return btoa(binary)
+      .replaceAll("+", "-")
+      .replaceAll("/", "_")
+      .replaceAll("=", "");
 
   }
 
   catch (error) {
 
-    return {};
+    return "";
 
   }
 
 }
 
 
-/* =========================
-   登録時刻保存
-========================= */
+/* URL保存データを復元 */
 
-function saveTimes() {
+function decodeState(value) {
 
-  localStorage.setItem(
+  try {
 
-    STORAGE_KEY,
+    let base64 =
+      value
+        .replaceAll("-", "+")
+        .replaceAll("_", "/");
 
-    JSON.stringify(
-      tapTimes
+    while (
+      base64.length % 4 !== 0
+    ) {
+      base64 += "=";
+    }
+
+    const binary =
+      atob(base64);
+
+    const bytes =
+      Uint8Array.from(
+        binary,
+        function (character) {
+          return character.charCodeAt(0);
+        }
+      );
+
+    const json =
+      new TextDecoder()
+        .decode(bytes);
+
+    const parsed =
+      JSON.parse(json);
+
+    return (
+      parsed &&
+      typeof parsed === "object"
     )
+      ? parsed
+      : null;
 
+  }
+
+  catch (error) {
+
+    return null;
+
+  }
+
+}
+
+
+/* URLから登録内容を読み込む */
+
+function loadTimesFromUrl() {
+
+  const hash =
+    window.location.hash;
+
+  if (
+    !hash.startsWith("#s=")
+  ) {
+    return null;
+  }
+
+  return decodeState(
+    hash.slice(3)
   );
 
 }
 
 
-/* =========================
-   HTML安全表示
-========================= */
+/* localStorageから読み込む */
+
+function loadTimesFromLocalStorage() {
+
+  try {
+
+    const value =
+      localStorage.getItem(
+        STORAGE_KEY
+      );
+
+    if (!value) {
+      return null;
+    }
+
+    const parsed =
+      JSON.parse(value);
+
+    return (
+      parsed &&
+      typeof parsed === "object"
+    )
+      ? parsed
+      : null;
+
+  }
+
+  catch (error) {
+
+    storageAvailable =
+      false;
+
+    return null;
+
+  }
+
+}
+
+
+/* sessionStorageから読み込む */
+
+function loadTimesFromSessionStorage() {
+
+  try {
+
+    const value =
+      sessionStorage.getItem(
+        SESSION_STORAGE_KEY
+      );
+
+    if (!value) {
+      return null;
+    }
+
+    const parsed =
+      JSON.parse(value);
+
+    return (
+      parsed &&
+      typeof parsed === "object"
+    )
+      ? parsed
+      : null;
+
+  }
+
+  catch (error) {
+
+    sessionStorageAvailable =
+      false;
+
+    return null;
+
+  }
+
+}
+
+
+/* 登録内容を復元 */
+
+function loadTimes() {
+
+  const localData =
+    loadTimesFromLocalStorage();
+
+  const sessionData =
+    loadTimesFromSessionStorage();
+
+  const urlData =
+    loadTimesFromUrl();
+
+  if (
+    localData &&
+    Object.keys(localData).length > 0
+  ) {
+    return localData;
+  }
+
+  if (
+    sessionData &&
+    Object.keys(sessionData).length > 0
+  ) {
+    return sessionData;
+  }
+
+  if (
+    urlData &&
+    Object.keys(urlData).length > 0
+  ) {
+    return urlData;
+  }
+
+  return {};
+
+}
+
+
+/* URLへ予備保存 */
+
+function updateUrlBackup() {
+
+  const encoded =
+    encodeState(tapTimes);
+
+  const baseUrl =
+    window.location.pathname +
+    window.location.search;
+
+  const nextUrl =
+    encoded
+      ? baseUrl + "#s=" + encoded
+      : baseUrl;
+
+  try {
+
+    history.replaceState(
+      null,
+      "",
+      nextUrl
+    );
+
+  }
+
+  catch (error) {
+
+    console.log(
+      "URL予備保存を更新できませんでした。",
+      error
+    );
+
+  }
+
+}
+
+
+/* 保存状態のメッセージ */
+
+function showStorageMessage(
+  message,
+  isOk
+) {
+
+  storageStatus.textContent =
+    message;
+
+  storageStatus.classList.add(
+    "show"
+  );
+
+  if (isOk) {
+    storageStatus.classList.add(
+      "ok"
+    );
+  }
+  else {
+    storageStatus.classList.remove(
+      "ok"
+    );
+  }
+
+}
+
+
+/* 登録内容保存 */
+
+function saveTimes() {
+
+  const json =
+    JSON.stringify(tapTimes);
+
+  let localSaved =
+    false;
+
+  let sessionSaved =
+    false;
+
+  try {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      json
+    );
+
+    localSaved =
+      localStorage.getItem(
+        STORAGE_KEY
+      ) === json;
+
+  }
+
+  catch (error) {
+
+    storageAvailable =
+      false;
+
+  }
+
+  try {
+
+    sessionStorage.setItem(
+      SESSION_STORAGE_KEY,
+      json
+    );
+
+    sessionSaved =
+      sessionStorage.getItem(
+        SESSION_STORAGE_KEY
+      ) === json;
+
+  }
+
+  catch (error) {
+
+    sessionStorageAvailable =
+      false;
+
+  }
+
+  updateUrlBackup();
+
+  if (
+    !localSaved &&
+    !sessionSaved
+  ) {
+
+    showStorageMessage(
+      "登録情報を端末へ保存できませんでした。SafariまたはChromeで開き直してください。",
+      false
+    );
+
+  }
+
+  return (
+    localSaved ||
+    sessionSaved
+  );
+
+}
+
+
+/* 保存機能確認 */
+
+function checkStorageSupport() {
+
+  const testKey =
+    "bingoStorageTestV4";
+
+  try {
+
+    localStorage.setItem(
+      testKey,
+      "ok"
+    );
+
+    storageAvailable =
+      localStorage.getItem(
+        testKey
+      ) === "ok";
+
+    localStorage.removeItem(
+      testKey
+    );
+
+  }
+
+  catch (error) {
+
+    storageAvailable =
+      false;
+
+  }
+
+  if (
+    !storageAvailable
+  ) {
+
+    showStorageMessage(
+      "この画面では記録を保持できない可能性があります。SafariまたはChromeの「ブラウザで開く」を選択してください。",
+      false
+    );
+
+  }
+
+}
+
+
+/* HTML安全表示 */
 
 function escapeHtml(value) {
 
   return String(value)
-
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 
 }
 
 
-/* =========================
-   日時表示
-========================= */
+/* 日時表示 */
 
 function formatDateTime(iso) {
 
   return new Intl.DateTimeFormat(
-
     "ja-JP",
-
     {
-
-      month:
-        "2-digit",
-
-      day:
-        "2-digit",
-
-      hour:
-        "2-digit",
-
-      minute:
-        "2-digit",
-
-      second:
-        "2-digit",
-
-      hour12:
-        false
-
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
     }
-
   ).format(
-
     new Date(iso)
-
   );
 
 }
 
 
-/* =========================
-   登録済み日時
-========================= */
+/* 登録日時一覧 */
 
 function getRecordedDates() {
 
-  return Object.values(
-    tapTimes
-  )
-
+  return Object.values(tapTimes)
     .map(
-
-      value =>
-        new Date(value)
-
+      function (value) {
+        return new Date(value);
+      }
     )
-
     .filter(
-
-      date =>
-        !Number.isNaN(
+      function (date) {
+        return !Number.isNaN(
           date.getTime()
-        )
-
+        );
+      }
     );
 
 }
 
 
-/* =========================
-   最終登録時刻
-========================= */
+/* 最終登録時刻 */
 
 function getLatestTimeMs() {
 
   const dates =
     getRecordedDates();
 
-
   if (
     dates.length === 0
   ) {
-
     return null;
-
   }
 
-
   return Math.max(
-
     ...dates.map(
-
-      date =>
-        date.getTime()
-
+      function (date) {
+        return date.getTime();
+      }
     )
-
   );
 
 }
 
 
-/* =========================
-   次回登録までの残り時間
-========================= */
+/* 残り時間 */
 
 function getRemainingMs() {
 
   const latest =
     getLatestTimeMs();
 
-
   if (
     latest === null
   ) {
-
     return 0;
-
   }
 
-
   return Math.max(
-
     0,
-
     WAIT_MS -
     (
       Date.now() -
       latest
     )
-
   );
 
 }
 
 
-/* =========================
-   残り時間表示
-========================= */
+/* 残り時間表示 */
 
 function formatRemaining(ms) {
 
@@ -1502,109 +1654,78 @@ function formatRemaining(ms) {
       ms / 1000
     );
 
-
   const minutes =
     Math.floor(
       totalSeconds / 60
     );
 
-
   const seconds =
     totalSeconds % 60;
 
-
   return (
-
     minutes +
-
     "分" +
-
     String(seconds)
-      .padStart(
-        2,
-        "0"
-      ) +
-
+      .padStart(2, "0") +
     "秒"
-
   );
 
 }
 
 
-/* =========================
-   マス状態
-========================= */
+/* マス状態 */
 
 function completedState() {
 
   return items.map(
-
     function (
       item,
       index
     ) {
 
       return (
-
         index === 4 ||
-
         Boolean(
           tapTimes[index]
         )
-
       );
 
     }
-
   );
 
 }
 
 
-/* =========================
-   ビンゴ判定
-========================= */
+/* ビンゴ判定 */
 
 function isBingo() {
 
   const state =
     completedState();
 
-
   return winningLines.some(
-
     function (line) {
 
       return line.every(
-
         function (index) {
-
           return state[index];
-
         }
-
       );
 
     }
-
   );
 
 }
 
 
-/* =========================
-   ビンゴマス表示
-========================= */
+/* ビンゴマス表示 */
 
 function render() {
 
   grid.innerHTML =
     "";
 
-
   items.forEach(
-
     function (
       item,
       index
@@ -1615,251 +1736,172 @@ function render() {
           "button"
         );
 
-
       button.type =
         "button";
 
-
       const done =
-
         index === 4 ||
-
         Boolean(
           tapTimes[index]
         );
 
-
       button.className =
-
         "cell" +
-
         (
           done
             ? " done"
             : ""
         ) +
-
         (
           index === 4
             ? " free"
             : ""
         );
 
-
-      /* FREE */
-
       if (
         index === 4
       ) {
 
         button.innerHTML =
-
           '<span class="cell-name">' +
-
           "FREE" +
-
           "</span>" +
-
           '<span class="check">' +
-
           "✓" +
-
           "</span>";
 
-
         button.setAttribute(
-
           "aria-label",
-
           "FREEマス"
-
         );
 
       }
-
-
-      /* 登録済み */
 
       else if (
         tapTimes[index]
       ) {
 
         button.innerHTML =
-
           '<span class="cell-name">' +
-
-          escapeHtml(
-            item
-          ) +
-
+          escapeHtml(item) +
           "</span>" +
-
           '<span class="check">' +
-
           "✓" +
-
           "</span>" +
-
           '<span class="time">' +
-
           escapeHtml(
-
             formatDateTime(
               tapTimes[index]
             )
-
           ) +
-
           "</span>" +
-
           '<span class="hint">' +
-
           "タップで登録取消" +
-
           "</span>";
 
-
         button.addEventListener(
-
           "click",
-
           function () {
-
             removeRegistration(
               index
             );
-
           }
-
         );
 
       }
-
-
-      /* 未登録 */
 
       else {
 
         button.innerHTML =
-
           '<span class="cell-name">' +
-
-          escapeHtml(
-            item
-          ) +
-
+          escapeHtml(item) +
           "</span>" +
-
           '<span class="hint">' +
-
           "見つけたらタップ" +
-
           "</span>";
 
-
         button.addEventListener(
-
           "click",
-
           function () {
-
-            registerTime(
-              index
-            );
-
+            registerTime(index);
           }
-
         );
 
       }
-
 
       grid.appendChild(
         button
       );
 
     }
-
   );
-
 
   updateStatus();
 
 }
 
 
-/* =========================
-   マス登録
-========================= */
+/* マス登録 */
 
 function registerTime(index) {
 
   const remaining =
     getRemainingMs();
 
-
   if (
     remaining > 0
   ) {
 
     alert(
-
       "次のマスを登録できるまで、あと " +
-
       formatRemaining(
         remaining
       ) +
-
       " です。"
-
     );
-
 
     return;
 
   }
 
-
   tapTimes[index] =
-
     new Date()
       .toISOString();
 
-
-  saveTimes();
+  const saved =
+    saveTimes();
 
   render();
 
   startCountdown();
 
+  if (!saved) {
+
+    alert(
+      "登録時刻は表示されましたが、端末への保存を確認できませんでした。\n" +
+      "SafariまたはChromeで開き直してください。"
+    );
+
+  }
+
 }
 
 
-/* =========================
-   登録取消
-========================= */
+/* 登録取消 */
 
 function removeRegistration(index) {
 
   const ok =
     confirm(
-
       items[index] +
-
       " の登録を取り消しますか？"
-
     );
 
-
   if (!ok) {
-
     return;
-
   }
 
-
   delete tapTimes[index];
-
 
   saveTimes();
 
@@ -1870,9 +1912,7 @@ function removeRegistration(index) {
 }
 
 
-/* =========================
-   状況表示
-========================= */
+/* 状況表示 */
 
 function updateStatus() {
 
@@ -1881,10 +1921,8 @@ function updateStatus() {
       tapTimes
     ).length;
 
-
   const remaining =
     getRemainingMs();
-
 
   if (
     isBingo()
@@ -1893,23 +1931,15 @@ function updateStatus() {
     statusArea.className =
       "ready";
 
-
     statusArea.innerHTML =
-
       '<span class="status-main">' +
-
       "🎉 1列そろっています。" +
-
       "</span>" +
-
       '<span class="status-sub">' +
-
       "ビンゴ判定を押してください。" +
-
       "</span>";
 
   }
-
 
   else if (
     remaining > 0
@@ -1918,54 +1948,34 @@ function updateStatus() {
     statusArea.className =
       "";
 
-
     statusArea.innerHTML =
-
       '<span class="status-main">' +
-
       "発見記録：" +
-
       count +
-
       " / 8マス" +
-
       "</span>" +
-
       '<span class="status-sub">' +
-
       "次の登録まで " +
-
       formatRemaining(
         remaining
       ) +
-
       "</span>";
 
   }
-
 
   else {
 
     statusArea.className =
       "";
 
-
     statusArea.innerHTML =
-
       '<span class="status-main">' +
-
       "発見記録：" +
-
       count +
-
       " / 8マス" +
-
       "</span>" +
-
       '<span class="status-sub">' +
-
       "次のマスを登録できます。" +
-
       "</span>";
 
   }
@@ -1973,33 +1983,25 @@ function updateStatus() {
 }
 
 
-/* =========================
-   カウントダウン
-========================= */
+/* カウントダウン */
 
 function startCountdown() {
 
   if (
     timerId !== null
   ) {
-
     clearInterval(
       timerId
     );
-
   }
-
 
   updateStatus();
 
-
   timerId =
     setInterval(
-
       function () {
 
         updateStatus();
-
 
         if (
           getRemainingMs() <= 0
@@ -2015,36 +2017,26 @@ function startCountdown() {
         }
 
       },
-
       1000
-
     );
 
 }
 
 
-/* =========================
-   登録所要時間
-========================= */
+/* 登録所要時間 */
 
 function getElapsedText() {
 
   const dates =
-
     getRecordedDates()
       .sort(
-
         function (
           a,
           b
         ) {
-
           return a - b;
-
         }
-
       );
-
 
   if (
     dates.length < 2
@@ -2057,86 +2049,95 @@ function getElapsedText() {
 
   }
 
-
   const ms =
-
     dates[
       dates.length - 1
     ] -
-
     dates[0];
-
 
   const minutes =
     Math.floor(
       ms / 60000
     );
 
-
   const seconds =
     Math.floor(
-
       (
         ms % 60000
       ) / 1000
-
     );
 
-
   return (
-
     "最初から最後の登録まで：" +
-
     minutes +
-
     "分" +
-
     String(seconds)
-      .padStart(
-        2,
-        "0"
-      ) +
-
+      .padStart(2, "0") +
     "秒"
-
   );
 
 }
 
 
-/* =========================
-   氏名保存
-========================= */
+/* 氏名読み込み */
 
-nameInput.value =
+function loadName() {
 
-  localStorage.getItem(
-    NAME_KEY
-  ) || "";
+  try {
 
-
-nameInput.addEventListener(
-
-  "input",
-
-  function () {
-
-    localStorage.setItem(
-
-      NAME_KEY,
-
-      nameInput.value
-
+    return (
+      localStorage.getItem(
+        NAME_KEY
+      ) || ""
     );
 
   }
 
+  catch (error) {
+
+    return "";
+
+  }
+
+}
+
+
+/* 氏名保存 */
+
+function saveName() {
+
+  try {
+
+    localStorage.setItem(
+      NAME_KEY,
+      nameInput.value
+    );
+
+  }
+
+  catch (error) {
+
+    showStorageMessage(
+      "氏名を保存できませんでした。SafariまたはChromeで開いてください。",
+      false
+    );
+
+  }
+
+}
+
+
+nameInput.value =
+  loadName();
+
+
+nameInput.addEventListener(
+  "input",
+  saveName
 );
 
 
-/* =========================
-   園内経路参考写真を開く
-========================= */
+/* 経路参考写真を開く */
 
 function openRouteGuide() {
 
@@ -2159,9 +2160,7 @@ function openRouteGuide() {
 }
 
 
-/* =========================
-   園内経路参考写真を閉じる
-========================= */
+/* 経路参考写真を閉じる */
 
 function closeRouteGuide() {
 
@@ -2186,11 +2185,8 @@ document
     "openRouteGuide"
   )
   .addEventListener(
-
     "click",
-
     openRouteGuide
-
   );
 
 
@@ -2199,11 +2195,8 @@ document
     "closeRouteGuide"
   )
   .addEventListener(
-
     "click",
-
     closeRouteGuide
-
   );
 
 
@@ -2212,20 +2205,15 @@ document
     "closeRouteGuideBottom"
   )
   .addEventListener(
-
     "click",
-
     closeRouteGuide
-
   );
 
 
-/* Escapeキーでも閉じる */
+/* Escapeキーで閉じる */
 
 document.addEventListener(
-
   "keydown",
-
   function (event) {
 
     if (
@@ -2240,24 +2228,18 @@ document.addEventListener(
     }
 
   }
-
 );
 
 
-/* =========================
-   ビンゴ判定
-========================= */
+/* ビンゴ判定 */
 
 document
   .getElementById(
     "judge"
   )
   .addEventListener(
-
     "click",
-
     function () {
-
 
       if (
         !isBingo()
@@ -2266,84 +2248,60 @@ document
         statusArea.className =
           "";
 
-
         statusArea.innerHTML =
-
           '<span class="status-main">' +
-
           "まだビンゴではありません。" +
-
           "</span>" +
-
           '<span class="status-sub">' +
-
           "発見記録を追加してください。" +
-
           "</span>";
-
 
         return;
 
       }
-
 
       document
         .getElementById(
           "modalTeam"
         )
         .textContent =
-
         nameInput.value.trim() ||
-
         "氏名未入力";
-
 
       document
         .getElementById(
           "completedAt"
         )
         .textContent =
-
         "確認日時：" +
-
         formatDateTime(
-
           new Date()
             .toISOString()
-
         );
-
 
       document
         .getElementById(
           "elapsedTime"
         )
         .textContent =
-
         getElapsedText();
-
 
       modal.classList.add(
         "show"
       );
 
     }
-
   );
 
 
-/* =========================
-   ビンゴ達成画面を閉じる
-========================= */
+/* 達成画面を閉じる */
 
 document
   .getElementById(
     "close"
   )
   .addEventListener(
-
     "click",
-
     function () {
 
       modal.classList.remove(
@@ -2351,58 +2309,112 @@ document
       );
 
     }
-
   );
 
 
-/* =========================
-   やり直し
-========================= */
+/* やり直し */
 
 document
   .getElementById(
     "reset"
   )
   .addEventListener(
-
     "click",
-
     function () {
-
 
       const ok =
         confirm(
-
           "登録時刻と氏名を" +
           "すべて消去しますか？"
-
         );
 
-
       if (!ok) {
-
         return;
-
       }
-
 
       tapTimes =
         {};
 
-
       nameInput.value =
         "";
 
+      try {
 
-      localStorage.removeItem(
-        STORAGE_KEY
-      );
+        localStorage.removeItem(
+          STORAGE_KEY
+        );
+
+        localStorage.removeItem(
+          NAME_KEY
+        );
+
+      }
+
+      catch (error) {
+
+        console.log(error);
+
+      }
+
+      try {
+
+        sessionStorage.removeItem(
+          SESSION_STORAGE_KEY
+        );
+
+      }
+
+      catch (error) {
+
+        console.log(error);
+
+      }
+
+      updateUrlBackup();
+
+      storageStatus.className =
+        "storage-status";
+
+      storageStatus.textContent =
+        "";
+
+      render();
+
+      startCountdown();
+
+    }
+  );
 
 
-      localStorage.removeItem(
-        NAME_KEY
-      );
+/* ページを離れる前にも保存 */
 
+window.addEventListener(
+  "pagehide",
+  function () {
+
+    saveTimes();
+
+    saveName();
+
+  }
+);
+
+
+/* 画面が履歴から再表示された場合 */
+
+window.addEventListener(
+  "pageshow",
+  function (event) {
+
+    if (
+      event.persisted
+    ) {
+
+      tapTimes =
+        loadTimes();
+
+      nameInput.value =
+        loadName();
 
       render();
 
@@ -2410,12 +2422,15 @@ document
 
     }
 
-  );
+  }
+);
 
 
-/* =========================
-   初期表示
-========================= */
+/* 初期表示 */
+
+checkStorageSupport();
+
+saveTimes();
 
 render();
 
@@ -2424,5 +2439,4 @@ startCountdown();
 </script>
 
 </body>
-
 </html>
