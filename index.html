@@ -20,9 +20,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 10px;
+
   background: #f5f7f5;
   color: #1f2937;
 
@@ -38,9 +43,14 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 main {
   width: 100%;
   max-width: 620px;
+
   margin: 0 auto;
 }
 
@@ -51,13 +61,16 @@ main {
 
 .title-image {
   width: 100%;
+
   margin: 0 auto 12px;
 }
 
 .title-image img {
   display: block;
+
   width: 100%;
   height: auto;
+
   border-radius: 10px;
 }
 
@@ -99,7 +112,7 @@ main {
 ========================= */
 
 .team {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   padding: 13px;
 
   background: white;
@@ -109,6 +122,7 @@ main {
 
 .team label {
   display: block;
+
   margin-bottom: 8px;
 
   font-size: 16px;
@@ -128,7 +142,62 @@ main {
 
 
 /* =========================
-   案内
+   コース案内ボタン
+========================= */
+
+.course-links {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+
+  margin: 12px 0 16px;
+}
+
+.course-button {
+  display: flex;
+
+  min-height: 52px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 8px;
+
+  background: #176b43;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.course-button:active {
+  background: #0f5132;
+}
+
+.route-button {
+  background: #316b91;
+}
+
+.route-button:active {
+  background: #24506d;
+}
+
+
+/* =========================
+   案内文
 ========================= */
 
 .guide {
@@ -136,7 +205,6 @@ main {
 
   font-size: 16px;
   font-weight: 700;
-
   line-height: 1.5;
 }
 
@@ -179,6 +247,7 @@ main {
 .cell.done {
   background: #c8e6c9;
   color: #176b43;
+
   border-color: #176b43;
 }
 
@@ -231,7 +300,7 @@ main {
 
 
 /* =========================
-   ボタン
+   操作ボタン
 ========================= */
 
 .actions {
@@ -274,7 +343,7 @@ main {
 
 
 /* =========================
-   発見記録
+   発見記録・残り時間
 ========================= */
 
 #status {
@@ -297,7 +366,6 @@ main {
 
 #status.ready {
   background: #e8f5ec;
-
   color: #176b43;
 
   border-color: #176b43;
@@ -319,7 +387,6 @@ main {
 
 .help {
   margin-top: 12px;
-
   padding: 13px 15px;
 
   background: white;
@@ -334,6 +401,7 @@ main {
 
 .help strong {
   display: block;
+
   margin-bottom: 5px;
 
   font-size: 15px;
@@ -359,7 +427,6 @@ main {
 
 .small {
   margin: 10px auto 0;
-
   padding: 0 4px;
 
   color: #667085;
@@ -405,8 +472,7 @@ main {
 
 .modal {
   position: fixed;
-
-  z-index: 10;
+  z-index: 50;
 
   inset: 0;
 
@@ -460,6 +526,140 @@ main {
 
 
 /* =========================
+   経路参考写真画面
+========================= */
+
+.route-modal {
+  position: fixed;
+  z-index: 60;
+
+  inset: 0;
+
+  display: none;
+
+  background: #f5f7f5;
+
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.route-modal.show {
+  display: block;
+}
+
+.route-header {
+  position: sticky;
+  z-index: 61;
+
+  top: 0;
+
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 11px 12px;
+
+  background: #176b43;
+  color: white;
+
+  box-shadow:
+    0 2px 6px
+    rgba(0, 0, 0, 0.18);
+}
+
+.route-header strong {
+  font-size: 16px;
+}
+
+.route-close {
+  flex-shrink: 0;
+
+  padding: 8px 12px;
+
+  background: white;
+  color: #176b43;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.route-content {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.route-section {
+  margin-bottom: 16px;
+  padding: 8px;
+
+  background: white;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 1px 5px
+    rgba(0, 0, 0, 0.12);
+}
+
+.route-section h2 {
+  margin: 4px 4px 9px;
+
+  color: #176b43;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+.route-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+}
+
+.route-return {
+  margin: 10px 0 25px;
+
+  text-align: center;
+}
+
+.route-return button {
+  width: 100%;
+  max-width: 620px;
+
+  padding: 13px 10px;
+
+  background: #176b43;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================
    スマホ表示
 ========================= */
 
@@ -486,6 +686,16 @@ main {
 
   .team label {
     font-size: 15px;
+  }
+
+  .course-links {
+    grid-template-columns: 1fr;
+  }
+
+  .course-button {
+    min-height: 48px;
+
+    font-size: 14px;
   }
 
   .guide {
@@ -516,6 +726,7 @@ main {
 
   .hint {
     margin-top: 7px;
+
     font-size: 9px;
   }
 
@@ -553,6 +764,30 @@ main {
 
     font-size: 12px;
     line-height: 1.5;
+  }
+
+  .route-header strong {
+    font-size: 14px;
+  }
+
+  .route-close {
+    padding: 8px 9px;
+
+    font-size: 12px;
+  }
+
+  .route-content {
+    padding: 7px;
+  }
+
+  .route-section {
+    padding: 5px;
+
+    margin-bottom: 12px;
+  }
+
+  .route-section h2 {
+    font-size: 14px;
   }
 
 }
@@ -632,7 +867,7 @@ main {
 
 
 <!-- =========================
-     氏名
+     氏名入力
 ========================= -->
 
 <div class="team">
@@ -651,13 +886,39 @@ main {
 </div>
 
 
+<!-- =========================
+     コース案内ボタン
+========================= -->
+
+<div class="course-links">
+
+  <a
+    href="bingo-map.png"
+    target="_blank"
+    rel="noopener"
+    class="course-button"
+  >
+    🗺 園内マップを開く
+  </a>
+
+  <button
+    type="button"
+    class="course-button route-button"
+    id="openRouteGuide"
+  >
+    📍 経路の参考写真を見る
+  </button>
+
+</div>
+
+
 <p class="guide">
   対象物を見つけたら該当マスをタップ
 </p>
 
 
 <!-- =========================
-     ビンゴ
+     ビンゴマス
 ========================= -->
 
 <div
@@ -667,7 +928,7 @@ main {
 
 
 <!-- =========================
-     操作
+     操作ボタン
 ========================= -->
 
 <div class="actions">
@@ -753,15 +1014,109 @@ main {
 <div class="emergency-contact">
 
   緊急連絡先：
+
   <span class="emergency-number">
     090-9662-9023
   </span>
+
   （光友会携帯電話）
 
 </div>
 
 
 </main>
+
+
+<!-- =========================
+     経路参考写真画面
+========================= -->
+
+<div
+  class="route-modal"
+  id="routeGuide"
+  aria-hidden="true"
+>
+
+  <div class="route-header">
+
+    <strong>
+      経路の参考写真
+    </strong>
+
+    <button
+      type="button"
+      class="route-close"
+      id="closeRouteGuide"
+    >
+      ビンゴ画面へ戻る
+    </button>
+
+  </div>
+
+
+  <div class="route-content">
+
+
+    <section class="route-section">
+
+      <h2>
+        バードピア・スポーツ広場・展望台方面
+      </h2>
+
+      <img
+        src="bingo-spots.png"
+        alt="バードピアからスポーツ広場と展望台方面の参考写真"
+        class="route-image"
+      >
+
+    </section>
+
+
+    <section class="route-section">
+
+      <h2>
+        バードピア・冒険の森・吊り橋方面
+      </h2>
+
+      <img
+        src="bingo-hashi.png"
+        alt="バードピアから吊り橋方面の参考写真"
+        class="route-image"
+      >
+
+    </section>
+
+
+    <section class="route-section">
+
+      <h2>
+        西ノ谷奥池から展望台へのアクセス
+      </h2>
+
+      <img
+        src="bingo-tenbou.png"
+        alt="西ノ谷奥池から展望台へのアクセス案内"
+        class="route-image"
+      >
+
+    </section>
+
+
+    <div class="route-return">
+
+      <button
+        type="button"
+        id="closeRouteGuideBottom"
+      >
+        ビンゴ画面へ戻る
+      </button>
+
+    </div>
+
+
+  </div>
+
+</div>
 
 
 <!-- =========================
@@ -818,8 +1173,8 @@ const items = [
   "FREE",
   "池",
   "遊具",
-  "スポーツ広場看板",
-  "紅葉の木"
+  "看板",
+  "森の家"
 ];
 
 
@@ -893,6 +1248,11 @@ const statusArea =
 const modal =
   document.getElementById(
     "modal"
+  );
+
+const routeGuide =
+  document.getElementById(
+    "routeGuide"
   );
 
 
@@ -995,7 +1355,7 @@ function escapeHtml(value) {
 
 
 /* =========================
-   日時
+   日時表示
 ========================= */
 
 function formatDateTime(iso) {
@@ -1036,7 +1396,7 @@ function formatDateTime(iso) {
 
 
 /* =========================
-   登録済日時
+   登録済み日時
 ========================= */
 
 function getRecordedDates() {
@@ -1065,7 +1425,7 @@ function getRecordedDates() {
 
 
 /* =========================
-   最終登録
+   最終登録時刻
 ========================= */
 
 function getLatestTimeMs() {
@@ -1098,7 +1458,7 @@ function getLatestTimeMs() {
 
 
 /* =========================
-   残り時間
+   次回登録までの残り時間
 ========================= */
 
 function getRemainingMs() {
@@ -1234,7 +1594,7 @@ function isBingo() {
 
 
 /* =========================
-   マス表示
+   ビンゴマス表示
 ========================= */
 
 function render() {
@@ -1664,7 +2024,7 @@ function startCountdown() {
 
 
 /* =========================
-   所要時間
+   登録所要時間
 ========================= */
 
 function getElapsedText() {
@@ -1745,7 +2105,7 @@ function getElapsedText() {
 
 
 /* =========================
-   氏名
+   氏名保存
 ========================= */
 
 nameInput.value =
@@ -1775,7 +2135,117 @@ nameInput.addEventListener(
 
 
 /* =========================
-   ビンゴ判定ボタン
+   園内経路参考写真を開く
+========================= */
+
+function openRouteGuide() {
+
+  routeGuide.classList.add(
+    "show"
+  );
+
+  routeGuide.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
+  routeGuide.scrollTop =
+    0;
+
+}
+
+
+/* =========================
+   園内経路参考写真を閉じる
+========================= */
+
+function closeRouteGuide() {
+
+  routeGuide.classList.remove(
+    "show"
+  );
+
+  routeGuide.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+document
+  .getElementById(
+    "openRouteGuide"
+  )
+  .addEventListener(
+
+    "click",
+
+    openRouteGuide
+
+  );
+
+
+document
+  .getElementById(
+    "closeRouteGuide"
+  )
+  .addEventListener(
+
+    "click",
+
+    closeRouteGuide
+
+  );
+
+
+document
+  .getElementById(
+    "closeRouteGuideBottom"
+  )
+  .addEventListener(
+
+    "click",
+
+    closeRouteGuide
+
+  );
+
+
+/* Escapeキーでも閉じる */
+
+document.addEventListener(
+
+  "keydown",
+
+  function (event) {
+
+    if (
+      event.key === "Escape" &&
+      routeGuide.classList.contains(
+        "show"
+      )
+    ) {
+
+      closeRouteGuide();
+
+    }
+
+  }
+
+);
+
+
+/* =========================
+   ビンゴ判定
 ========================= */
 
 document
@@ -1863,7 +2333,7 @@ document
 
 
 /* =========================
-   達成画面を閉じる
+   ビンゴ達成画面を閉じる
 ========================= */
 
 document
@@ -1916,7 +2386,8 @@ document
       }
 
 
-      tapTimes = {};
+      tapTimes =
+        {};
 
 
       nameInput.value =
