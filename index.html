@@ -13,6 +13,7 @@
 <title>光友会 ビンゴウォーク</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -26,12 +27,14 @@ body {
   padding: 10px;
   background: #f5f7f5;
   color: #1f2937;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     "Noto Sans JP",
     sans-serif;
+
   text-align: center;
   -webkit-text-size-adjust: 100%;
 }
@@ -67,19 +70,24 @@ main {
 .browser-warning {
   margin-bottom: 12px;
   padding: 13px 15px;
+
   background: #fff0f0;
   color: #8a1c1c;
+
   border: 2px solid #d94a4a;
   border-radius: 10px;
+
   font-size: 14px;
   font-weight: 700;
   line-height: 1.7;
+
   text-align: left;
 }
 
 .browser-warning-title {
   display: block;
   margin-bottom: 5px;
+
   font-size: 16px;
   text-align: center;
 }
@@ -98,13 +106,18 @@ main {
 .notice {
   margin-bottom: 12px;
   padding: 14px 16px;
+
   background: #fff4d8;
+
   border: 2px solid #f4a024;
   border-radius: 10px;
+
   font-size: 15px;
   font-weight: 700;
   line-height: 1.8;
+
   text-align: left;
+
   overflow-wrap: break-word;
 }
 
@@ -121,15 +134,20 @@ main {
 
 .storage-status {
   display: none;
+
   margin-bottom: 12px;
   padding: 11px 13px;
+
   background: #fff0f0;
   color: #8a1c1c;
+
   border: 2px solid #d94a4a;
   border-radius: 10px;
+
   font-size: 13px;
   font-weight: 700;
   line-height: 1.6;
+
   text-align: left;
 }
 
@@ -140,6 +158,7 @@ main {
 .storage-status.ok {
   background: #e8f5ec;
   color: #176b43;
+
   border-color: #176b43;
 }
 
@@ -149,13 +168,16 @@ main {
 .team {
   margin-bottom: 12px;
   padding: 13px;
+
   background: white;
+
   border-radius: 10px;
 }
 
 .team label {
   display: block;
   margin-bottom: 8px;
+
   font-size: 16px;
   font-weight: 700;
 }
@@ -163,8 +185,10 @@ main {
 .team input {
   width: 100%;
   padding: 11px;
+
   border: 1px solid #9ca3af;
   border-radius: 8px;
+
   font-size: 16px;
 }
 
@@ -173,27 +197,39 @@ main {
 
 .course-links {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap: 8px;
+
   margin: 12px 0 16px;
 }
 
 .course-button {
   display: flex;
+
   min-height: 52px;
+
   align-items: center;
   justify-content: center;
+
   padding: 10px 8px;
+
   background: #176b43;
   color: white;
+
   border: none;
   border-radius: 10px;
+
   font: inherit;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
+
   text-align: center;
   text-decoration: none;
+
   cursor: pointer;
 }
 
@@ -214,6 +250,7 @@ main {
 
 .guide {
   margin: 14px 0 12px;
+
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
@@ -224,64 +261,85 @@ main {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   gap: 8px;
+
   width: 100%;
 }
 
 .cell {
   min-width: 0;
   height: 112px;
+
   padding: 6px 3px;
+
   overflow: hidden;
+
   background: white;
   color: #1f2937;
+
   border: 2px solid #c7ceca;
   border-radius: 10px;
+
   font: inherit;
   font-weight: 700;
+
   cursor: pointer;
 }
 
 .cell.done {
   background: #c8e6c9;
   color: #176b43;
-  border-color: #176b43;
-}
 
-.cell.free {
-  cursor: default;
+  border-color: #176b43;
 }
 
 .cell-name {
   display: block;
+
+  min-height: 38px;
+
   font-size: 14px;
-  line-height: 1.35;
+  line-height: 1.3;
+
   overflow-wrap: anywhere;
 }
 
 .check {
   display: block;
-  margin-top: 4px;
-  font-size: 25px;
-  line-height: 28px;
+
+  margin-top: 2px;
+
+  font-size: 24px;
+  line-height: 26px;
 }
 
 .time {
   display: block;
-  margin-top: 3px;
+
+  margin-top: 2px;
+
   color: #355c46;
-  font-size: 11px;
-  line-height: 1.25;
+
+  font-size: 10px;
+  line-height: 1.2;
+
   white-space: nowrap;
 }
 
 .hint {
   display: block;
-  margin-top: 8px;
+
+  margin-top: 7px;
+
   color: #667085;
-  font-size: 10px;
+
+  font-size: 9px;
   font-weight: 500;
+
   white-space: nowrap;
 }
 
@@ -290,51 +348,67 @@ main {
 
 .actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap: 9px;
+
   margin-top: 14px;
 }
 
 .action {
   min-height: 50px;
+
   padding: 11px 8px;
+
   border-radius: 10px;
+
   font-size: 17px;
   font-weight: 700;
+
   cursor: pointer;
 }
 
 .judge {
   background: #176b43;
   color: white;
+
   border: none;
 }
 
 .reset {
   background: white;
   color: #c62828;
+
   border: 2px solid #c62828;
 }
 
 
-/* 発見記録・残り時間 */
+/* 発見記録 */
 
 #status {
   min-height: 58px;
+
   margin-top: 12px;
   padding: 11px 12px;
+
   background: white;
+
   border: 2px solid #d1d5db;
   border-radius: 10px;
+
   font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
+
   text-align: center;
 }
 
 #status.ready {
   background: #e8f5ec;
   color: #176b43;
+
   border-color: #176b43;
 }
 
@@ -353,16 +427,21 @@ main {
 .help {
   margin-top: 12px;
   padding: 13px 15px;
+
   background: white;
+
   border-radius: 10px;
+
   font-size: 13px;
   line-height: 1.75;
+
   text-align: left;
 }
 
 .help strong {
   display: block;
   margin-bottom: 5px;
+
   font-size: 15px;
 }
 
@@ -381,9 +460,12 @@ main {
 .small {
   margin: 10px auto 0;
   padding: 0 4px;
+
   color: #667085;
+
   font-size: 12px;
   line-height: 1.65;
+
   text-align: center;
 }
 
@@ -393,14 +475,19 @@ main {
 .emergency-contact {
   margin-top: 16px;
   margin-bottom: 12px;
+
   padding: 13px 8px;
+
   background: #fff4d8;
   color: #c62828;
+
   border: 2px solid #f4a024;
   border-radius: 10px;
+
   font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
+
   text-align: center;
 }
 
@@ -414,12 +501,18 @@ main {
 .modal {
   position: fixed;
   z-index: 50;
+
   inset: 0;
+
   display: none;
+
   align-items: center;
   justify-content: center;
+
   padding: 18px;
-  background: rgba(0, 0, 0, 0.72);
+
+  background:
+    rgba(0, 0, 0, 0.72);
 }
 
 .modal.show {
@@ -428,25 +521,34 @@ main {
 
 .modal-content {
   width: min(100%, 500px);
+
   padding: 28px 20px;
+
   background: white;
+
   border-radius: 16px;
 }
 
 .modal h2 {
   margin: 0 0 10px;
+
   color: #176b43;
+
   font-size: 30px;
 }
 
 .modal button {
   padding: 12px 25px;
+
   background: #176b43;
   color: white;
+
   border: none;
   border-radius: 9px;
+
   font-size: 17px;
   font-weight: 700;
+
   cursor: pointer;
 }
 
@@ -456,10 +558,15 @@ main {
 .route-modal {
   position: fixed;
   z-index: 60;
+
   inset: 0;
+
   display: none;
+
   background: #f5f7f5;
+
   overflow-y: auto;
+
   -webkit-overflow-scrolling: touch;
 }
 
@@ -470,15 +577,20 @@ main {
 .route-header {
   position: sticky;
   z-index: 61;
+
   top: 0;
+
   display: flex;
+
   gap: 10px;
+
   align-items: center;
   justify-content: space-between;
+
   padding: 11px 12px;
+
   background: #176b43;
   color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 .route-header strong {
@@ -487,19 +599,25 @@ main {
 
 .route-close {
   flex-shrink: 0;
+
   padding: 8px 12px;
+
   background: white;
   color: #176b43;
+
   border: none;
   border-radius: 8px;
+
   font-size: 13px;
   font-weight: 700;
+
   cursor: pointer;
 }
 
 .route-content {
   width: 100%;
   max-width: 1000px;
+
   margin: 0 auto;
   padding: 10px;
 }
@@ -507,47 +625,59 @@ main {
 .route-section {
   margin-bottom: 16px;
   padding: 8px;
+
   background: white;
+
   border-radius: 10px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
 }
 
 .route-section h2 {
   margin: 4px 4px 9px;
+
   color: #176b43;
+
   font-size: 16px;
   line-height: 1.5;
+
   text-align: left;
 }
 
 .route-image {
   display: block;
+
   width: 100%;
   height: auto;
+
   border: 1px solid #d1d5db;
   border-radius: 7px;
 }
 
 .route-return {
   margin: 10px 0 25px;
+
   text-align: center;
 }
 
 .route-return button {
   width: 100%;
   max-width: 620px;
+
   padding: 13px 10px;
+
   background: #176b43;
   color: white;
+
   border: none;
   border-radius: 10px;
+
   font-size: 15px;
   font-weight: 700;
+
   cursor: pointer;
 }
 
 
-/* スマホ表示 */
+/* スマホ */
 
 @media (max-width: 430px) {
 
@@ -560,22 +690,13 @@ main {
     font-size: 13px;
   }
 
-  .browser-warning-title {
-    font-size: 15px;
-  }
-
   .notice {
     padding: 11px 13px;
     font-size: 14px;
-    line-height: 1.7;
   }
 
   .course-links {
     grid-template-columns: 1fr;
-  }
-
-  .course-button {
-    min-height: 48px;
   }
 
   .grid {
@@ -583,26 +704,26 @@ main {
   }
 
   .cell {
-    height: 105px;
+    height: 108px;
     padding: 5px 2px;
   }
 
   .cell-name {
-    font-size: 13px;
+    min-height: 36px;
+    font-size: 12px;
   }
 
   .check {
-    font-size: 23px;
-    line-height: 25px;
+    font-size: 22px;
+    line-height: 24px;
   }
 
   .time {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .hint {
-    margin-top: 7px;
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .actions {
@@ -614,7 +735,6 @@ main {
   }
 
   .help {
-    padding: 12px;
     font-size: 12px;
   }
 
@@ -623,26 +743,9 @@ main {
   }
 
   .emergency-contact {
-    padding: 11px 5px;
     font-size: 12px;
   }
 
-  .route-header strong {
-    font-size: 14px;
-  }
-
-  .route-close {
-    padding: 8px 9px;
-    font-size: 12px;
-  }
-
-  .route-content {
-    padding: 7px;
-  }
-
-  .route-section h2 {
-    font-size: 14px;
-  }
 }
 
 
@@ -651,24 +754,18 @@ main {
 @media (max-width: 350px) {
 
   .cell-name {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .hint {
-    font-size: 8px;
+    font-size: 7px;
   }
 
-  .notice {
-    font-size: 13px;
-  }
-
-  .emergency-contact {
-    font-size: 11px;
-  }
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -678,10 +775,12 @@ main {
 <!-- タイトル画像 -->
 
 <div class="title-image">
+
   <img
     src="bingo-title.png"
     alt="光友会 ビンゴウォーク"
   >
+
 </div>
 
 
@@ -712,8 +811,6 @@ main {
 </div>
 
 
-<!-- 保存状態 -->
-
 <div
   class="storage-status"
   id="storageStatus"
@@ -721,7 +818,7 @@ main {
 ></div>
 
 
-<!-- 通常注意事項 -->
+<!-- 注意事項 -->
 
 <div class="notice">
 
@@ -744,7 +841,7 @@ main {
 </div>
 
 
-<!-- 氏名入力 -->
+<!-- 氏名 -->
 
 <div class="team">
 
@@ -763,7 +860,7 @@ main {
 </div>
 
 
-<!-- コース案内ボタン -->
+<!-- コース案内 -->
 
 <div class="course-links">
 
@@ -792,15 +889,11 @@ main {
 </p>
 
 
-<!-- ビンゴマス -->
-
 <div
   class="grid"
   id="grid"
 ></div>
 
-
-<!-- 操作ボタン -->
 
 <div class="actions">
 
@@ -838,6 +931,7 @@ main {
   </strong>
 
   <ol>
+
     <li>
       SafariまたはChromeでこのページを開きます。
     </li>
@@ -861,6 +955,7 @@ main {
     <li>
       1列そろったら「ビンゴ判定」を押します。
     </li>
+
   </ol>
 
 </section>
@@ -874,8 +969,6 @@ main {
 
 </p>
 
-
-<!-- 緊急連絡先 -->
 
 <div class="emergency-contact">
 
@@ -893,7 +986,7 @@ main {
 </main>
 
 
-<!-- 経路参考写真画面 -->
+<!-- 経路参考写真 -->
 
 <div
   class="route-modal"
@@ -928,7 +1021,7 @@ main {
 
       <img
         src="bingo-spots.png"
-        alt="バードピアからスポーツ広場と展望台方面の参考写真"
+        alt="スポーツ広場と展望台方面の参考写真"
         class="route-image"
       >
 
@@ -943,7 +1036,7 @@ main {
 
       <img
         src="bingo-hashi.png"
-        alt="バードピアから吊り橋方面の参考写真"
+        alt="吊り橋方面の参考写真"
         class="route-image"
       >
 
@@ -958,7 +1051,7 @@ main {
 
       <img
         src="bingo-tenbou.png"
-        alt="西ノ谷奥池から展望台へのアクセス案内"
+        alt="展望台へのアクセス案内"
         class="route-image"
       >
 
@@ -981,7 +1074,7 @@ main {
 </div>
 
 
-<!-- ビンゴ達成画面 -->
+<!-- ビンゴ達成 -->
 
 <div
   class="modal"
@@ -1021,42 +1114,61 @@ main {
 "use strict";
 
 
-/* ビンゴ項目
-   変更済み：
-   看板 → スポーツ広場
-   森の家 → 紅葉の木
-*/
+/* =========================
+   ビンゴ9マス
+   FREEなし
+========================= */
 
 const items = [
+
   "川",
+
   "自販機",
+
   "展望台",
+
   "吊り橋",
+
   "松ぼっくり、どんぐり",
+
   "池",
+
   "遊具",
+
   "スポーツ広場",
+
   "紅葉の木"
+
 ];
 
 
-/* ビンゴ成立パターン */
+/* ビンゴ成立 */
 
 const winningLines = [
+
   [0, 1, 2],
+
   [3, 4, 5],
+
   [6, 7, 8],
+
   [0, 3, 6],
+
   [1, 4, 7],
+
   [2, 5, 8],
+
   [0, 4, 8],
+
   [2, 4, 6]
+
 ];
 
 
-/* 登録間隔 */
+/* 5分制限 */
 
-const WAIT_MINUTES = 5;
+const WAIT_MINUTES =
+  5;
 
 const WAIT_MS =
   WAIT_MINUTES *
@@ -1064,19 +1176,21 @@ const WAIT_MS =
   1000;
 
 
-/* 保存キー */
+/* 保存キー
+   V5へ変更して旧FREE版の記録を引き継がない
+*/
 
 const STORAGE_KEY =
-  "bingoTapTimesV4";
+  "bingoTapTimesV5";
 
 const SESSION_STORAGE_KEY =
-  "bingoTapTimesSessionV4";
+  "bingoTapTimesSessionV5";
 
 const NAME_KEY =
-  "bingoParticipantNameV4";
+  "bingoParticipantNameV5";
 
 
-/* HTML要素 */
+/* HTML */
 
 const grid =
   document.getElementById(
@@ -1112,9 +1226,6 @@ const routeGuide =
 let storageAvailable =
   true;
 
-let sessionStorageAvailable =
-  true;
-
 let tapTimes =
   loadTimes();
 
@@ -1122,33 +1233,54 @@ let timerId =
   null;
 
 
-/* URL保存用文字列を作成 */
+/* URL保存用 */
 
-function encodeState(value) {
+function encodeState(
+  value
+) {
 
   try {
 
     const json =
-      JSON.stringify(value);
+      JSON.stringify(
+        value
+      );
 
     const bytes =
       new TextEncoder()
-        .encode(json);
+        .encode(
+          json
+        );
 
     let binary =
       "";
 
     bytes.forEach(
       function (byte) {
+
         binary +=
-          String.fromCharCode(byte);
+          String.fromCharCode(
+            byte
+          );
+
       }
     );
 
-    return btoa(binary)
-      .replaceAll("+", "-")
-      .replaceAll("/", "_")
-      .replaceAll("=", "");
+    return btoa(
+      binary
+    )
+      .replaceAll(
+        "+",
+        "-"
+      )
+      .replaceAll(
+        "/",
+        "_"
+      )
+      .replaceAll(
+        "=",
+        ""
+      );
 
   }
 
@@ -1161,47 +1293,79 @@ function encodeState(value) {
 }
 
 
-/* URL保存データを復元 */
+/* URL保存データ復元 */
 
-function decodeState(value) {
+function decodeState(
+  value
+) {
 
   try {
 
     let base64 =
       value
-        .replaceAll("-", "+")
-        .replaceAll("_", "/");
+        .replaceAll(
+          "-",
+          "+"
+        )
+        .replaceAll(
+          "_",
+          "/"
+        );
 
     while (
       base64.length % 4 !== 0
     ) {
-      base64 += "=";
+
+      base64 +=
+        "=";
+
     }
 
     const binary =
-      atob(base64);
+      atob(
+        base64
+      );
 
     const bytes =
       Uint8Array.from(
+
         binary,
-        function (character) {
-          return character.charCodeAt(0);
+
+        function (
+          character
+        ) {
+
+          return character
+            .charCodeAt(
+              0
+            );
+
         }
+
       );
 
     const json =
       new TextDecoder()
-        .decode(bytes);
+        .decode(
+          bytes
+        );
 
     const parsed =
-      JSON.parse(json);
+      JSON.parse(
+        json
+      );
 
-    return (
+    if (
       parsed &&
-      typeof parsed === "object"
-    )
-      ? parsed
-      : null;
+      typeof parsed ===
+      "object"
+    ) {
+
+      return parsed;
+
+    }
+
+    return null;
 
   }
 
@@ -1214,7 +1378,7 @@ function decodeState(value) {
 }
 
 
-/* URLから登録内容を読み込む */
+/* URLから取得 */
 
 function loadTimesFromUrl() {
 
@@ -1222,19 +1386,25 @@ function loadTimesFromUrl() {
     window.location.hash;
 
   if (
-    !hash.startsWith("#s=")
+    !hash.startsWith(
+      "#s="
+    )
   ) {
+
     return null;
+
   }
 
   return decodeState(
-    hash.slice(3)
+    hash.slice(
+      3
+    )
   );
 
 }
 
 
-/* localStorageから読み込む */
+/* localStorage */
 
 function loadTimesFromLocalStorage() {
 
@@ -1246,18 +1416,27 @@ function loadTimesFromLocalStorage() {
       );
 
     if (!value) {
+
       return null;
+
     }
 
     const parsed =
-      JSON.parse(value);
+      JSON.parse(
+        value
+      );
 
-    return (
+    if (
       parsed &&
-      typeof parsed === "object"
-    )
-      ? parsed
-      : null;
+      typeof parsed ===
+      "object"
+    ) {
+
+      return parsed;
+
+    }
+
+    return null;
 
   }
 
@@ -1273,7 +1452,7 @@ function loadTimesFromLocalStorage() {
 }
 
 
-/* sessionStorageから読み込む */
+/* sessionStorage */
 
 function loadTimesFromSessionStorage() {
 
@@ -1285,25 +1464,31 @@ function loadTimesFromSessionStorage() {
       );
 
     if (!value) {
+
       return null;
+
     }
 
     const parsed =
-      JSON.parse(value);
+      JSON.parse(
+        value
+      );
 
-    return (
+    if (
       parsed &&
-      typeof parsed === "object"
-    )
-      ? parsed
-      : null;
+      typeof parsed ===
+      "object"
+    ) {
+
+      return parsed;
+
+    }
+
+    return null;
 
   }
 
   catch (error) {
-
-    sessionStorageAvailable =
-      false;
 
     return null;
 
@@ -1312,7 +1497,7 @@ function loadTimesFromSessionStorage() {
 }
 
 
-/* 登録内容を復元 */
+/* 復元 */
 
 function loadTimes() {
 
@@ -1325,26 +1510,42 @@ function loadTimes() {
   const urlData =
     loadTimesFromUrl();
 
+
   if (
     localData &&
-    Object.keys(localData).length > 0
+    Object.keys(
+      localData
+    ).length > 0
   ) {
+
     return localData;
+
   }
+
 
   if (
     sessionData &&
-    Object.keys(sessionData).length > 0
+    Object.keys(
+      sessionData
+    ).length > 0
   ) {
+
     return sessionData;
+
   }
+
 
   if (
     urlData &&
-    Object.keys(urlData).length > 0
+    Object.keys(
+      urlData
+    ).length > 0
   ) {
+
     return urlData;
+
   }
+
 
   return {};
 
@@ -1356,7 +1557,9 @@ function loadTimes() {
 function updateUrlBackup() {
 
   const encoded =
-    encodeState(tapTimes);
+    encodeState(
+      tapTimes
+    );
 
   const baseUrl =
     window.location.pathname +
@@ -1364,7 +1567,9 @@ function updateUrlBackup() {
 
   const nextUrl =
     encoded
-      ? baseUrl + "#s=" + encoded
+      ? baseUrl +
+        "#s=" +
+        encoded
       : baseUrl;
 
   try {
@@ -1380,7 +1585,6 @@ function updateUrlBackup() {
   catch (error) {
 
     console.log(
-      "URL予備保存を更新できませんでした。",
       error
     );
 
@@ -1389,40 +1593,54 @@ function updateUrlBackup() {
 }
 
 
-/* 保存状態のメッセージ */
+/* 保存メッセージ */
 
 function showStorageMessage(
   message,
   isOk
 ) {
 
-  storageStatus.textContent =
+  storageStatus
+    .textContent =
     message;
 
-  storageStatus.classList.add(
-    "show"
-  );
+  storageStatus
+    .classList
+    .add(
+      "show"
+    );
 
   if (isOk) {
-    storageStatus.classList.add(
-      "ok"
-    );
+
+    storageStatus
+      .classList
+      .add(
+        "ok"
+      );
+
   }
+
   else {
-    storageStatus.classList.remove(
-      "ok"
-    );
+
+    storageStatus
+      .classList
+      .remove(
+        "ok"
+      );
+
   }
 
 }
 
 
-/* 登録内容保存 */
+/* 保存 */
 
 function saveTimes() {
 
   const json =
-    JSON.stringify(tapTimes);
+    JSON.stringify(
+      tapTimes
+    );
 
   let localSaved =
     false;
@@ -1430,17 +1648,21 @@ function saveTimes() {
   let sessionSaved =
     false;
 
+
   try {
 
-    localStorage.setItem(
-      STORAGE_KEY,
-      json
-    );
+    localStorage
+      .setItem(
+        STORAGE_KEY,
+        json
+      );
 
     localSaved =
-      localStorage.getItem(
-        STORAGE_KEY
-      ) === json;
+
+      localStorage
+        .getItem(
+          STORAGE_KEY
+        ) === json;
 
   }
 
@@ -1451,28 +1673,34 @@ function saveTimes() {
 
   }
 
+
   try {
 
-    sessionStorage.setItem(
-      SESSION_STORAGE_KEY,
-      json
-    );
+    sessionStorage
+      .setItem(
+        SESSION_STORAGE_KEY,
+        json
+      );
 
     sessionSaved =
-      sessionStorage.getItem(
-        SESSION_STORAGE_KEY
-      ) === json;
+
+      sessionStorage
+        .getItem(
+          SESSION_STORAGE_KEY
+        ) === json;
 
   }
 
   catch (error) {
 
-    sessionStorageAvailable =
+    sessionSaved =
       false;
 
   }
 
+
   updateUrlBackup();
+
 
   if (
     !localSaved &&
@@ -1480,11 +1708,15 @@ function saveTimes() {
   ) {
 
     showStorageMessage(
-      "登録情報を端末へ保存できませんでした。SafariまたはChromeで開き直してください。",
+
+      "登録情報を保存できませんでした。SafariまたはChromeで開いてください。",
+
       false
+
     );
 
   }
+
 
   return (
     localSaved ||
@@ -1494,28 +1726,33 @@ function saveTimes() {
 }
 
 
-/* 保存機能確認 */
+/* 保存確認 */
 
 function checkStorageSupport() {
 
-  const testKey =
-    "bingoStorageTestV4";
+  const key =
+    "bingoStorageTestV5";
 
   try {
 
-    localStorage.setItem(
-      testKey,
-      "ok"
-    );
+    localStorage
+      .setItem(
+        key,
+        "ok"
+      );
 
     storageAvailable =
-      localStorage.getItem(
-        testKey
-      ) === "ok";
 
-    localStorage.removeItem(
-      testKey
-    );
+      localStorage
+        .getItem(
+          key
+        ) ===
+      "ok";
+
+    localStorage
+      .removeItem(
+        key
+      );
 
   }
 
@@ -1531,8 +1768,11 @@ function checkStorageSupport() {
   ) {
 
     showStorageMessage(
-      "この画面では記録を保持できない可能性があります。SafariまたはChromeの「ブラウザで開く」を選択してください。",
+
+      "この画面では記録を保持できない可能性があります。SafariまたはChromeで開いてください。",
+
       false
+
     );
 
   }
@@ -1540,63 +1780,118 @@ function checkStorageSupport() {
 }
 
 
-/* HTML安全表示 */
+/* 安全表示 */
 
-function escapeHtml(value) {
+function escapeHtml(
+  value
+) {
 
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+  return String(
+    value
+  )
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 
 }
 
 
 /* 日時表示 */
 
-function formatDateTime(iso) {
+function formatDateTime(
+  iso
+) {
 
-  return new Intl.DateTimeFormat(
-    "ja-JP",
-    {
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false
-    }
-  ).format(
-    new Date(iso)
-  );
+  return new Intl
+    .DateTimeFormat(
+
+      "ja-JP",
+
+      {
+
+        month:
+          "2-digit",
+
+        day:
+          "2-digit",
+
+        hour:
+          "2-digit",
+
+        minute:
+          "2-digit",
+
+        second:
+          "2-digit",
+
+        hour12:
+          false
+
+      }
+
+    )
+    .format(
+      new Date(
+        iso
+      )
+    );
 
 }
 
 
-/* 登録日時一覧 */
+/* 登録日時 */
 
 function getRecordedDates() {
 
-  return Object.values(tapTimes)
+  return Object
+    .values(
+      tapTimes
+    )
     .map(
-      function (value) {
-        return new Date(value);
+      function (
+        value
+      ) {
+
+        return new Date(
+          value
+        );
+
       }
     )
     .filter(
-      function (date) {
-        return !Number.isNaN(
-          date.getTime()
-        );
+      function (
+        date
+      ) {
+
+        return !Number
+          .isNaN(
+            date.getTime()
+          );
+
       }
     );
 
 }
 
 
-/* 最終登録時刻 */
+/* 最新登録 */
 
 function getLatestTimeMs() {
 
@@ -1606,21 +1901,30 @@ function getLatestTimeMs() {
   if (
     dates.length === 0
   ) {
+
     return null;
+
   }
 
   return Math.max(
+
     ...dates.map(
-      function (date) {
-        return date.getTime();
+      function (
+        date
+      ) {
+
+        return date
+          .getTime();
+
       }
     )
+
   );
 
 }
 
 
-/* 残り時間 */
+/* 次回登録まで */
 
 function getRemainingMs() {
 
@@ -1630,24 +1934,31 @@ function getRemainingMs() {
   if (
     latest === null
   ) {
+
     return 0;
+
   }
 
   return Math.max(
+
     0,
+
     WAIT_MS -
     (
       Date.now() -
       latest
     )
+
   );
 
 }
 
 
-/* 残り時間表示 */
+/* 残り時間 */
 
-function formatRemaining(ms) {
+function formatRemaining(
+  ms
+) {
 
   const totalSeconds =
     Math.ceil(
@@ -1663,34 +1974,42 @@ function formatRemaining(ms) {
     totalSeconds % 60;
 
   return (
+
     minutes +
     "分" +
-    String(seconds)
-      .padStart(2, "0") +
+
+    String(
+      seconds
+    )
+      .padStart(
+        2,
+        "0"
+      ) +
+
     "秒"
+
   );
 
 }
 
 
-/* マス状態 */
+/* 9マスすべて通常マス */
 
 function completedState() {
 
   return items.map(
+
     function (
       item,
       index
     ) {
 
-      return (
-        index === 4 ||
-        Boolean(
-          tapTimes[index]
-        )
+      return Boolean(
+        tapTimes[index]
       );
 
     }
+
   );
 
 }
@@ -1703,138 +2022,187 @@ function isBingo() {
   const state =
     completedState();
 
-  return winningLines.some(
-    function (line) {
+  return winningLines
+    .some(
+      function (
+        line
+      ) {
 
-      return line.every(
-        function (index) {
-          return state[index];
-        }
-      );
+        return line
+          .every(
+            function (
+              index
+            ) {
 
-    }
-  );
+              return state[
+                index
+              ];
+
+            }
+          );
+
+      }
+    );
 
 }
 
 
-/* ビンゴマス表示 */
+/* マス表示 */
 
 function render() {
 
   grid.innerHTML =
     "";
 
+
   items.forEach(
+
     function (
       item,
       index
     ) {
 
       const button =
-        document.createElement(
-          "button"
-        );
+        document
+          .createElement(
+            "button"
+          );
+
 
       button.type =
         "button";
 
+
       const done =
-        index === 4 ||
         Boolean(
-          tapTimes[index]
+          tapTimes[
+            index
+          ]
         );
 
+
       button.className =
+
         "cell" +
+
         (
           done
             ? " done"
             : ""
-        ) +
-        (
-          index === 4
-            ? " free"
-            : ""
         );
+
+
+      /* 登録済み */
 
       if (
-        index === 4
+        tapTimes[
+          index
+        ]
       ) {
 
         button.innerHTML =
+
           '<span class="cell-name">' +
-          "FREE" +
-          "</span>" +
-          '<span class="check">' +
-          "✓" +
-          "</span>";
 
-        button.setAttribute(
-          "aria-label",
-          "FREEマス"
-        );
-
-      }
-
-      else if (
-        tapTimes[index]
-      ) {
-
-        button.innerHTML =
-          '<span class="cell-name">' +
-          escapeHtml(item) +
-          "</span>" +
-          '<span class="check">' +
-          "✓" +
-          "</span>" +
-          '<span class="time">' +
           escapeHtml(
-            formatDateTime(
-              tapTimes[index]
-            )
+            item
           ) +
+
           "</span>" +
+
+          '<span class="check">' +
+
+          "✓" +
+
+          "</span>" +
+
+          '<span class="time">' +
+
+          escapeHtml(
+
+            formatDateTime(
+              tapTimes[
+                index
+              ]
+            )
+
+          ) +
+
+          "</span>" +
+
           '<span class="hint">' +
+
           "タップで登録取消" +
+
           "</span>";
 
-        button.addEventListener(
-          "click",
-          function () {
-            removeRegistration(
-              index
-            );
-          }
-        );
+
+        button
+          .addEventListener(
+
+            "click",
+
+            function () {
+
+              removeRegistration(
+                index
+              );
+
+            }
+
+          );
 
       }
+
+
+      /* 未登録 */
 
       else {
 
         button.innerHTML =
+
           '<span class="cell-name">' +
-          escapeHtml(item) +
+
+          escapeHtml(
+            item
+          ) +
+
           "</span>" +
+
           '<span class="hint">' +
+
           "見つけたらタップ" +
+
           "</span>";
 
-        button.addEventListener(
-          "click",
-          function () {
-            registerTime(index);
-          }
-        );
+
+        button
+          .addEventListener(
+
+            "click",
+
+            function () {
+
+              registerTime(
+                index
+              );
+
+            }
+
+          );
 
       }
 
-      grid.appendChild(
-        button
-      );
+
+      grid
+        .appendChild(
+          button
+        );
 
     }
+
   );
+
 
   updateStatus();
 
@@ -1843,43 +2211,58 @@ function render() {
 
 /* マス登録 */
 
-function registerTime(index) {
+function registerTime(
+  index
+) {
 
   const remaining =
     getRemainingMs();
+
 
   if (
     remaining > 0
   ) {
 
     alert(
+
       "次のマスを登録できるまで、あと " +
+
       formatRemaining(
         remaining
       ) +
+
       " です。"
+
     );
 
     return;
 
   }
 
-  tapTimes[index] =
+
+  tapTimes[
+    index
+  ] =
+
     new Date()
       .toISOString();
 
+
   const saved =
     saveTimes();
+
 
   render();
 
   startCountdown();
 
+
   if (!saved) {
 
     alert(
-      "登録時刻は表示されましたが、端末への保存を確認できませんでした。\n" +
-      "SafariまたはChromeで開き直してください。"
+
+      "登録時刻を保存できませんでした。SafariまたはChromeで開いてください。"
+
     );
 
   }
@@ -1889,19 +2272,33 @@ function registerTime(index) {
 
 /* 登録取消 */
 
-function removeRegistration(index) {
+function removeRegistration(
+  index
+) {
 
   const ok =
     confirm(
-      items[index] +
+
+      items[
+        index
+      ] +
+
       " の登録を取り消しますか？"
+
     );
 
+
   if (!ok) {
+
     return;
+
   }
 
-  delete tapTimes[index];
+
+  delete tapTimes[
+    index
+  ];
+
 
   saveTimes();
 
@@ -1912,7 +2309,7 @@ function removeRegistration(index) {
 }
 
 
-/* 状況表示 */
+/* 状況 */
 
 function updateStatus() {
 
@@ -1921,61 +2318,97 @@ function updateStatus() {
       tapTimes
     ).length;
 
+
   const remaining =
     getRemainingMs();
+
 
   if (
     isBingo()
   ) {
 
-    statusArea.className =
+    statusArea
+      .className =
       "ready";
 
-    statusArea.innerHTML =
+
+    statusArea
+      .innerHTML =
+
       '<span class="status-main">' +
+
       "🎉 1列そろっています。" +
+
       "</span>" +
+
       '<span class="status-sub">' +
+
       "ビンゴ判定を押してください。" +
+
       "</span>";
 
   }
+
 
   else if (
     remaining > 0
   ) {
 
-    statusArea.className =
+    statusArea
+      .className =
       "";
 
-    statusArea.innerHTML =
+
+    statusArea
+      .innerHTML =
+
       '<span class="status-main">' +
+
       "発見記録：" +
+
       count +
-      " / 8マス" +
+
+      " / 9マス" +
+
       "</span>" +
+
       '<span class="status-sub">' +
+
       "次の登録まで " +
+
       formatRemaining(
         remaining
       ) +
+
       "</span>";
 
   }
 
+
   else {
 
-    statusArea.className =
+    statusArea
+      .className =
       "";
 
-    statusArea.innerHTML =
+
+    statusArea
+      .innerHTML =
+
       '<span class="status-main">' +
+
       "発見記録：" +
+
       count +
-      " / 8マス" +
+
+      " / 9マス" +
+
       "</span>" +
+
       '<span class="status-sub">' +
+
       "次のマスを登録できます。" +
+
       "</span>";
 
   }
@@ -1990,21 +2423,28 @@ function startCountdown() {
   if (
     timerId !== null
   ) {
+
     clearInterval(
       timerId
     );
+
   }
+
 
   updateStatus();
 
+
   timerId =
     setInterval(
+
       function () {
 
         updateStatus();
 
+
         if (
-          getRemainingMs() <= 0
+          getRemainingMs() <=
+          0
         ) {
 
           clearInterval(
@@ -2017,13 +2457,15 @@ function startCountdown() {
         }
 
       },
+
       1000
+
     );
 
 }
 
 
-/* 登録所要時間 */
+/* 所要時間 */
 
 function getElapsedText() {
 
@@ -2034,61 +2476,88 @@ function getElapsedText() {
           a,
           b
         ) {
+
           return a - b;
+
         }
       );
+
 
   if (
     dates.length < 2
   ) {
 
     return (
-      "登録所要時間：" +
-      "算出対象が1件以下です。"
+      "登録所要時間：算出対象が1件以下です。"
     );
 
   }
 
+
   const ms =
+
     dates[
       dates.length - 1
     ] -
-    dates[0];
+
+    dates[
+      0
+    ];
+
 
   const minutes =
     Math.floor(
       ms / 60000
     );
 
+
   const seconds =
     Math.floor(
+
       (
-        ms % 60000
-      ) / 1000
+        ms %
+        60000
+      ) /
+      1000
+
     );
 
+
   return (
+
     "最初から最後の登録まで：" +
+
     minutes +
+
     "分" +
-    String(seconds)
-      .padStart(2, "0") +
+
+    String(
+      seconds
+    )
+      .padStart(
+        2,
+        "0"
+      ) +
+
     "秒"
+
   );
 
 }
 
 
-/* 氏名読み込み */
+/* 氏名 */
 
 function loadName() {
 
   try {
 
     return (
-      localStorage.getItem(
-        NAME_KEY
-      ) || ""
+      localStorage
+        .getItem(
+          NAME_KEY
+        ) ||
+      ""
     );
 
   }
@@ -2102,24 +2571,26 @@ function loadName() {
 }
 
 
-/* 氏名保存 */
-
 function saveName() {
 
   try {
 
-    localStorage.setItem(
-      NAME_KEY,
-      nameInput.value
-    );
+    localStorage
+      .setItem(
+        NAME_KEY,
+        nameInput.value
+      );
 
   }
 
   catch (error) {
 
     showStorageMessage(
+
       "氏名を保存できませんでした。SafariまたはChromeで開いてください。",
+
       false
+
     );
 
   }
@@ -2131,51 +2602,64 @@ nameInput.value =
   loadName();
 
 
-nameInput.addEventListener(
-  "input",
-  saveName
-);
+nameInput
+  .addEventListener(
+
+    "input",
+
+    saveName
+
+  );
 
 
-/* 経路参考写真を開く */
+/* 経路写真 */
 
 function openRouteGuide() {
 
-  routeGuide.classList.add(
-    "show"
-  );
+  routeGuide
+    .classList
+    .add(
+      "show"
+    );
 
-  routeGuide.setAttribute(
-    "aria-hidden",
-    "false"
-  );
+  routeGuide
+    .setAttribute(
+      "aria-hidden",
+      "false"
+    );
 
-  document.body.classList.add(
-    "modal-open"
-  );
+  document.body
+    .classList
+    .add(
+      "modal-open"
+    );
 
-  routeGuide.scrollTop =
+  routeGuide
+    .scrollTop =
     0;
 
 }
 
 
-/* 経路参考写真を閉じる */
-
 function closeRouteGuide() {
 
-  routeGuide.classList.remove(
-    "show"
-  );
+  routeGuide
+    .classList
+    .remove(
+      "show"
+    );
 
-  routeGuide.setAttribute(
-    "aria-hidden",
-    "true"
-  );
+  routeGuide
+    .setAttribute(
+      "aria-hidden",
+      "true"
+    );
 
-  document.body.classList.remove(
-    "modal-open"
-  );
+  document.body
+    .classList
+    .remove(
+      "modal-open"
+    );
 
 }
 
@@ -2210,27 +2694,6 @@ document
   );
 
 
-/* Escapeキーで閉じる */
-
-document.addEventListener(
-  "keydown",
-  function (event) {
-
-    if (
-      event.key === "Escape" &&
-      routeGuide.classList.contains(
-        "show"
-      )
-    ) {
-
-      closeRouteGuide();
-
-    }
-
-  }
-);
-
-
 /* ビンゴ判定 */
 
 document
@@ -2238,59 +2701,85 @@ document
     "judge"
   )
   .addEventListener(
+
     "click",
+
     function () {
 
       if (
         !isBingo()
       ) {
 
-        statusArea.className =
+        statusArea
+          .className =
           "";
 
-        statusArea.innerHTML =
+        statusArea
+          .innerHTML =
+
           '<span class="status-main">' +
+
           "まだビンゴではありません。" +
+
           "</span>" +
+
           '<span class="status-sub">' +
+
           "発見記録を追加してください。" +
+
           "</span>";
 
         return;
 
       }
 
+
       document
         .getElementById(
           "modalTeam"
         )
         .textContent =
-        nameInput.value.trim() ||
+
+        nameInput
+          .value
+          .trim() ||
+
         "氏名未入力";
+
 
       document
         .getElementById(
           "completedAt"
         )
         .textContent =
+
         "確認日時：" +
+
         formatDateTime(
+
           new Date()
             .toISOString()
+
         );
+
 
       document
         .getElementById(
           "elapsedTime"
         )
         .textContent =
+
         getElapsedText();
 
-      modal.classList.add(
-        "show"
-      );
+
+      modal
+        .classList
+        .add(
+          "show"
+        );
 
     }
+
   );
 
 
@@ -2301,129 +2790,160 @@ document
     "close"
   )
   .addEventListener(
+
     "click",
+
     function () {
 
-      modal.classList.remove(
-        "show"
-      );
+      modal
+        .classList
+        .remove(
+          "show"
+        );
 
     }
+
   );
 
 
-/* やり直し */
+/* リセット */
 
 document
   .getElementById(
     "reset"
   )
   .addEventListener(
+
     "click",
+
     function () {
 
       const ok =
         confirm(
-          "登録時刻と氏名を" +
-          "すべて消去しますか？"
+
+          "登録時刻と氏名をすべて消去しますか？"
+
         );
 
+
       if (!ok) {
+
         return;
+
       }
+
 
       tapTimes =
         {};
 
+
       nameInput.value =
         "";
 
-      try {
-
-        localStorage.removeItem(
-          STORAGE_KEY
-        );
-
-        localStorage.removeItem(
-          NAME_KEY
-        );
-
-      }
-
-      catch (error) {
-
-        console.log(error);
-
-      }
 
       try {
 
-        sessionStorage.removeItem(
-          SESSION_STORAGE_KEY
-        );
+        localStorage
+          .removeItem(
+            STORAGE_KEY
+          );
+
+        localStorage
+          .removeItem(
+            NAME_KEY
+          );
 
       }
 
-      catch (error) {
+      catch (
+        error
+      ) {}
 
-        console.log(error);
+
+      try {
+
+        sessionStorage
+          .removeItem(
+            SESSION_STORAGE_KEY
+          );
 
       }
+
+      catch (
+        error
+      ) {}
+
 
       updateUrlBackup();
 
-      storageStatus.className =
+
+      storageStatus
+        .className =
         "storage-status";
 
-      storageStatus.textContent =
+
+      storageStatus
+        .textContent =
         "";
+
 
       render();
 
       startCountdown();
 
     }
+
   );
 
 
-/* ページを離れる前にも保存 */
+/* ページ離脱時 */
 
-window.addEventListener(
-  "pagehide",
-  function () {
+window
+  .addEventListener(
 
-    saveTimes();
+    "pagehide",
 
-    saveName();
+    function () {
 
-  }
-);
+      saveTimes();
 
-
-/* 画面が履歴から再表示された場合 */
-
-window.addEventListener(
-  "pageshow",
-  function (event) {
-
-    if (
-      event.persisted
-    ) {
-
-      tapTimes =
-        loadTimes();
-
-      nameInput.value =
-        loadName();
-
-      render();
-
-      startCountdown();
+      saveName();
 
     }
 
-  }
-);
+  );
+
+
+/* 履歴から復帰 */
+
+window
+  .addEventListener(
+
+    "pageshow",
+
+    function (
+      event
+    ) {
+
+      if (
+        event.persisted
+      ) {
+
+        tapTimes =
+          loadTimes();
+
+        nameInput.value =
+          loadName();
+
+        render();
+
+        startCountdown();
+
+      }
+
+    }
+
+  );
 
 
 /* 初期表示 */
